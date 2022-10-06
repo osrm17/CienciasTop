@@ -85,3 +85,46 @@ COMMENT ON COLUMN ctop.rentar.numct IS 'Numero de cuenta o trabajador del usuari
 COMMENT ON COLUMN ctop.rentar.id IS 'Identificador unico del producto rentado.';
 COMMENT ON COLUMN ctop.rentar.fechaRenta IS 'Fecha en la que se rento el producto.';
 COMMENT ON COLUMN ctop.rentar.fechaDevolucion IS 'Fecha en la que se devolvio el producto.';
+
+-- Llaves primarias
+-- Usuario
+ALTER TABLE ctop.usuario ADD CONSTRAINT usuario_pk PRIMARY KEY(numct);
+COMMENT ON CONSTRAINT usuario_pk ON ctop.usuario IS 'Llave primaria de la tabla usuario.';
+
+-- Carrera
+ALTER TABLE ctop.carrera ADD CONSTRAINT carrera_pk PRIMARY KEY(numct, carrera);
+COMMENT ON CONSTRAINT usuario_pk ON ctop.usuario IS 'Llave primaria de la tabla carrera.';
+
+ALTER TABLE ctop.carrera ADD CONSTRAINT carrera_unique UNIQUE (numct, carrera);
+COMMENT ON CONSTRAINT carrera_unique ON ctop.carrera IS 'Condicion de unicidad de la llave primaria de la tabla carrera.';
+
+-- Producto 
+ALTER TABLE ctop.producto ADD CONSTRAINT producto_pk PRIMARY KEY(codigo);
+COMMENT ON CONSTRAINT producto_pk ON ctop.producto IS 'Llave primaria de la tabla producto.';
+
+-- Existencia
+ALTER TABLE ctop.existencia ADD CONSTRAINT existencia_pk PRIMARY KEY(id);
+COMMENT ON CONSTRAINT existencia_pk ON ctop.existencia IS 'Llave primaria de la tabla existencia.';
+
+
+-- Llaves foraneas
+-- Producto
+ALTER TABLE ctop.producto ADD CONSTRAINT producto_fkey FOREIGN KEY(numct)
+REFERENCES ctop.usuario(numct);
+COMMENT ON CONSTRAINT producto_fkey ON ctop.producto IS 'Llave foranea de la tabla producto que hace referencia a el 
+numero de cuenta del usuario que agrega el producto.';
+
+-- Existencia
+ALTER TABLE ctop.existencia ADD CONSTRAINT existencia_fkey FOREIGN KEY(codigo)
+REFERENCES ctop.producto(codigo);
+COMMENT ON CONSTRAINT existencia_fkey ON ctop.existencia IS 'Llave foranea de la tabla existencia que hace referencia al producto
+correspondiente en la tabla producto.';
+
+-- Rentar
+ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey1 FOREIGN KEY(numct)
+REFERENCES ctop.usuario(numct);
+COMMENT ON CONSTRAINT rentar_fkey1 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia al usuario que renta.';
+
+ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey2 FOREIGN KEY(id)
+REFERENCES ctop.existencia(id);
+COMMENT ON CONSTRAINT rentar_fkey2 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia a la existencia que se renta.';
