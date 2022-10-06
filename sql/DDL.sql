@@ -43,6 +43,7 @@ CREATE TABLE ctop.carrera(
 );
 COMMENT ON TABLE ctop.carrera IS 'Tabla que contiene las carreras a las que pertenecen los usuarios.';
 COMMENT ON COLUMN ctop.carrera.numct IS 'Numero de cuenta o de trabajador del usuario.';
+COMMENT ON COLUMN ctop.carrera.carrera IS 'Carrera del usuario.';
 
 
 CREATE TABLE ctop.producto(
@@ -62,3 +63,25 @@ COMMENT ON COLUMN ctop.producto.diasRenta IS 'Cantidad de dias disponibles para 
 COMMENT ON COLUMN ctop.producto.descripcion IS 'Descripcion del producto.';
 
 
+CREATE TABLE ctop.existencia(
+    id SERIAL NOT NULL UNIQUE,
+    codigo CHAR(12) NOT NULL CHECK(CHAR_LENGTH(codigo) = 16),
+    estaRentado BOOLEAN DEFAULT FALSE
+);
+COMMENT ON TABLE ctop.existencia IS 'Tabla que contiene a las existencias de los productos.';
+COMMENT ON COLUMN ctop.existencia.id IS 'Identificador unico de la existencia.';
+COMMENT ON COLUMN ctop.existencia.codigo IS 'Codigo unico del producto.';
+COMMENT ON COLUMN ctop.existencia.estaRentado IS 'Booleano para saber si la existencia del producto esta rentada.';
+
+
+CREATE TABLE ctop.rentar(
+    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
+    id INT NOT NULL,
+    fechaDevolucion DATE,
+    fechaRenta DATE NOT NULL
+);
+COMMENT ON TABLE ctop.rentar IS 'Tabla que contiene a los registros de los productos rentados.';
+COMMENT ON COLUMN ctop.rentar.numct IS 'Numero de cuenta o trabajador del usuario que rento el producto.';
+COMMENT ON COLUMN ctop.rentar.id IS 'Identificador unico del producto rentado.';
+COMMENT ON COLUMN ctop.rentar.fechaRenta IS 'Fecha en la que se rento el producto.';
+COMMENT ON COLUMN ctop.rentar.fechaDevolucion IS 'Fecha en la que se devolvio el producto.';
