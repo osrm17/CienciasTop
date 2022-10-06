@@ -32,3 +32,20 @@ COMMENT ON COLUMN ctop.usuario.celular IS 'Celular del usuario.';
 COMMENT ON COLUMN ctop.usuario.pumaPuntos IS 'Puma puntos del usuario.';
 COMMENT ON COLUMN ctop.usuario.esProveedor IS 'Booleano para saber si el usuario es proveedor.';
 COMMENT ON COLUMN ctop.usuario.esAdministrador IS 'Booleano para saber si el usuario es administrador.';
+
+CREATE TABLE ctop.producto(
+    codigo CHAR(12) NOT NULL UNIQUE CHECK(CHAR_LENGTH(codigo) = 16),
+    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
+    nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
+    costoPuntos INT NOT NULL CHECK(costoPuntos >= 0 AND costoPuntos <= 500),
+    diasRenta INT NOT NULL CHECK(diasRenta >= 3 AND diasRenta <= 7),
+    descripcion TEXT NOT NULL
+);
+
+COMMENT ON TABLE ctop.producto IS 'Tabla que contiene a los productos.';
+COMMENT ON COLUMN ctop.producto.codigo IS 'Codigo unico del producto.';
+COMMENT ON COLUMN ctop.producto.numct IS 'Numero de trabajador/cuenta del proveedor que agrego el producto.';
+COMMENT ON COLUMN ctop.producto.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN ctop.producto.costoPuntos IS 'Coste en puma puntos del producto.';
+COMMENT ON COLUMN ctop.producto.diasRenta IS 'Cantidad de dias disponibles para rentar el producto.';
+COMMENT ON COLUMN ctop.producto.descripcion IS 'Descripcion del producto.';
