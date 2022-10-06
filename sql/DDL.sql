@@ -19,7 +19,6 @@ CREATE TABLE ctop.usuario(
     esProveedor BOOLEAN NOT NULL DEFAULT FALSE,
     esAdministrador BOOLEAN NOT NULL DEFAULT FALSE
 );
-
 COMMENT ON TABLE ctop.usuario IS 'Tabla que contiene a los usuarios.';
 COMMENT ON COLUMN ctop.usuario.numct IS 'Numero de cuenta o de trabajador del usuario.';
 COMMENT ON COLUMN ctop.usuario.contrasenia IS 'Hash resultante de aplicar el algoritmo SHA256.';
@@ -33,6 +32,19 @@ COMMENT ON COLUMN ctop.usuario.pumaPuntos IS 'Puma puntos del usuario.';
 COMMENT ON COLUMN ctop.usuario.esProveedor IS 'Booleano para saber si el usuario es proveedor.';
 COMMENT ON COLUMN ctop.usuario.esAdministrador IS 'Booleano para saber si el usuario es administrador.';
 
+
+CREATE TABLE ctop.carrera(
+    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
+    carrera VARCHAR(36) NOT NULL CHECK(carrera = 'matematicas' OR carrera = 'fisica'
+    OR carrera = 'actuaria' OR carrera = 'biologia' OR carrera = 'ciencias de la computacion'
+    OR carrera = 'ciencias de la tierra' OR carrera = 'fisica biomedica' OR carrera = 'matematicas aplicadas'
+    OR carrera = 'manejo sustentable de zonas costeras' OR carrera = 'neurociencias'
+    OR carrera = 'ciencias forense')
+);
+COMMENT ON TABLE ctop.carrera IS 'Tabla que contiene las carreras a las que pertenecen los usuarios.';
+COMMENT ON COLUMN ctop.carrera.numct IS 'Numero de cuenta o de trabajador del usuario.';
+
+
 CREATE TABLE ctop.producto(
     codigo CHAR(12) NOT NULL UNIQUE CHECK(CHAR_LENGTH(codigo) = 16),
     numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
@@ -41,7 +53,6 @@ CREATE TABLE ctop.producto(
     diasRenta INT NOT NULL CHECK(diasRenta >= 3 AND diasRenta <= 7),
     descripcion TEXT NOT NULL
 );
-
 COMMENT ON TABLE ctop.producto IS 'Tabla que contiene a los productos.';
 COMMENT ON COLUMN ctop.producto.codigo IS 'Codigo unico del producto.';
 COMMENT ON COLUMN ctop.producto.numct IS 'Numero de trabajador/cuenta del proveedor que agrego el producto.';
@@ -49,3 +60,5 @@ COMMENT ON COLUMN ctop.producto.nombre IS 'Nombre del producto.';
 COMMENT ON COLUMN ctop.producto.costoPuntos IS 'Coste en puma puntos del producto.';
 COMMENT ON COLUMN ctop.producto.diasRenta IS 'Cantidad de dias disponibles para rentar el producto.';
 COMMENT ON COLUMN ctop.producto.descripcion IS 'Descripcion del producto.';
+
+
