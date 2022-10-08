@@ -50,3 +50,40 @@ INSERT INTO ctop.usuario(numct,contrasenia,nombre,paterno,materno,estaActivo,cor
 INSERT INTO ctop.usuario(numct,contrasenia,nombre,paterno,materno,estaActivo,correo,celular,pumaPuntos,esProveedor,esAdministrador) VALUES ('860250836','6bf4969808f1c9998af7809f7aa2c3783aabf8451fe5a6f9d3c3b159fb31b91d','Thomasine','Clapson','Issac',false,'tissac1c@t-online.de','6228193527',322,false,false);
 INSERT INTO ctop.usuario(numct,contrasenia,nombre,paterno,materno,estaActivo,correo,celular,pumaPuntos,esProveedor,esAdministrador) VALUES ('853208590','6bf4969808f1c9998af7809f7aa2c3783aabf8451fe5a6f9d3c3b159fb31b91d','Melantha','Castelin','Shimony',false,'mshimony1d@princeton.edu','3182171581',56,false,false);
 
+-- carrera
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('981139872','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('354684529','biologia');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('877648756','ciencias de la tierra');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('887381618','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('238873962','actuaria');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('245162950','matematicas aplicadas');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('793558636','ciencias de la computacion');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('500007261','fisica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('802924651','biologia');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('558096630','ciencias forense');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('731851247','matematicas aplicadas');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('011627981','matematicas aplicadas');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('413012120','ciencias de la tierra');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('815122826','ciencias de la tierra');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('283777020','fisica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('928893424','ciencias de la computacion');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('700087311','actuaria');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('020610978','fisica biomedica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('184740537','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('320481361','ciencias forense');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('816416111','fisica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('876317387','ciencias forense');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('953912627','fisica biomedica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('239066540','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('918961839','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('392309313','fisica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('008005363','ciencias de la computacion');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('590864864','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('710199949','fisica biomedica');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('213214685','manejo sustentable de zonas costeras');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('538909247','actuaria');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('874919607','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('545765044','neurociencias');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('051735542','matematicas aplicadas');
+INSERT INTO ctop.carrera(numct,carrera) VALUES ('272605035','actuaria');
+
