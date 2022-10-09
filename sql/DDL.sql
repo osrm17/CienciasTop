@@ -47,8 +47,8 @@ COMMENT ON COLUMN ctop.carrera.carrera IS 'Carrera del usuario.';
 
 
 CREATE TABLE ctop.producto(
-    codigo CHAR(12) NOT NULL UNIQUE CHECK(CHAR_LENGTH(codigo) = 16),
-    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
+    codigo CHAR(12) NOT NULL UNIQUE CHECK(CHAR_LENGTH(codigo) = 12),
+    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
     nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
     costoPuntos INT NOT NULL CHECK(costoPuntos >= 0 AND costoPuntos <= 500),
     diasRenta INT NOT NULL CHECK(diasRenta >= 3 AND diasRenta <= 7),
@@ -65,7 +65,7 @@ COMMENT ON COLUMN ctop.producto.descripcion IS 'Descripcion del producto.';
 
 CREATE TABLE ctop.existencia(
     id SERIAL NOT NULL UNIQUE,
-    codigo CHAR(12) NOT NULL CHECK(CHAR_LENGTH(codigo) = 16),
+    codigo CHAR(12) NOT NULL CHECK(CHAR_LENGTH(codigo) = 12),
     estaRentado BOOLEAN DEFAULT FALSE
 );
 COMMENT ON TABLE ctop.existencia IS 'Tabla que contiene a las existencias de los productos.';
@@ -75,7 +75,7 @@ COMMENT ON COLUMN ctop.existencia.estaRentado IS 'Booleano para saber si la exis
 
 
 CREATE TABLE ctop.rentar(
-    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 10),
+    numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
     id INT NOT NULL,
     fechaDevolucion DATE,
     fechaRenta DATE NOT NULL
