@@ -15,6 +15,21 @@ gradle -v
 
 ## Para ejecutar 
 
+Para ejecutar el metodo main en `src/main/java/app/Main.java` hay que correr el comando
+
 ```shell
 gradle run
 ```
+
+Para ejecutar todas las pruebas
+
+```shell
+gradle cleanTest test 
+```
+
+Para ejecutar una prueba en especifico
+
+
+```shell
+gradle cleanTest test --tests Ejemplo
+``` 
