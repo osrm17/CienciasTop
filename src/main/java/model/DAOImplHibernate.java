@@ -8,17 +8,27 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+/**
+ * Clase abstracta generica que implementa la interfaz DAO<T, K>.
+ * Esta clase ya proporciona una implementacion de los metodos para
+ * acceder a los datos usando hibernate.
+ * 
+ * Los atributos de esta clase deben ser instanciados por la clase
+ * que extiende.
+ * 
+ * @version 1.0
+ * 
+ * @param T -- tipo de los objetos(modelo) con el que se va operar.
+ * @param K -- tipo de la llave de los objetos con los que se va operar.
+ * 
+ */
+@NoArgsConstructor
 public abstract class DAOImplHibernate<T, K> implements DAO<T, K> {
 
     protected SessionFactory sessionFactory;
     protected Class<T> hclass;
-
-    public DAOImplHibernate() {
-
-    }
 
     private boolean accion(Accionable<T> a) {
         Session session = this.sessionFactory.openSession();

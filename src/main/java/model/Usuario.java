@@ -11,13 +11,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Clase modelo para los usuarios. Esta clase es para el mapeo objeto-relacional
+ * y por ende para la conexion con la base de datos.
+ * 
+ * @version 1.0
+ */
+
+// anotacciones de lombok para una clase con menos codigo
 @Getter
 @Setter
 @ToString
-@Entity
-@Table(name = "ctop.usuario")
 @AllArgsConstructor
 @NoArgsConstructor
+// anotaciones para hibernate
+@Entity
+@Table(name = "ctop.usuario")
 public class Usuario {
 
     @Id
