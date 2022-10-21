@@ -1,4 +1,4 @@
-package model;
+package extra;
 
 import org.hibernate.Session;
 
@@ -18,5 +18,5 @@ public interface Accionable<T> {
      * 
      * @param session -- sesion de hibernate.
      */
-    public void accion(Session session);
+    public T accion(Session session);
 }

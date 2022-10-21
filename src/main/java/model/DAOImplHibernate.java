@@ -8,6 +8,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import extra.Accionable;
+import extra.Tupla;
 import lombok.NoArgsConstructor;
 
 /**
@@ -30,50 +32,60 @@ public abstract class DAOImplHibernate<T, K> implements DAO<T, K> {
     protected SessionFactory sessionFactory;
     protected Class<T> hclass;
 
-    private boolean accion(Accionable<T> a) {
+    /**
+     * Metodo privado parar realizar una accion sencilla de acceso.
+     * 
+     * @param a -- accionable, una implementacion concreta de la accion a realizar.
+     * @return Tupla -- con los posibles valores que devuelve una accion, la primera
+     *         entrada tiene un booleano para el caso en el que solo requerimos
+     *         saber si la operacion fue exitosa y en la segunda entrada tenemos
+     *         un objeto de tipo T en caso de que la accion devuelva un objeto.
+     */
+    private Tupla<Boolean, T> accion(Accionable<T> a) {
+        Tupla<Boolean, T> tupla = new Tupla<Boolean, T>(false, null);
         Session session = this.sessionFactory.openSession();
         try {
             session.beginTransaction();
-            a.accion(session);
+            tupla.setSegundo(a.accion(session));
             session.getTransaction().commit();
             session.close();
-            return false;
+            return tupla;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        tupla.setPrimero(true);
+        tupla.setSegundo(null);
         session.close();
-        return true;
+        return tupla;
     }
 
     @Override
     public boolean guardar(T objeto) {
-        return accion(session -> session.save(objeto));
+        return accion(session -> {
+            session.save(objeto);
+            return null;
+        }).getPrimero();
     }
 
     @Override
     public boolean actualizar(T objeto) {
-        return accion(session -> session.update(objeto));
+        return accion(session -> {
+            session.update(objeto);
+            return null;
+        }).getPrimero();
     }
 
     @Override
     public boolean borrar(T objeto) {
-        return accion(session -> session.delete(objeto));
+        return accion(session -> {
+            session.delete(objeto);
+            return null;
+        }).getPrimero();
     }
 
     @Override
     public T encontrar(K llave) {
-        Session session = this.sessionFactory.openSession();
-        try {
-            session.beginTransaction();
-            T object = session.find(hclass, llave);
-            session.getTransaction().commit();
-            session.close();
-            return object;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        session.close();
-        return null;
+        return accion(session -> session.find(hclass, llave)).getSegundo();
     }
 
     @Override
