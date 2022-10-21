@@ -11,7 +11,8 @@ import org.hibernate.cfg.Configuration;
 public class UsuarioDAOImplHibernate extends DAOImplHibernate<Usuario, String> implements UsuarioDAO {
 
     /**
-     * Constructor sin parametros de un objeto DAO para usuarios usando hibernate.
+     * Constructor sin parametros de un objeto DAO usando hibernate, para acceder a
+     * usuarios.
      */
     public UsuarioDAOImplHibernate() {
         super();
