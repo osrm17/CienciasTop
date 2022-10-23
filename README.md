@@ -31,5 +31,5 @@ Para ejecutar una prueba en especifico
 
 
 ```shell
-gradle cleanTest test --tests Ejemplo
+gradle cleanTest test --tests PruebaUsuarioDAO 
 ``` 
