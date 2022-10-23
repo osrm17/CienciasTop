@@ -11,6 +11,8 @@ Para verificar la version de gradle:
 gradle -v
 ```
 
+Se debe tener implementada la base de datos de acuerdo a lo descrito en `sql/README.md`.
+
 - [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
 
 ## Para ejecutar 
