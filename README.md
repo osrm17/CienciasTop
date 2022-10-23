@@ -1,4 +1,5 @@
-# cienciastop-IS32-1
+# Cienciastop-IS32-1
+
 Repositorio para el proyecto de la materia de ingenieria de software 1.
 
 ## Requisitos
@@ -11,11 +12,11 @@ Para verificar la version de gradle:
 gradle -v
 ```
 
-Se debe tener implementada la base de datos de acuerdo a lo descrito en `sql/README.md`.
-
 - [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
 
 ## Para ejecutar 
+
+Se debe tener **implementada** la base de datos de acuerdo a lo descrito en `sql/README.md`.
 
 Para ejecutar el metodo main en `src/main/java/app/Main.java` hay que correr el comando
 
