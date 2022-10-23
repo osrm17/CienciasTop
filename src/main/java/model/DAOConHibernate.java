@@ -14,8 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Clase abstracta generica que implementa la interfaz DAO<T, K>.
- * Esta clase ya proporciona una implementacion de los metodos para
- * acceder a los datos usando hibernate.
+ * Esta clase proporciona una implementacion del patron DAO usando hibernate.
  * 
  * Los atributos de esta clase deben ser instanciados por la clase
  * que extiende.
@@ -27,7 +26,7 @@ import lombok.NoArgsConstructor;
  * 
  */
 @NoArgsConstructor
-public abstract class DAOImplHibernate<T, K> implements DAO<T, K> {
+public abstract class DAOConHibernate<T, K> implements DAO<T, K> {
 
     protected SessionFactory sessionFactory;
     protected Class<T> hclass;
