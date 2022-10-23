@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import model.Usuario;
-import model.UsuarioDAOImplHibernate;
+import model.UsuarioDAOHibernate;
 
 /**
  * Clase para probar el objeto DAO para usuarios y asegurar que las operaciones
@@ -23,12 +23,12 @@ import model.UsuarioDAOImplHibernate;
  */
 public class PruebaUsuarioDAO {
 
-    private static UsuarioDAOImplHibernate daoImplHibernate;
+    private static UsuarioDAOHibernate usuariodDAOHibernate;
     private static Usuario[] usuariosPrueba;
 
     @BeforeAll
     public static void inicializacion() {
-        daoImplHibernate = new UsuarioDAOImplHibernate();
+        usuariodDAOHibernate = new UsuarioDAOHibernate();
         usuariosPrueba = new Usuario[5];
         usuariosPrueba[0] = new Usuario("000000000", "6bf4969808f1c9998af7809f7aa2c3783aabf8451fe5a6f9d3c3b159fb31b91d",
                 "Pepe", "Pruebas", "Unitarias", true, "pepe@gmail.com", "5500000000", 100, false, false);
@@ -45,17 +45,17 @@ public class PruebaUsuarioDAO {
     @BeforeEach
     public void agregarUsuariosPrueba() {
         for (int i = 0; i < usuariosPrueba.length; i++)
-            daoImplHibernate.guardar(usuariosPrueba[i]);
+            usuariodDAOHibernate.guardar(usuariosPrueba[i]);
     }
 
     @AfterEach
     public void borrarUsuariosPrueba() {
         for (int i = 0; i < usuariosPrueba.length; i++)
-            daoImplHibernate.borrar(usuariosPrueba[i]);
+            usuariodDAOHibernate.borrar(usuariosPrueba[i]);
     }
 
     /**
-     * Prueba unitaria para {@link UsuarioDAOImplHibernate#guardar(Usuario)}
+     * Prueba unitaria para {@link UsuarioDAOHibernate#guardar(Usuario)}
      * Recordemos que este metodo devuelve true cuando ocurre un error al intentar
      * agregar a la bd.
      */
@@ -65,12 +65,12 @@ public class PruebaUsuarioDAO {
         Usuario usuarioNuevo = new Usuario("317170000",
                 "6bf4969808f1c9998af7809f7aa2c3783aabf8451fe5a6f9d3c3b159fb31b91d",
                 "Alfred", "Montes", "Perez", true, "fred@gmail.com", "5566651511", 100, false, false);
-        assertFalse(daoImplHibernate.guardar(usuarioNuevo));
-        assertTrue(daoImplHibernate.guardar(usuarioNuevo)); // debe ocurrir error en guardar pues ya existe el usuario
-        Usuario usr1 = daoImplHibernate.encontrar(usuarioNuevo.getNumct());
+        assertFalse(usuariodDAOHibernate.guardar(usuarioNuevo));
+        assertTrue(usuariodDAOHibernate.guardar(usuarioNuevo)); // debe ocurrir error en guardar pues ya existe el usuario
+        Usuario usr1 = usuariodDAOHibernate.encontrar(usuarioNuevo.getNumct());
         assertNotNull(usr1);
         assertEquals(usr1.toString(), usuarioNuevo.toString());
-        assertFalse(daoImplHibernate.borrar(usuarioNuevo));
+        assertFalse(usuariodDAOHibernate.borrar(usuarioNuevo));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class PruebaUsuarioDAO {
     public void pruebaEncontrar() {
         Usuario usuario = null;
         for (int i = 0; i < usuariosPrueba.length; i++) {
-            usuario = daoImplHibernate.encontrar(usuariosPrueba[i].getNumct());
+            usuario = usuariodDAOHibernate.encontrar(usuariosPrueba[i].getNumct());
             assertNotNull(usuario);
             assertEquals(usuario.toString(), usuariosPrueba[i].toString());
         }
@@ -88,9 +88,9 @@ public class PruebaUsuarioDAO {
     @DisplayName("borrar(Usuario usuario)")
     public void pruebaBorrar() {
         for (int i = 0; i < usuariosPrueba.length; i++)
-            assertFalse(daoImplHibernate.borrar(usuariosPrueba[i]));
+            assertFalse(usuariodDAOHibernate.borrar(usuariosPrueba[i]));
         for (int i = 0; i < usuariosPrueba.length; i++)
-            assertNull(daoImplHibernate.encontrar(usuariosPrueba[i].getNumct()));
+            assertNull(usuariodDAOHibernate.encontrar(usuariosPrueba[i].getNumct()));
     }
 
     @Test
@@ -99,8 +99,8 @@ public class PruebaUsuarioDAO {
         Usuario actualizado = new Usuario("000000000",
                 "6bf4969808f1c9998af7809f7aa2c3783aabf8451fe5a6f9d3c3b159fb31b91d",
                 "Pepote", "Pruebas", "Unitarias", true, "pepote@gmail.com", "5500000000", 100, false, false);
-        assertFalse(daoImplHibernate.actualizar(actualizado));
-        Usuario usr1 = daoImplHibernate.encontrar(actualizado.getNumct());
+        assertFalse(usuariodDAOHibernate.actualizar(actualizado));
+        Usuario usr1 = usuariodDAOHibernate.encontrar(actualizado.getNumct());
         assertNotNull(usr1);
         assertEquals(actualizado.toString(), usr1.toString());
     }
@@ -108,7 +108,7 @@ public class PruebaUsuarioDAO {
     @Test
     @DisplayName("encontrarTodos()")
     public void pruebaEncontrarTodos() {
-        List<Usuario> lista = daoImplHibernate.encontrarTodos();
+        List<Usuario> lista = usuariodDAOHibernate.encontrarTodos();
         assertNotNull(lista);
         for (int i = 0; i < usuariosPrueba.length; i++)
             assertTrue(lista.contains(usuariosPrueba[i]));
