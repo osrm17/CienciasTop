@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Interfaz que define el comportamiento esencial para acceder a los usuarios de
+ * Interfaz que define el comportamiento esencial para acceder a los productos de
  * la base de datos.
  * 
  * @version 1.0
