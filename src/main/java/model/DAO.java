@@ -3,8 +3,9 @@ package model;
 import java.util.List;
 
 /**
- * Interfaz generiaca que defiene el comportamiento esencial para acceder a la
- * informacion de la base de datos.
+ * Interfaz generica que defiene el comportamiento escencial definido 
+ * por el patron de disenio Data Acces Object, 
+ * para acceder a la informacion de la base de datos.
  * 
  * @param T -- tipo de los objetos(modelo) con el que se va operar.
  * @param K -- tipo de la llave de los objetos con los que se va operar.
