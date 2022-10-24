@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import model.Usuario;
+import model.UsuarioDAO;
 import model.UsuarioDAOHibernate;
 
 /**
@@ -23,7 +24,7 @@ import model.UsuarioDAOHibernate;
  */
 public class PruebaUsuarioDAO {
 
-    private static UsuarioDAOHibernate usuariodDAOHibernate;
+    private static UsuarioDAO usuariodDAOHibernate;
     private static Usuario[] usuariosPrueba;
 
     @BeforeAll

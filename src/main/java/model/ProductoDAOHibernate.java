@@ -3,7 +3,7 @@ package model;
 import org.hibernate.cfg.Configuration;
 
 /**
- * Clase concreta que extiende a DAOConHibernate<Usuario, String> e implementa
+ * Clase concreta que extiende a DAOConHibernate<Producto, String> e implementa
  * UsuarioDAO.
  * 
  * @version 1.0
@@ -12,7 +12,7 @@ public class ProductoDAOHibernate extends DAOConHibernate<Producto, String> impl
 
     /**
      * Constructor sin parametros de un objeto DAO usando hibernate, para acceder a
-     * usuarios.
+     * productos.
      */
     public ProductoDAOHibernate() {
         super();
