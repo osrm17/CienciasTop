@@ -20,7 +20,7 @@ public class Main {
         System.out.println(usr.toString() + "\n\n\n");
 
         UsuarioDAO usuarioDAO = new UsuarioDAOHibernate();
-        // usuarioDAO.guardar(usr);
+        usuarioDAO.guardar(usr);
         System.out.println("\n\n\n");
         System.out.println(usuarioDAO.encontrar("317180000").toString());
         System.out.println("\n\n\n");
@@ -37,13 +37,16 @@ public class Main {
         System.out.println(producto.toString() + "\n\n\n");
 
         ProductoDAO productoDAO = new ProductoDAOHibernate();
-        //productoDAO.guardar(producto);
+        productoDAO.guardar(producto);
         System.out.println("\n\n\n");
         System.out.println(productoDAO.encontrar("172217221722").toString());
         System.out.println("\n\n\n");
 
         for (Producto p : productoDAO.encontrarTodos())
             System.out.println(p.toString());
+        productoDAO.borrar(producto);
+        UsuarioDAO usuarioDAO = new UsuarioDAOHibernate();
+        usuarioDAO.borrar(usuarioDAO.encontrar("317180000"));
     }
     
 
