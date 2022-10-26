@@ -15,7 +15,6 @@ public class ProductoDAOHibernate extends DAOConHibernate<Producto, String> impl
      * productos.
      */
     public ProductoDAOHibernate() {
-        super();
         this.sessionFactory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Producto.class).buildSessionFactory();
         this.hclass = Producto.class;

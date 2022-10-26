@@ -15,7 +15,6 @@ public class UsuarioDAOHibernate extends DAOConHibernate<Usuario, String> implem
      * usuarios.
      */
     public UsuarioDAOHibernate() {
-        super();
         this.sessionFactory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Usuario.class).buildSessionFactory();
         this.hclass = Usuario.class;

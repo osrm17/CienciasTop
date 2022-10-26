@@ -15,7 +15,6 @@ public class ExistenciaDAOHibernate extends DAOConHibernate<Existencia, Integer>
      * existencias.
      */
     public ExistenciaDAOHibernate() {
-        super();
         this.sessionFactory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Existencia.class).buildSessionFactory();
         this.hclass = Existencia.class;

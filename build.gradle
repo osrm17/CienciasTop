@@ -6,13 +6,13 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }  
  
-run{
-    standardInput = System.in
+run {
+  standardInput = System.in
 }
 
 application {  
-  //mainClass.set('app.OtrasPruebas')
-  mainClass.set('app.Main')
+  mainClass.set('app.OtrasPruebas')
+  //mainClass.set('app.Main')
 }  
  
 repositories {  

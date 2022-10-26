@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 
 import extra.Accionable;
 import extra.Tupla;
-import lombok.NoArgsConstructor;
 
 /**
  * Clase abstracta generica que implementa la interfaz DAO<T, K>.
@@ -25,7 +24,6 @@ import lombok.NoArgsConstructor;
  * @param K -- tipo de la llave de los objetos con los que se va operar.
  * 
  */
-@NoArgsConstructor
 public abstract class DAOConHibernate<T, K> implements DAO<T, K> {
 
     protected SessionFactory sessionFactory;
