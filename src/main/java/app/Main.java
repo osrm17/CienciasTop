@@ -14,8 +14,8 @@ import model.UsuarioDAOHibernate;
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-        testUsuario();
-        testProducto();
+        //testUsuario();
+        //testProducto();
     }
     
     // DESCOMENTAR DONDE SE GUARDA EL OBJETO SI TODAVIA NO ESTA EN LA BD
