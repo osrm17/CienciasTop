@@ -24,6 +24,16 @@ Para ejecutar el metodo main en `src/main/java/app/Main.java` hay que correr el 
 gradle run
 ```
 
+Si se quiere correr otro metodo main hay que cambiar el archivo `build.gradle`, 
+por ejemplo para correr el main en la clase OtrasPruebas.java 
+hay que hacer el siguiente cambio al `build.gradle`
+```groovy
+application {  
+  mainClass.set('app.OtrasPruebas')
+  //mainClass.set('app.Main')
+}
+```
+
 Para ejecutar todas las pruebas
 
 ```shell

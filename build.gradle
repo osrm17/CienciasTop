@@ -11,6 +11,7 @@ run{
 }
 
 application {  
+  //mainClass.set('app.OtrasPruebas')
   mainClass.set('app.Main')
 }  
  
