@@ -75,8 +75,9 @@ COMMENT ON COLUMN ctop.existencia.estaRentado IS 'Booleano para saber si la exis
 
 
 CREATE TABLE ctop.rentar(
+    id SERIAL NOT NULL UNIQUE,
     numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    id INT NOT NULL,
+    idRentar INT NOT NULL,
     fechaDevolucion DATE,
     fechaRenta DATE NOT NULL
 );
@@ -106,6 +107,9 @@ COMMENT ON CONSTRAINT producto_pk ON ctop.producto IS 'Llave primaria de la tabl
 ALTER TABLE ctop.existencia ADD CONSTRAINT existencia_pk PRIMARY KEY(id);
 COMMENT ON CONSTRAINT existencia_pk ON ctop.existencia IS 'Llave primaria de la tabla existencia.';
 
+-- Rentar
+ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_pk PRIMARY KEY(id);
+COMMENT ON CONSTRAINT rentar_pk ON ctop.rentar IS 'Llave primaria de la tabla rentar.';
 
 -- Llaves foraneas
 -- Producto
@@ -125,6 +129,6 @@ ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey1 FOREIGN KEY(numct)
 REFERENCES ctop.usuario(numct);
 COMMENT ON CONSTRAINT rentar_fkey1 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia al usuario que renta.';
 
-ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey2 FOREIGN KEY(id)
+ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey2 FOREIGN KEY(idRentar)
 REFERENCES ctop.existencia(id);
 COMMENT ON CONSTRAINT rentar_fkey2 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia a la existencia que se renta.';

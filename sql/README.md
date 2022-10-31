@@ -2,7 +2,7 @@
 
 Ingresamos como super usuario a psql
 ```text
-$ sudo -u postgres psql
+sudo -u postgres psql
 ```
 
 Dentro de psql creamos el usuario **ctop** y modificamos su contrasenia
@@ -29,13 +29,13 @@ local   all             all                                     md5
 Se implementa la BD 
 
 ```text
-$ psql -U ctop -d postgres -a -f DDL.sql
+psql -U ctop -d postgres -a -f DDL.sql
 ```
 
 Verificar la implementacion 
 
 ```text
-$ psql -U ctop -d postgres 
+psql -U ctop -d postgres 
 ...
 postgres=# \dt
 ```
@@ -43,13 +43,13 @@ postgres=# \dt
 Se pobla la BD 
 
 ```text
-$ psql -U ctop -d postgres -a -f DML.sql
+psql -U ctop -d postgres -a -f DML.sql
 ```
 
 Verificar la implementacion 
 
 ```text
-$ psql -U ctop -d postgres 
+psql -U ctop -d postgres 
 ...
-postgres=# select * from ctop.usuarios;
+postgres=# select * from ctop.usuario;
 ```
