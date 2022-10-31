@@ -1,7 +1,55 @@
 ## Uso 
 
-Para correr un script:
+Ingresamos como super usuario a psql
+```text
+$ sudo -u postgres psql
+```
 
-```shell
-psql -U usuario -d nombre_bd -a -f archivo.sql
+Dentro de psql creamos el usuario **ctop** y modificamos su contrasenia
+```text
+postgres=# create ctop superuser createdb createrole inherit login replication;
+...
+postgres=# alter user ctop with password 'ctop';
+```
+
+Buscamos en donde esta `pg_hba.conf`
+
+```text
+postgres=# SHOW hba_file;
+```
+
+Modificamos el METHOD de **peer** a **md5** en la linea del archivo `pg_hba.conf` 
+```text
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# "local" is for Unix domain socket connections only
+local   all             all                                     md5
+...
+```
+
+Se implementa la BD 
+
+```text
+$ psql -U ctop -d postgres -a -f DDL.sql
+```
+
+Verificar la implementacion 
+
+```text
+$ psql -U ctop -d postgres 
+...
+postgres=# \dt
+```
+
+Se pobla la BD 
+
+```text
+$ psql -U ctop -d postgres -a -f DML.sql
+```
+
+Verificar la implementacion 
+
+```text
+$ psql -U ctop -d postgres 
+...
+postgres=# select * from ctop.usuarios;
 ```
