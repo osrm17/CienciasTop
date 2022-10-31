@@ -39,13 +39,13 @@ public class Rentar implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "numct")
     private String numct;
 
     @Column(name = "idrentar")
-    private int idRentar;
+    private long idRentar;
 
     @Column(name = "fechadevolucion")
     private LocalDate fechaDevolucion;
