@@ -30,7 +30,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 // anotaciones para hibernate
 @Entity
-@Table(name = "ctop.usuario")
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
     @Id
