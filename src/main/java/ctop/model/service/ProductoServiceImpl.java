@@ -7,12 +7,18 @@ import org.springframework.transaction.annotation.Transactional;
 import ctop.model.dao.ProductoDAO;
 import ctop.model.entity.Producto;
 
+/**
+ * Clase que tiene la implementacion del servicio que manejara los productos.
+ * 
+ * @version 1.0
+ */
 @Service
 public class ProductoServiceImpl implements ProductoServiceInterface {
-   
+
     @Autowired
     ProductoDAO productoDAO;
-    
+
+    @Override
     @Transactional(readOnly = true)
     public Iterable<Producto> findAll() {
         return productoDAO.findAll();

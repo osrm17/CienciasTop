@@ -5,25 +5,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ctop.model.entity.Usuario;
-import ctop.model.service.UsuarioServiceInterface;
+import ctop.model.entity.Existencia;
+import ctop.model.service.ExistenciaServiceInterface;
 
 /**
  * Clase controlador que se encarga de manejar las peticiones con
- * respecto a los usuarios.
+ * respecto a las existencias.
  * 
  * @version 1.0
  */
 @RestController
 @RequestMapping("/api")
-public class UsuarioRestController {
+public class ExistenciaRestController {
 
     @Autowired
-    private UsuarioServiceInterface usuarioService;
+    private ExistenciaServiceInterface existenciaService;
 
-    @GetMapping("/usuarios")
-    public Iterable<Usuario> index() {
-        return usuarioService.findAll();
+    @GetMapping("existencias")
+    public Iterable<Existencia> findAll() {
+        return existenciaService.findAll();
     }
-
 }
