@@ -8,7 +8,7 @@ import ctop.model.dao.ProductoDAO;
 import ctop.model.entity.Producto;
 
 /**
- * Clase que tiene la implementacion del servicio que manejara los productos
+ * Clase que tiene la implementacion del servicio que manejara los productos.
  * 
  * @version 1.0
  */

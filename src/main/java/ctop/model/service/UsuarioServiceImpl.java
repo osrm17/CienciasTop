@@ -8,7 +8,7 @@ import ctop.model.dao.UsuarioDAO;
 import ctop.model.entity.Usuario;
 
 /**
- * Clase que tiene la implementacion del servicio que manejara los usuarios
+ * Clase que tiene la implementacion del servicio que manejara los usuarios.
  * 
  * @version 1.0
  */

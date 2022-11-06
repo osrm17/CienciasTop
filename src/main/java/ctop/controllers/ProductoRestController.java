@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 import ctop.model.entity.Producto;
 import ctop.model.service.ProductoServiceInterface;
 
+/**
+ * Clase controlador que se encarga de manejar las peticiones con
+ * respecto a los productos.
+ * 
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api")
 public class ProductoRestController {
@@ -17,7 +23,7 @@ public class ProductoRestController {
 
     @GetMapping("/productos")
     public Iterable<Producto> index() {
-        return productoService.findAll(); 
+        return productoService.findAll();
     }
-    
+
 }

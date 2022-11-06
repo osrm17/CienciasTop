@@ -8,13 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 import ctop.model.entity.Existencia;
 import ctop.model.service.ExistenciaServiceInterface;
 
+/**
+ * Clase controlador que se encarga de manejar las peticiones con
+ * respecto a las existencias.
+ * 
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api")
 public class ExistenciaRestController {
 
     @Autowired
     private ExistenciaServiceInterface existenciaService;
-    
+
     @GetMapping("existencias")
     public Iterable<Existencia> findAll() {
         return existenciaService.findAll();
