@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Producto } from './producto';
-import { PRODUCTOS } from './productos.json';
 import { Observable } from 'rxjs';
-import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
