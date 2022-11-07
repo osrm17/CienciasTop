@@ -21,7 +21,7 @@ public class RentarRestController {
     @Autowired
     private RentarServiceInterface rentarService;
 
-    @GetMapping("/rentar")
+    @GetMapping("/rentas")
     public Iterable<Rentar> findAll() {
         return rentarService.findAll();
     }
