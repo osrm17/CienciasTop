@@ -14,7 +14,7 @@ public interface RentarServiceInterface {
      * Metodo que devuelve todas las rentas disponibles en la
      * base de datos.
      * 
-     * @return Iterable-Usuario -- devuelve un iterable de productos.
+     * @return Iterable-Rentar -- devuelve un iterable de rentas.
      */
     public Iterable<Rentar> findAll();
 }

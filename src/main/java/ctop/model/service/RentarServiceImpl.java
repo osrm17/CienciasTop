@@ -16,7 +16,7 @@ import ctop.model.entity.Rentar;
 public class RentarServiceImpl implements RentarServiceInterface {
 
     @Autowired
-    RentarDAO rentarDAO;
+    private RentarDAO rentarDAO;
 
     @Override
     @Transactional(readOnly = true)

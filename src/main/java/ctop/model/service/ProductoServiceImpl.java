@@ -16,7 +16,7 @@ import ctop.model.entity.Producto;
 public class ProductoServiceImpl implements ProductoServiceInterface {
 
     @Autowired
-    ProductoDAO productoDAO;
+    private ProductoDAO productoDAO;
 
     @Override
     @Transactional(readOnly = true)

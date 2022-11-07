@@ -14,7 +14,7 @@ public interface ExistenciaServiceInterface {
      * Metodo que devuelve todas las existencias disponibles en la
      * base de datos.
      * 
-     * @return Iterable-Existencia -- devuelve un iterable de productos.
+     * @return Iterable-Existencia -- devuelve un iterable de existencias.
      */
     public Iterable<Existencia> findAll();
 }

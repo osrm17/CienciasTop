@@ -16,7 +16,7 @@ import ctop.model.entity.Existencia;
 public class ExistenciaServiceImpl implements ExistenciaServiceInterface {
 
     @Autowired
-    ExistenciaDAO existenciaDAO;
+    private ExistenciaDAO existenciaDAO;
 
     @Override
     @Transactional(readOnly = true)

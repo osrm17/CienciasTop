@@ -14,7 +14,7 @@ public interface UsuarioServiceInterface {
      * Metodo que devuelve todos los usuarios disponibles en la
      * base de datos.
      * 
-     * @return Iterable-Usuario -- devuelve un iterable de productos.
+     * @return Iterable-Usuario -- devuelve un iterable de usuarios.
      */
     public Iterable<Usuario> findAll();
 }
