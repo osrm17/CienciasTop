@@ -23,4 +23,25 @@ public class ProductoServiceImpl implements ProductoServiceInterface {
     public Iterable<Producto> findAll() {
         return productoDAO.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Producto findById(String codigo) {
+        return productoDAO.findById(codigo).orElse(null);
+    }
+
+    @Override
+    @Transactional()
+    public Producto save(Producto producto) {
+        return productoDAO.save(producto);
+    }
+
+    @Override
+    @Transactional()
+    public void delete(String codigo) {
+        productoDAO.deleteById(codigo);        
+    }
+
+
+
 }
