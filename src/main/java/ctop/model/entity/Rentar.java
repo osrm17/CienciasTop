@@ -44,8 +44,8 @@ public class Rentar implements Serializable {
     @Column(name = "numct")
     private String numct;
 
-    @Column(name = "idrentar")
-    private long idRentar;
+    @Column(name = "idexistencia")
+    private long idExistencia;
 
     @Column(name = "fechadevolucion")
     private LocalDate fechaDevolucion;
