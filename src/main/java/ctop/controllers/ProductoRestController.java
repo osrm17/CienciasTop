@@ -55,7 +55,7 @@ public class ProductoRestController {
         actual.setDescripcion(nuevo.getDescripcion());
         actual.setDiasRenta(nuevo.getDiasRenta());
         actual.setNombre(nuevo.getNombre());
-        actual.setNumct(nuevo.getNombre());
+        actual.setNumct(nuevo.getNumct());
         productoService.save(actual);
         return actual;
     }
