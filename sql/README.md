@@ -12,20 +12,6 @@ postgres=# create ctop superuser createdb createrole inherit login replication;
 postgres=# alter user ctop with password 'ctop';
 ```
 
-Buscamos en donde esta `pg_hba.conf`
-
-```text
-postgres=# SHOW hba_file;
-```
-
-Modificamos el METHOD de **peer** a **md5** en la linea del archivo `pg_hba.conf` 
-```text
-# TYPE  DATABASE        USER            ADDRESS                 METHOD
-# "local" is for Unix domain socket connections only
-local   all             all                                     md5
-...
-```
-
 Se implementa la BD 
 
 ```text
@@ -46,10 +32,30 @@ Se pobla la BD
 psql -U ctop -d postgres -a -f DML.sql
 ```
 
-Verificar la implementacion 
+Verificar la poblacion
 
 ```text
 psql -U ctop -d postgres 
 ...
 postgres=# select * from ctop.usuario;
 ```
+---
+
+## Posibles problemas?
+
+Esto es necesario solo si por alguna razon no deja entrar a psql como el usuario 'ctop'
+
+ Buscamos en donde esta `pg_hba.conf`
+
+```text
+postgres=# SHOW hba_file;
+```
+
+Modificamos el METHOD de **peer** a **md5** en la linea del archivo `pg_hba.conf` 
+```text
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# "local" is for Unix domain socket connections only
+local   all             all                                     md5
+...
+```
+

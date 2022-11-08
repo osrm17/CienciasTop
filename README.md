@@ -3,8 +3,8 @@ Repositorio para el proyecto de la materia de ingenieria de software 1.
 
 ## Requisitos
 - Java 11
-- gradle 6.9.2
-- Crear la base de datos, instrucciones en `sql/README.md`
+- gradle 6.9.2, [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
+- Crear la base de datos, instrucciones en [sql/README.md](sql/README.md)
 - nodejs 18
 
 Para verificar la version de gradle:
@@ -13,10 +13,7 @@ Para verificar la version de gradle:
 gradle -v
 ```
 
-- [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
-
-
-para verificar la version de nodejs:
+Para verificar la version de nodejs:
 
 ```shell
 node -v
@@ -24,7 +21,7 @@ node -v
 
 ## Para ejecutar (backend)
 
-Se debe tener **implementada** la base de datos de acuerdo a lo descrito en `sql/README.md`.
+Se debe tener **implementada** la base de datos de acuerdo a lo descrito en [sql/README.md](sql/README.md).
 
 Para ejecutar el metodo main en `src/main/java/ctop/App.java` hay que correr cualquiera de los siguientes comandos
 
@@ -49,7 +46,7 @@ ng serve
 
 Ya estando tanto el backend como el frontend inicado ir a [localhost4200](http://localhost:4200/)
 
-### Pruebas unitarias (backend) 
+## Pruebas unitarias (backend) 
 
 Para ejecutar todas las pruebas
 
