@@ -13,7 +13,7 @@ import ctop.model.entity.Existencia;
  * @version 1.0
  */
 @Service
-public class ExistenciaServiceImpl implements ExistenciaServiceInterface {
+public class ExistenciaServiceImpl implements ServiceInterface<Existencia, Long> {
 
     @Autowired
     private ExistenciaDAO existenciaDAO;
@@ -22,5 +22,23 @@ public class ExistenciaServiceImpl implements ExistenciaServiceInterface {
     @Transactional(readOnly = true)
     public Iterable<Existencia> findAll() {
         return existenciaDAO.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Existencia findById(Long id) {
+        return existenciaDAO.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional()
+    public Existencia save(Existencia existencia) {
+        return existenciaDAO.save(existencia);
+    }
+
+    @Override
+    @Transactional()
+    public void delete(Long id) {
+        existenciaDAO.deleteById(id);
     }
 }
