@@ -1,6 +1,24 @@
 # cienciastop-IS32-1
 Repositorio para el proyecto de la materia de ingenieria de software 1.
 
+# Integrantes 
+
+## Equipo 9
+
+- Galván Solís Sabrina, Responsable, <ssgalvan@ciencias.unam.mx>
+- Beristain Hernández Daniel, Técnico, <danBerHer_11@ciencias.unam.mx>
+- Ramirez Gutierrez Oscar, Colaborador, <rg.oscar17@ciencias.unam.mx>
+- Cristóbal Morales Karen, Calidad, <karencm@ciencias.unam.mx>
+- Martinez Enriquez Bruno, Calidad, <br1@ciencias.unam.mx>
+
+## Equipo 11
+
+- Desiderio Castillo Carlos Alberto, Responsable, <carlosdcastillo@ciencias.unam.mx>
+- Gutierrez Elizalde Jesus Israel, Técnico, <isragutierrez@ciencias.unam.mx>
+- Sanchez Urbano Cynthia Lizbeth, Colaboración, <cindy_cieusagi@ciencias.unam.mx>
+- Deloya Andrade Ana Valeria, Calidad, <anavaleriadeloya@ciencias.unam.mx>
+- Escamilla Alcala Saul Zacarias, Calidad, <elfabulosoyo@ciencias.unam.mx>
+
 ## Requisitos
 - Java 11
 - gradle 6.9.2, [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
