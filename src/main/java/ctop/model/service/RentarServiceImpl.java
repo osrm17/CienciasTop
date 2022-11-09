@@ -13,7 +13,7 @@ import ctop.model.entity.Rentar;
  * @version 1.0
  */
 @Service
-public class RentarServiceImpl implements RentarServiceInterface {
+public class RentarServiceImpl implements ServiceInterface<Rentar, Long> {
 
     @Autowired
     private RentarDAO rentarDAO;
@@ -22,5 +22,23 @@ public class RentarServiceImpl implements RentarServiceInterface {
     @Transactional(readOnly = true)
     public Iterable<Rentar> findAll() {
         return rentarDAO.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Rentar findById(Long id) {
+        return rentarDAO.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional()
+    public Rentar save(Rentar renta) {
+        return rentarDAO.save(renta);
+    }
+
+    @Override
+    @Transactional()
+    public void delete(Long id) {
+        rentarDAO.deleteById(id);
     }
 }
