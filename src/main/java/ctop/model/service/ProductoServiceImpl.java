@@ -13,7 +13,7 @@ import ctop.model.entity.Producto;
  * @version 1.0
  */
 @Service
-public class ProductoServiceImpl implements ProductoServiceInterface {
+public class ProductoServiceImpl implements ServiceInterface<Producto, String> {
 
     @Autowired
     private ProductoDAO productoDAO;
@@ -41,7 +41,4 @@ public class ProductoServiceImpl implements ProductoServiceInterface {
     public void delete(String codigo) {
         productoDAO.deleteById(codigo);        
     }
-
-
-
 }
