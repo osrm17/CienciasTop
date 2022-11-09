@@ -21,24 +21,24 @@ public interface ServiceInterface<T, K> {
     /**
      * Devuelve una entidad dada su llave.
      * 
-     * @param codigo con el que se identifica al producto
+     * @param llave con el que se identifica al producto
      * @return T -- entidad asociada al codigo en la base de datos.
      */
-    public T findById(K codigo);
+    public T findById(K llave);
 
     /**
      * Guarda la entidad pasada como parametro en la base de datos y
      * devuelve esta misma.
      * 
-     * @param T -- entidad que se agrega a la base de datos.
+     * @param entidad que se agrega a la base de datos.
      * @return T -- entidad agregada a la base de datos.
      */
-    public T save(T producto);
+    public T save(T entidad);
 
     /**
      * Borra una entidad de la base de datos dada su llave.
      * 
-     * @param K -- llave de la entidad a borrar.
+     * @param llave de la entidad a borrar.
      */
-    public void delete(K codigo);
+    public void delete(K llave);
 }
