@@ -29,15 +29,8 @@ Se debe tener **implementada** la base de datos de acuerdo a lo descrito en `sql
 Para ejecutar el metodo main en `src/main/java/ctop/App.java` hay que correr cualquiera de los siguientes comandos
 
 ```shell
-gradle run
-```
-
-o tambien 
-
-```shell
 gradle bootRun 
 ```
-
 
 ## Para ejecutar (frontend)
 
