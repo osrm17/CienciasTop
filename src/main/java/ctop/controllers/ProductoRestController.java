@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import ctop.model.entity.Producto;
-import ctop.model.service.ProductoServiceInterface;
+import ctop.model.service.ServiceInterface;
 
 /**
  * Clase controlador que se encarga de manejar las peticiones con
@@ -28,7 +28,7 @@ import ctop.model.service.ProductoServiceInterface;
 public class ProductoRestController {
 
     @Autowired
-    private ProductoServiceInterface productoService;
+    private ServiceInterface<Producto, String> productoService;
 
     @GetMapping("/productos")
     public Iterable<Producto> index() {
