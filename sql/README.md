@@ -7,7 +7,7 @@ sudo -u postgres psql
 
 Dentro de psql creamos el usuario **ctop** y modificamos su contrasenia
 ```text
-postgres=# create ctop superuser createdb createrole inherit login replication;
+postgres=# create user ctop superuser createdb createrole inherit login replication;
 ...
 postgres=# alter user ctop with password 'ctop';
 ```
