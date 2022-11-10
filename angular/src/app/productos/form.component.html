@@ -29,7 +29,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Costo en puntos</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control" [(ngModel)]="producto.costoPuntos" name="costoPuntos">
+                    <input type="number" class="form-control" [(ngModel)]="producto.costoPuntos" name="costoPuntos" max="500" min="1">
                 </div>
             </div>
             <br>
@@ -37,7 +37,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Dias de renta</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control" [(ngModel)]="producto.diasRenta" name="diasRenta">
+                    <input type="number" class="form-control" [(ngModel)]="producto.diasRenta" name="diasRenta" max="7" min="3">
                 </div>
             </div>
             <br>
