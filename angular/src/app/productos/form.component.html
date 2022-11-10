@@ -1,11 +1,11 @@
 <div class="card bg-dark text-white">
-    <div class="card-header">Nuevo producto</div>
+    <div class="card-header">{{titulo}}</div>
     <div class="card-body">
-        <form>
+        <form (ngSubmit)="create()">
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Codigo</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="producto.codigo" name="codigo">
                 </div>
             </div>
             <br>
@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">numct proveedor </label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="producto.numct" name="numct">
                 </div>
             </div>
             <br>
@@ -21,7 +21,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Nombre</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="producto.nombre" name="nombre">
                 </div>
             </div>
             <br>
@@ -29,7 +29,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Costo en puntos</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" [(ngModel)]="producto.costoPuntos" name="costoPuntos">
                 </div>
             </div>
             <br>
@@ -37,7 +37,7 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">Dias de renta</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" [(ngModel)]="producto.diasRenta" name="diasRenta">
                 </div>
             </div>
             <br>
@@ -45,11 +45,16 @@
             <div class="form-group row">
                 <label for="" class="col-form-label col-sm-2">descripcion</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name="descripcion">
                 </div>
             </div>
             <br>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button">Agregar</button>
+                </div>
+            </div>
         </form>
-        <button type="button" class="btn btn-light">Agregar</button>
     </div>
 </div>
