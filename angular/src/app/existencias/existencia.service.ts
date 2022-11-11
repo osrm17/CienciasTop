@@ -8,13 +8,18 @@ import { Existencia } from './existencia';
 })
 export class ExistenciaService {
 
-  private urlEndPoint : string = 'http://localhost:8080/api/existencias';
+  private urlEndPoint: string = 'http://localhost:8080/api/existencias';
 
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
   constructor(private http: HttpClient) { }
 
   public getExistencias(): Observable<Existencia[]> {
     return this.http.get<Existencia[]>(this.urlEndPoint);
   }
+
+  create(existencia: Existencia): Observable<Existencia> {
+    return this.http.post<Existencia>(this.urlEndPoint, existencia, { headers: this.httpHeaders });
+  }
+
 }
