@@ -25,7 +25,7 @@ export class FormComponent implements OnInit {
   public create(): void {
     this.productoService.create(this.producto).subscribe(producto => {
       this.router.navigate(['productos/'])
-      swal.fire('Nuevo Producto', `Producto ${producto.nombre} creado con éxito`, 'success')
+      swal.fire('Nuevo Producto', `${producto.nombre}`, 'success');
 
       for (let index = 0; index < this.producto.existencias; index++) {
         var existencia = new Existencia();
