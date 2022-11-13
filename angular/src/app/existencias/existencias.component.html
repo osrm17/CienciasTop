@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">codigo</th>
+      <th scope="col">rentado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let existencia of existencias">
+      <th scope="row">{{existencia.id}}</th>
+      <td>{{existencia.codigo}}</td>
+      <td>{{existencia.estaRentado}}</td>
+    </tr>
+  </tbody>
+</table>
