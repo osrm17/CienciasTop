@@ -8,12 +8,12 @@ COMMENT ON SCHEMA ctop IS 'Schema para el sistema ciencias top.';
 
 CREATE TABLE ctop.usuario(
     numct CHAR(9) NOT NULL UNIQUE CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    contrasenia CHAR(64) NOT NULL CHECK(CHAR_LENGTH(contrasenia) = 64),
+    contrasenia VARCHAR(20) NOT NULL CHECK(contrasenia <> ''),
     nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),
     estaActivo BOOLEAN NOT NULL DEFAULT TRUE,
-    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
+    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@ciencias.unam.mx$'),
     celular CHAR(10) NOT NULL CHECK(celular ~ '^\d*$' AND CHAR_LENGTH(celular) = 10),
     pumaPuntos INT NOT NULL CHECK(pumaPuntos <= 500 AND pumaPuntos >= 0),
     esProveedor BOOLEAN NOT NULL DEFAULT FALSE,
