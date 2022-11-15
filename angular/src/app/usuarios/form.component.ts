@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponentUsuario implements OnInit {
 
   titulo: string = "Agregar Usuario"
   usuario: Usuario = new Usuario()
