@@ -1,25 +1,14 @@
 export class Producto {
 
-    codigo: String;
+    codigo!: String;
 
-    numct: String;
+    numct!: String;
 
-    nombre: String;
+    nombre!: String;
 
-    costoPuntos: number;
+    costoPuntos!: number;
 
-    diasRenta: number;
+    diasRenta!: number;
 
-    descripcion: String;
-
-    constructor() {
-        this.codigo = "";
-        this.numct = "";
-        this.nombre = "";
-        this.costoPuntos = 0;
-        this.diasRenta = 0;
-        this.descripcion = "";
-     }
-    
-
+    descripcion!: String;
 }

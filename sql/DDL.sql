@@ -8,7 +8,7 @@ COMMENT ON SCHEMA ctop IS 'Schema para el sistema ciencias top.';
 
 CREATE TABLE ctop.usuario(
     numct CHAR(9) NOT NULL UNIQUE CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    contrasenia VARCHAR(20) NOT NULL CHECK(contrasenia <> ''),
+    contrasenia CHAR(64) NOT NULL CHECK(CHAR_LENGTH(contrasenia) = 64),
     nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),
@@ -35,7 +35,7 @@ COMMENT ON COLUMN ctop.usuario.esAdministrador IS 'Booleano para saber si el usu
 
 CREATE TABLE ctop.carrera(
     numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    carrera VARCHAR(36) NOT NULL CHECK(carrera = 'matematicas' OR carrera = 'fisica'
+    carrera VARCHAR(36) CHECK(carrera = 'matematicas' OR carrera = 'fisica'
     OR carrera = 'actuaria' OR carrera = 'biologia' OR carrera = 'ciencias de la computacion'
     OR carrera = 'ciencias de la tierra' OR carrera = 'fisica biomedica' OR carrera = 'matematicas aplicadas'
     OR carrera = 'manejo sustentable de zonas costeras' OR carrera = 'neurociencias'
