@@ -2,6 +2,7 @@ package ctop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ import ctop.model.service.ServiceInterface;
  * Clase controlador que se encarga de manejar las peticiones con
  * respecto a los productos.
  * 
- * @version 1.0
+ * @version 1.1
  */
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -30,11 +31,13 @@ public class ProductoRestController {
     @Autowired
     private ServiceInterface<Producto, String> productoService;
 
+    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @GetMapping("/productos")
     public Iterable<Producto> index() {
         return productoService.findAll();
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/productos/{codigo}")
     public Producto show(@PathVariable String codigo) {
         return productoService.findById(codigo);
