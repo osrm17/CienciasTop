@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.5'
+	id 'org.springframework.boot' version "2.4.13"
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
 	id 'com.adarshr.test-logger' version '1.7.0'
@@ -26,6 +26,18 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE'
+	implementation 'org.springframework.security:spring-security-jwt:1.0.9.RELEASE'
+
+	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+	implementation 'javax.xml.bind:jaxb-api'
+
+	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+	implementation 'org.glassfish.jaxb:jaxb-runtime'
+
+
+
 }
 
 test {
