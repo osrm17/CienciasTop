@@ -24,7 +24,7 @@ export class ProductoService {
   create(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.urlEndPoint, producto, { headers: this.httpHeaders }).pipe(
       catchError(err => {
-        swal.fire('Ooops', `los datos ingresados son erroneos`, 'warning');
+        swal.fire('Ooops', `los datos ingresados son erroneos`, 'error');
         this.errorObject = err;
         return throwError(err);
       }));
