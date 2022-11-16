@@ -34,37 +34,37 @@ import lombok.ToString;
 public class Usuario implements Serializable {
 
     @Id
-    @Column(name = "numct", nullable=false, unique=true, length=9)
+    @Column(name = "numct")
     private String numct;
 
-    @Column(name = "contrasenia", nullable=false, length=64)
+    @Column(name = "contrasenia")
     private String contrasenia;
 
-    @Column(name = "nombre", nullable=false, length=50)
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "paterno", nullable=false, length=50)
+    @Column(name = "paterno")
     private String paterno;
 
-    @Column(name = "materno", nullable=false, length=50)
+    @Column(name = "materno")
     private String materno;
 
-    @Column(name = "estaactivo", nullable=false)
+    @Column(name = "estaactivo")
     private boolean estaActivo;
 
-    @Column(name = "correo", nullable=false, length=60)
+    @Column(name = "correo")
     private String correo;
 
-    @Column(name = "celular", nullable=false, length=10)
+    @Column(name = "celular")
     private String celular;
 
-    @Column(name = "pumapuntos", nullable=false)
+    @Column(name = "pumapuntos")
     private int pumaPuntos;
 
-    @Column(name = "esproveedor", nullable=false)
+    @Column(name = "esproveedor")
     private boolean esProveedor;
 
-    @Column(name = "esadministrador", nullable=false)
+    @Column(name = "esadministrador")
     private boolean esAdministrador;
 
     private static final long serialVersionUID = 1L;
