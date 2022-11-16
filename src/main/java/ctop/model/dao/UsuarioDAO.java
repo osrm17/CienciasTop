@@ -12,5 +12,4 @@ import ctop.model.entity.Usuario;
  */
 public interface UsuarioDAO extends CrudRepository<Usuario, String> {
 
-    Usuario findByNumct(String numct);
 }

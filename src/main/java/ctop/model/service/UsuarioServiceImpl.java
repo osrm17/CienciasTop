@@ -35,7 +35,7 @@ public class UsuarioServiceImpl implements ServiceInterface<Usuario, String>, Us
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Usuario usuario = usuarioDAO.findByNumct(username);
+		Usuario usuario = usuarioDAO.findById(username).orElse(null);
 		
 		if(usuario == null) {
 			logger.error("Error en el login: no existe el usuario '"+username+"' en el sistema!");
@@ -46,7 +46,7 @@ public class UsuarioServiceImpl implements ServiceInterface<Usuario, String>, Us
 
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
-        if(usuario.isEsProveedor()){
+        if(usuario.isEsAdministrador()){
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
 
