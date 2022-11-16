@@ -42,7 +42,12 @@ export class UsuarioService {
   }
 
   update(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>(`${this.urlEndPoint}/${usuario.numct}`, usuario, {headers: this.httpHeaders})
+    return this.http.put<Usuario>(`${this.urlEndPoint}/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
+        this.errorObject = err;
+        return throwError(err);
+      }));
   }
 
   delete(numct: string): Observable<Usuario>{
