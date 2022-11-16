@@ -1,7 +1,72 @@
-<div *ngFor="let usuario of usuarios">
-    {{usuario.numct}}
-    {{usuario.nombre}}
-    {{usuario.paterno}}
-    {{usuario.materno}}
-    {{usuario.correo}}
-</div>
+<section style="background-color: #79BAEC">
+  <div class="container py-5">
+    <div class="my-2 text-left">
+      <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
+    </div>
+    <div class="row">
+      <div
+        class="col-md-6 col-lg-4 mb-4 mb-md-0"
+        *ngFor="let usuario of usuarios">
+        <div class="card">
+          <div class="d-flex justify-content-between p-3">
+            <p class="lead mb-0">{{ usuario.numct }}</p>
+
+              <div class="bg-danger d-flex align-items-center justify-content-center shadow-1-strong"
+                style="width: 60px; height: 35px">
+                <p class="text-white mb-0 small" (click)="delete(usuario)">Eliminar</p>
+              </div>
+
+              <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
+                <p class="text-white mb-0 small" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</p> 
+              </div>
+
+          </div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/74/74472.png"
+            class="card-img-top"
+            alt="Usuario"
+          />
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Nombre:</h5>
+              <h5 class="text-dark mb-0">{{ usuario.nombre + usuario.paterno }}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Puma puntos:</h5>
+              <h5 class="text-dark mb-0">{{ usuario.pumaPuntos }}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2">
+              <p class="text-muted mb-0">
+                Correo: <span class="fw-bold">{{ usuario.correo }}</span>
+              </p>
+              <div class="ms-auto text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2">
+              <p class="text-muted mb-0">
+                Celular: <span class="fw-bold">{{ usuario.celular }}</span>
+              </p>
+              <div class="ms-auto text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

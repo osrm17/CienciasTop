@@ -13,7 +13,7 @@ CREATE TABLE ctop.usuario(
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),
     estaActivo BOOLEAN NOT NULL DEFAULT TRUE,
-    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
+    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@ciencias.unam.mx$'),
     celular CHAR(10) NOT NULL CHECK(celular ~ '^\d*$' AND CHAR_LENGTH(celular) = 10),
     pumaPuntos INT NOT NULL CHECK(pumaPuntos <= 500 AND pumaPuntos >= 0),
     esProveedor BOOLEAN NOT NULL DEFAULT FALSE,
@@ -35,7 +35,7 @@ COMMENT ON COLUMN ctop.usuario.esAdministrador IS 'Booleano para saber si el usu
 
 CREATE TABLE ctop.carrera(
     numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    carrera VARCHAR(36) NOT NULL CHECK(carrera = 'matematicas' OR carrera = 'fisica'
+    carrera VARCHAR(36) CHECK(carrera = 'matematicas' OR carrera = 'fisica'
     OR carrera = 'actuaria' OR carrera = 'biologia' OR carrera = 'ciencias de la computacion'
     OR carrera = 'ciencias de la tierra' OR carrera = 'fisica biomedica' OR carrera = 'matematicas aplicadas'
     OR carrera = 'manejo sustentable de zonas costeras' OR carrera = 'neurociencias'
