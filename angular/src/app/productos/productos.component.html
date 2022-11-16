@@ -1,28 +1,29 @@
-<nav class="navbar bg-light">
-  <form class="container-fluid justify-content-start">
-    <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
-      Productos</button>
-  </form>
-</nav>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">codigo</th>
-      <th scope="col">numct</th>
-      <th scope="col">nombre</th>
-      <th scope="col">costo puntos</th>
-      <th scope="col">dias de renta</th>
-      <th scope="col">descripcion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let producto of productos">
-      <th scope="row">{{producto.codigo}}</th>
-      <td>{{producto.numct}}</td>
-      <td>{{producto.nombre}}</td>
-      <td>{{producto.costoPuntos}}</td>
-      <td>{{producto.diasRenta}}</td>
-      <td>{{producto.descripcion}}</td>
-    </tr>
-  </tbody>
-</table>
+ 
+  <nav class="navbar bg-light">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
+        Productos</button>
+    </form>
+  </nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">codigo</th>
+        <th scope="col">numct</th>
+        <th scope="col">nombre</th>
+        <th scope="col">costo puntos</th>
+        <th scope="col">dias de renta</th>
+        <th scope="col">descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <th scope="row">{{producto.codigo}}</th>
+        <td>{{producto.numct}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.costoPuntos}}</td>
+        <td>{{producto.diasRenta}}</td>
+        <td>{{producto.descripcion}}</td>
+      </tr>
+    </tbody>
+  </table>

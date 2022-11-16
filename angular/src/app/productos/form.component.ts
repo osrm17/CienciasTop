@@ -12,7 +12,7 @@ import { ExistenciaService } from '../existencias/existencia.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponentProducto implements OnInit {
 
   titulo: string = "Agregar producto"
   producto: Productostock = new Productostock()
