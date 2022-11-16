@@ -2,6 +2,8 @@ package ctop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -70,5 +72,67 @@ public class UsuarioRestController {
     public void delete(@PathVariable String numct) {
         usuarioService.delete(numct);
     }
+    
+    @PutMapping("/usuarios/suma/{numct}")
+    public ResponseEntity<String> sumaPuntos(@PathVariable String numct, @RequestBody Integer pumaPuntos, BindingResult bindingResult){
+		String mensaje = "";
+		Integer total = 0;
+    	if(bindingResult.hasErrors()){ //Primera validación
+			mensaje = bindingResult.getAllErrors().get(0).getDefaultMessage();
+			return new ResponseEntity<>(mensaje, HttpStatus.BAD_REQUEST);
+		}
+    	Usuario usuario = usuarioService.findById(numct);
+    	if(usuario == null) {
+    		mensaje = "Usuario no registrado.";
+    		return new ResponseEntity<>(mensaje, HttpStatus.NOT_FOUND);
+    	}
+    	if(usuario.getPumaPuntos() == 500) {
+    		mensaje = "Ya has alcanzado el máximo número de PumaPuntos.";
+        	return new ResponseEntity<>(mensaje, HttpStatus.BAD_REQUEST);
+    	}
+    	total = usuario.getPumaPuntos() + pumaPuntos; //Suponiendo que los puntos que se pasen sea un parámetro válido.
+    	if(total > 500) { //Se mochan los puntos extras.
+    		mensaje = "¡Felicidades!\nAcumulaste " + (500 - usuario.getPumaPuntos())
+    				+ " PumaPuntos con éxito.\nYa has alcanzado el número "
+    				+ "máximo de PumaPuntos.";
+    		total = 500;
+    		usuario.setPumaPuntos(total);
+        	usuarioService.save(usuario);
+    		return new ResponseEntity<>(mensaje, HttpStatus.OK);
+    	}
+    	usuario.setPumaPuntos(total);
+    	usuarioService.save(usuario);
+    	mensaje = "¡Felicidades!\nAcumulaste " + pumaPuntos
+				+ " PumaPuntos con éxito.";
+    	return new ResponseEntity<>(mensaje, HttpStatus.OK);
+    }
 
+    @PutMapping("/usuarios/resta/{numct}")
+    public ResponseEntity<String> restaPuntos(@PathVariable String numct, @RequestBody Integer pumaPuntos, BindingResult bindingResult){
+		String mensaje = "";
+		Integer total = 0;
+    	if(bindingResult.hasErrors()){ //Primera validación
+			mensaje = bindingResult.getAllErrors().get(0).getDefaultMessage();
+			return new ResponseEntity<>(mensaje, HttpStatus.BAD_REQUEST);
+		}
+    	Usuario usuario = usuarioService.findById(numct);
+    	if(usuario == null) {
+    		mensaje = "Usuario no registrado.";
+    		return new ResponseEntity<>(mensaje, HttpStatus.NOT_FOUND);
+    	}
+    	if(usuario.getPumaPuntos() == 0) {
+    		mensaje = "Tienes 0 PumaPuntos."
+    				+ "\nConsulta las actividades que puedes ralizar para obtener PumaPuntos.";
+        	return new ResponseEntity<>(mensaje, HttpStatus.BAD_REQUEST);
+    	}
+    	if(pumaPuntos > usuario.getPumaPuntos()){
+    		mensaje = "No tienes suficientes PumaPuntos.";
+    		return new ResponseEntity<>(mensaje, HttpStatus.NOT_FOUND);
+    	}
+    	total = usuario.getPumaPuntos() - pumaPuntos; //Suponiendo que los puntos que se pasen sea un parámetro válido.
+    	usuario.setPumaPuntos(total);
+    	usuarioService.save(usuario);
+    	mensaje = "Se restaron  " + pumaPuntos + " PumaPuntos.";
+    	return new ResponseEntity<>(mensaje, HttpStatus.OK);
+    }
 }
