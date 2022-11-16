@@ -18,6 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import ctop.model.entity.Usuario;
 import ctop.model.service.ServiceInterface;
 
+
+import java.util.HashMap;
+import java.util.Map;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.ResponseEntity;
+//import org.springframework.security.access.annotation.Secured;
+
+
 /**
  * Clase controlador que se encarga de manejar las peticiones con
  * respecto a los usuarios.
@@ -42,10 +50,21 @@ public class UsuarioRestController {
         return usuarioService.findById(numct);
     }
 
+
     @PostMapping("/usuarios")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Usuario create(@RequestBody Usuario usuario) {
-        return usuarioService.save(usuario);
+    public ResponseEntity<?> create(@RequestBody Usuario usuario) {
+        Usuario usuarioNuevo = null;
+        Map<String,Object> response = new HashMap<>();
+        try {
+            usuarioNuevo = usuarioService.save(usuario);
+        }catch(DataAccessException e) {
+            response.put("mensaje", "Error al agregar al usuario en la base de datos.");
+            response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.put("mensaje", "¡El usuario ha sido agregado con éxito!");
+        response.put("usuario", usuarioNuevo);
+        return new ResponseEntity<Map<String, Object>>(response,HttpStatus.CREATED);
     }
 
     @PutMapping("/usuarios/{numct}")
