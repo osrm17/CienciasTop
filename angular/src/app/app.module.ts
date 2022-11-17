@@ -15,9 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
+import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/productos', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'productos', component: ProductosComponent},
   { path: 'existencias', component: ExistenciasComponent},
@@ -25,6 +26,15 @@ const routes: Routes = [
   { path: 'usuarios/form', component: FormComponentUsuario},
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent}
+
+  { path: 'productos', component: ProductosComponent },
+  { path: 'existencias', component: ExistenciasComponent },
+  { path: 'productos/form', component: FormComponentProducto },
+  { path: 'usuarios/form', component: FormComponentUsuario },
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
+  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
+  { path: 'restablecer-contra', component: RestablecerContraComponent }
+
 ]
 
 @NgModule({
@@ -38,7 +48,8 @@ const routes: Routes = [
     FormComponentUsuario,
     ExistenciasComponent,
     FormeditarComponent,
-    FormbuscarComponent
+    FormbuscarComponent,
+    RestablecerContraComponent
   ],
   imports: [
     BrowserModule,

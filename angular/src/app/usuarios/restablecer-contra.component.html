@@ -1,0 +1,41 @@
+<div class="card bg-dark text-white container my-2">
+    <div class="card-header">{{titulo}}</div>
+
+    <div class="card-body">
+
+        <form (ngSubmit)="restablece()">
+
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2">Número de C/T</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.numct" name="numct">
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2">Nueva contraseña</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.nuevaContra" name="nuevaContra">
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2">Confirmacion de nueva contraseña</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.confirmacionContra"
+                        name="confirmacionContra">
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-warning" role="button">Restablecer</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
