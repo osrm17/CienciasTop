@@ -1,0 +1,18 @@
+<section style="background-color: #79BAEC">
+    <div class="card bg-dark text-white container my-2">
+        <div class="card-header ">{{titulo}}</div>
+
+        <div class="card-body">
+
+            <form (ngSubmit)="create()">
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Número de C/T</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.numct" name="numct">
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</section>
