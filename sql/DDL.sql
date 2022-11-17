@@ -13,7 +13,7 @@ CREATE TABLE ctop.usuario(
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),
     estaActivo BOOLEAN NOT NULL DEFAULT TRUE,
-    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
+    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+.unam.mx$'),
     celular CHAR(10) NOT NULL CHECK(celular ~ '^\d*$' AND CHAR_LENGTH(celular) = 10),
     pumaPuntos INT NOT NULL CHECK(pumaPuntos <= 500 AND pumaPuntos >= 0),
     esProveedor BOOLEAN NOT NULL DEFAULT FALSE,
@@ -121,7 +121,7 @@ numero de cuenta del usuario que agrega el producto.';
 
 -- Existencia
 ALTER TABLE ctop.existencia ADD CONSTRAINT existencia_fkey FOREIGN KEY(codigo)
-REFERENCES ctop.producto(codigo);
+REFERENCES ctop.producto(codigo) ON DELETE CASCADE;
 COMMENT ON CONSTRAINT existencia_fkey ON ctop.existencia IS 'Llave foranea de la tabla existencia que hace referencia al producto
 correspondiente en la tabla producto.';
 
@@ -131,5 +131,5 @@ REFERENCES ctop.usuario(numct);
 COMMENT ON CONSTRAINT rentar_fkey1 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia al usuario que renta.';
 
 ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey2 FOREIGN KEY(idExistencia)
-REFERENCES ctop.existencia(id);
+REFERENCES ctop.existencia(id) ON DELETE CASCADE;
 COMMENT ON CONSTRAINT rentar_fkey2 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia a la existencia que se renta.';
