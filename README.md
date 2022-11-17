@@ -1,7 +1,7 @@
 # cienciastop-IS32-1
 Repositorio para el proyecto de la materia de ingenieria de software 1.
 
-# Integrantes 
+# Integrantes
 
 ## Equipo 9
 
@@ -15,7 +15,7 @@ Repositorio para el proyecto de la materia de ingenieria de software 1.
 
 - Desiderio Castillo Carlos Alberto, Responsable, <carlosdcastillo@ciencias.unam.mx>
 - Gutierrez Elizalde Jesus Israel, Técnico, <isragutierrez@ciencias.unam.mx>
-- Sanchez Urbano Cynthia Lizbeth, Colaboración, <cindy_cieusagi@ciencias.unam.mx>
+- Sanchez Urbano Cynthia Lizbeth, Colaboración, <cyndi_cieusagi@ciencias.unam.mx>
 - Deloya Andrade Ana Valeria, Calidad, <anavaleriadeloya@ciencias.unam.mx>
 - Escamilla Alcala Saul Zacarias, Calidad, <elfabulosoyo@ciencias.unam.mx>
 
@@ -44,7 +44,7 @@ Se debe tener **implementada** la base de datos de acuerdo a lo descrito en [sql
 Para ejecutar el metodo main en `src/main/java/ctop/App.java` hay que correr cualquiera de los siguientes comandos
 
 ```shell
-gradle bootRun 
+gradle bootRun
 ```
 
 ## Para ejecutar (frontend)
@@ -57,10 +57,10 @@ ng serve
 
 Ya estando tanto el backend como el frontend inicado ir a [localhost4200](http://localhost:4200/)
 
-## Pruebas unitarias (backend) 
+## Pruebas unitarias (backend)
 
 Para ejecutar todas las pruebas
 
 ```shell
-gradle cleanTest test 
+gradle cleanTest test
 ```
