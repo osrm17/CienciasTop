@@ -1,32 +1,8 @@
 <section style="background-color: #79BAEC">
   <div class="container py-5">
-    <div class="my-2 text-left">
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
-      <form>
-        Buscar Usuario:<br>
-        <input type="text" name="cuenta" value=><br>
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar',354684529]">Buscar</button>
-      </form>
-
-    </div>
-    <div class="row">
-      <div
-        class="col-md-6 col-lg-4 mb-4 mb-md-0"
-        *ngFor="let usuario of usuarios">
         <div class="card">
           <div class="d-flex justify-content-between p-3">
             <p class="lead mb-0">{{ usuario.numct }}</p>
-
-
-
-              <div class="bg-danger d-flex align-items-center justify-content-center shadow-1-strong"
-                style="width: 60px; height: 35px">
-                <button class="btn btn-danger" (click)="delete(usuario)">Eliminar</button>
-              </div>
-
-              <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
-                <button class="btn btn-primary" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
-              </div>
 
           </div>
           <img
@@ -75,6 +51,4 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </section>
