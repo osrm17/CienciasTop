@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
+import { PerfilesComponent } from './perfiles/perfiles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'productos/form', component: FormComponentProducto },
   { path: 'usuarios/form', component: FormComponentUsuario },
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent },
-  { path: 'restablecer-contra', component: RestablecerContraComponent }
+  { path: 'restablecer-contra', component: RestablecerContraComponent },
+  { path: 'mi-perfil', component: PerfilesComponent}
 ]
 
 @NgModule({
