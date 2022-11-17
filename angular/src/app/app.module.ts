@@ -25,8 +25,7 @@ const routes: Routes = [
   { path: 'productos/form', component: FormComponentProducto},
   { path: 'usuarios/form', component: FormComponentUsuario},
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
-  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent}
-
+  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'productos/form', component: FormComponentProducto },
@@ -34,7 +33,6 @@ const routes: Routes = [
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent }
-
 ]
 
 @NgModule({
