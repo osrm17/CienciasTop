@@ -10,6 +10,7 @@ import swal from 'sweetalert2';
 export class ProductoService {
 
   private urlEndPoint: string = 'http://localhost:8080/api/productos';
+  private urlEndPointE: string = 'http://localhost:8080/api/productos/formeditar';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -28,5 +29,14 @@ export class ProductoService {
         this.errorObject = err;
         return throwError(err);
       }));
-  }
+    }
+
+    update (producto: Producto): Observable<Producto> {
+      return this.http.put<Producto>(`${this.urlEndPointE}/${producto.numct}`, producto, {headers: this.httpHeaders}).pipe(
+        catchError(err => {
+          swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
+          this.errorObject = err;
+          return throwError(err);
+        }));
+    }
 }
