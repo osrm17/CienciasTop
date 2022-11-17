@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { UsuarioService } from './usuario.service';
-import swal from 'sweetalert2';
 import { Usuario } from './usuario';
+import { UsuarioService } from './usuario.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-form-suma-puntos',
-  templateUrl: './form-suma-puntos.component.html',
-  styleUrls: ['./form-suma-puntos.component.css']
+  selector: 'app-form-resta-puntos',
+  templateUrl: './form-resta-puntos.component.html',
+  styleUrls: ['./form-resta-puntos.component.css']
 })
-export class FormSumaPuntosComponent implements OnInit {
-  titulo: string = "Sumar Puntos"
+export class FormRestaPuntosComponent implements OnInit {
+
+  titulo: string = "Restar Puntos"
   usuario: Usuario = new Usuario()
   constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { 
+
   }
 
-    
   ngOnInit(): void {
     this.cargarUsuario()
   }
+
 
   cargarUsuario(): void{
     this.activateRoute.params.subscribe(params => {
@@ -29,14 +31,13 @@ export class FormSumaPuntosComponent implements OnInit {
     })
   }
 
-  public sumar():void{
-    this.usuarioService.sumaPuntos(this.usuario).subscribe(usuario => 
+  public restar():void{
+    this.usuarioService.restaPuntos(this.usuario).subscribe(usuario => 
       {
       this.router.navigate(['/usuarios'])
-      swal.fire('Cambios realizados', `Ahora tienes ${this.usuario.pumaPuntos} PumaPuntos más`, 'success')
+      swal.fire('Éxito', `Ahora tienes ${this.usuario.pumaPuntos} PumaPuntos menos.`, 'success')
       }
     )
   }
 
-  
-  }
+}

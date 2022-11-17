@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AdministrarPuntos } from './administrarpuntos';
 
 
 @Injectable({
@@ -15,7 +16,8 @@ import { Router } from '@angular/router';
 export class UsuarioService {
 
   private urlEndPoint: string = 'http://localhost:8080/api/usuarios'
-
+  private urlEndPointSuma: string = 'http://localhost:8080/api/usuarios/suma'
+  private urlEndPointResta: string = 'http://localhost:8080/api/usuarios/resta'
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   public errorObject = null;
@@ -54,4 +56,40 @@ export class UsuarioService {
     return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.httpHeaders})
   }
 
+  sumaPuntos(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        this.router.navigate(['/usuarios'])
+        swal.fire('Error', "No se pudieron añadir los PumaPuntos", 'error');
+        this.errorObject = err;
+        return throwError(err);
+      }));
+  }
+
+
+  restaPuntos(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.urlEndPoint}/restar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        //this.router.navigate(['/usuarios'])
+        swal.fire('Error', "No se pudieron restar los PumaPuntos", 'error');
+        this.errorObject = err;
+        return throwError(err);
+      }));
+  }
+
+  sumaPuntos1(administrarpuntos: AdministrarPuntos): Observable<Usuario>{
+    if(this.http.put<Usuario>(`${this.urlEndPointSuma}/suma/${administrarpuntos.numct}`,administrarpuntos, {headers: this.httpHeaders}) != null){
+      //this.router.navigate(['/usuarios'])
+      swal.fire('Éxito', 'Se añadieron exitosamente los PumaPuntos', 'success');
+      return this.getUsuario(administrarpuntos.numct)
+    }
+    this.router.navigate(['/usuarios'])
+    swal.fire('Error', 'No se realizó la acción', 'error');
+    return this.getUsuario(administrarpuntos.numct)
+   // Observable <this.mensaje> = this.http.put<string>(`${this.urlEndPoint}/suma/${numct}`, {headers: this.httpHeaders});
+   // return "";
+  //}
+
+  }
 }
+

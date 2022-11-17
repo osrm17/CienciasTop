@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
 import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
+import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/productos', pathMatch: 'full' },
@@ -23,7 +24,9 @@ const routes: Routes = [
   { path: 'existencias', component: ExistenciasComponent},
   { path: 'productos/form', component: FormComponentProducto},
   { path: 'usuarios/form', component: FormComponentUsuario},
-  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent}
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
+  { path: 'usuarios/formsuma', component: FormSumaPuntosComponent},
+  { path: 'usuarios/formresta', component: FormRestaPuntosComponent}
 ]
 
 @NgModule({
@@ -37,7 +40,8 @@ const routes: Routes = [
     FormComponentUsuario,
     ExistenciasComponent,
     FormeditarComponent,
-    FormSumaPuntosComponent
+    FormSumaPuntosComponent,
+    FormRestaPuntosComponent
   ],
   imports: [
     BrowserModule,

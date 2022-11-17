@@ -3,7 +3,6 @@ import { Usuario } from './usuario';
 import { UsuarioService } from './usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-formeditar',
