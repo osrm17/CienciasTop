@@ -14,6 +14,8 @@ import { FormComponentUsuario } from './usuarios/form.component';
 import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
+import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
+import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component';
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'productos/form', component: FormComponentProducto},
   { path: 'usuarios/form', component: FormComponentUsuario},
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
+  { path: 'usuarios/formsuma', component: FormSumaPuntosComponent},
+  { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
   { path: 'existencias', component: ExistenciasComponent },
@@ -48,6 +52,8 @@ const routes: Routes = [
     FormComponentUsuario,
     ExistenciasComponent,
     FormeditarComponent,
+    FormSumaPuntosComponent,
+    FormRestaPuntosComponent,
     FormbuscarComponent,
     RestablecerContraComponent
   ],
