@@ -1,0 +1,47 @@
+<section style="background-color: #79BAEC">
+
+    <div class="card bg-warning text-center container my-2">
+        <h5 class="card-title">{{titulo}}</h5>
+    </div>
+
+<div class="card bg-dark text-white container my-2">
+    <div class="card-body">
+
+        <form (ngSubmit)="restablece()">
+
+
+            <div class="form-group">
+                <label for="">Número de C/T</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa el número de cuenta o trabajador">
+                </div>  
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="">Nueva contraseña</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.nuevaContra" name   ="nuevaContra" id="" aria-describedby="" placeholder="Ingresa su nueva contraseña">
+                </div>  
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="">Confirmacion de nueva contraseña</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="restablecer.confirmacionContra" name   ="confirmacionContra" id="" aria-describedby="" placeholder="Ingrese de nuevo la contraseña">
+                </div>  
+            </div>
+            <br>
+
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-info" role="button">Restablecer</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</section>

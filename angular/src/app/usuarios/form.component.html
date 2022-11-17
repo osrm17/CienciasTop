@@ -1,99 +1,100 @@
-<div class="card bg-dark text-white container my-2">
-    <div class="card-header">{{titulo}}</div>
-    <div class="card-body">
-
-        <form (ngSubmit)="create()">
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Número de C/T</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.numct" name="numct">
-                </div>
-            </div>
-            <br>
-
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Nombre(s)</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Apellido paterno</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.paterno" name="paterno">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Apellido materno</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.materno" name="materno">
-                </div>
-            </div>
-            <br>
-
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Correo</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Teléfono</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Contraseña</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.contrasenia" name="contrasenia">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Puma Puntos</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.pumaPuntos" name="pumaPuntos">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">¿Es proveedor?</label>
-                <div class="col-sm-6">
-                    <input type="boolean" class="form-control" [(ngModel)]="usuario.esProveedor" name="esProveedor">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">¿Es administrador?</label>
-                <div class="col-sm-6">
-                    <input type="boolean" class="form-control" [(ngModel)]="usuario.esAdministrador" name="esAdministrador">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Agregar</button>
-                </div>
-            </div>
-        </form>
+<section style="background-color: #79BAEC">
+    <br>
+    <div class="card bg-warning text-center container my-2">
+        <h5 class="card-title">{{titulo}}</h5>
     </div>
-</div>
 
+    <div class="card bg-dark text-white container my-2">
+        <div class="card-body">
 
+            <form (ngSubmit)="create()">
+                
+                <div class="form-group">
+                    <label for="">Número de C/T</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa el número de cuenta o trabajador">
+                    </div>  
+                </div>
+                <br>
 
-            
+                <div class="form-group">
+                    <label for="">Nombre(s)</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name   ="nombre" id="" aria-describedby="" placeholder="Ingresa el nombre(s)">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Apellido paterno</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.paterno" name   ="paterno" id="" aria-describedby="" placeholder="Ingresa el apellido paterno">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Apellido materno</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.materno" name   ="materno" id="" aria-describedby="" placeholder="Ingresa el apellido materno">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Correo</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.correo" name   ="correo" id="" aria-describedby="" placeholder="Ingresa correo institucional">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Teléfono</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.celular" name   ="celular" id="" aria-describedby="" placeholder="Ingresa un número telefónico">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Contraseña</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.contrasenia" name   ="contrasenia" id="" aria-describedby="" placeholder="Ingresa una contraseña">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Puma puntos</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.pumaPuntos" name   ="pumaPuntos" id="" aria-describedby="" placeholder="Ingresa la cantidad de puma puntos">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">¿Es proveedor?</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.esProveedor" name   ="esProveedor" id="" aria-describedby="" placeholder="Ingresa true o false">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">¿Es administrador?</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.esAdministrador" name   ="esAdministrador" id="" aria-describedby="" placeholder="Ingresa true o false">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-info" role="button">Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

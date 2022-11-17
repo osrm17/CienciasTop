@@ -1,13 +1,13 @@
 export class Usuario {
 
-    numct: String;
-    contrasenia: String;
-    nombre: String;
-    paterno: String;
-    materno: String;
+    numct: string;
+    contrasenia: string;
+    nombre: string;
+    paterno: string;
+    materno: string;
     estaActivo: boolean;
-    correo: String;
-    celular: String;
+    correo: string;
+    celular: string;
     pumaPuntos: number;
     esProveedor: boolean;
     esAdministrador: boolean;

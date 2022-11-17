@@ -7,6 +7,7 @@ import { catchError, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,19 +20,49 @@ export class UsuarioService {
 
   public errorObject = null;
 
+
   constructor(private http: HttpClient, private router: Router) { }
 
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.urlEndPoint);
   }
 
-   create(usuario: Usuario): Observable<Usuario> {
+  create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.urlEndPoint, usuario, { headers: this.httpHeaders }).pipe(
       catchError(err => {
         swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
         this.errorObject = err;
         return throwError(err);
       }));
+  }
+
+  //Método auxiliar que retorna un usuario es especifico
+  getUsuario(numct: string): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.urlEndPoint}/${numct}`).pipe(
+      catchError(err => {
+        this.router.navigate(['/usuarios']);
+        swal.fire('Error al obtener usuario', err.error.mensaje, 'error');
+        return throwError(() => err);
+      })
+    );
+  }
+
+  update(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.urlEndPoint}/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
+        this.errorObject = err;
+        return throwError(err);
+      }));
+  }
+
+  delete(numct: string): Observable<Usuario>{
+    return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        swal.fire('Error al eliminar usuario', err.error.mensaje, 'error');
+        return throwError(() => err);
+      })
+    );
   }
 
 }
