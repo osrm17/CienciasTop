@@ -14,6 +14,7 @@ import { FormComponentUsuario } from './usuarios/form.component';
 import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
+import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/productos', pathMatch: 'full' },
@@ -35,7 +36,8 @@ const routes: Routes = [
     FormComponentProducto,
     FormComponentUsuario,
     ExistenciasComponent,
-    FormeditarComponent
+    FormeditarComponent,
+    FormSumaPuntosComponent
   ],
   imports: [
     BrowserModule,
