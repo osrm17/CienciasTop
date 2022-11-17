@@ -24,34 +24,30 @@ export class RestablecerContraComponent implements OnInit {
 
   public restablece(): void {
 
-    console.log(this.restablecer);
-
     if (this.restablecer.nuevaContra != this.restablecer.confirmacionContra) {
       swal.fire('Contrasenia no actualizada', `Las contrasenias no coindicen`, 'error');
+      return;
     }
 
-    this.usuarioService.getUsuario(this.restablecer.numct).subscribe((usuario) => {
-      if (usuario == null)
+    this.usuarioService.getUsuario(this.restablecer.numct).subscribe((usuario) =>
+    {
+
+      if (usuario == null) {
         swal.fire('Contrasenia no actualizada', `Usuario no existe en el sistema o las contrasenia no es valida`, 'error');
+        return;
+      }
+      
       this.usuario = usuario;
 
       usuario.contrasenia = this.restablecer.nuevaContra;
       
-      this.usuarioService.update(this.usuario).subscribe(() => {
-        this.router.navigate(['/usuarios'])
-        swal.fire('Contrasenia restablecida', `El usuario ${this.usuario.nombre} ha sido restablecido contrasenia`, 'success')
-      }
-      )
+      this.usuarioService.update(this.usuario).subscribe(() =>
+      {
+        this.router.navigate(['/usuarios']);
+        swal.fire('Contrasenia restablecida', `El usuario ${this.usuario.nombre} ha sido restablecido contrasenia`, 'success');
+      })
     });
 
-  }
-
-  private update(): void {
-    this.usuarioService.update(this.usuario).subscribe(() => {
-      this.router.navigate(['/usuarios'])
-      swal.fire('Contrasenia restablecida', `El usuario ${this.usuario.nombre} ha sido restablecido contrasenia`, 'success')
-    }
-    )
   }
 
 
