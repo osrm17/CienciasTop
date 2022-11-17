@@ -35,7 +35,7 @@ export class FormRestaPuntosComponent implements OnInit {
     this.usuarioService.restaPuntos(this.usuario).subscribe(usuario => 
       {
       this.router.navigate(['/usuarios'])
-      swal.fire('Éxito', `Ahora tienes ${this.usuario.pumaPuntos} PumaPuntos menos.`, 'success')
+      swal.fire('Cambios realizados.', `PumaPuntos utilizados.`, 'success')
       }
     )
   }

@@ -33,7 +33,7 @@ export class FormSumaPuntosComponent implements OnInit {
     this.usuarioService.sumaPuntos(this.usuario).subscribe(usuario => 
       {
       this.router.navigate(['/usuarios'])
-      swal.fire('Cambios realizados', `Ahora tienes ${this.usuario.pumaPuntos} PumaPuntos más`, 'success')
+      swal.fire('Cambios realizados', `PumaPuntos acumulados.`, 'success')
       }
     )
   }

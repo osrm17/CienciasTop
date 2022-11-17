@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { AdministrarPuntos } from './administrarpuntos';
 
 
 @Injectable({
@@ -59,7 +58,7 @@ export class UsuarioService {
   sumaPuntos(usuario: Usuario): Observable<Usuario>{
     return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
       catchError(err => {
-        this.router.navigate(['/usuarios'])
+        //this.router.navigate(['/usuarios'])
         swal.fire('Error', "No se pudieron añadir los PumaPuntos", 'error');
         this.errorObject = err;
         return throwError(err);
@@ -77,19 +76,5 @@ export class UsuarioService {
       }));
   }
 
-  sumaPuntos1(administrarpuntos: AdministrarPuntos): Observable<Usuario>{
-    if(this.http.put<Usuario>(`${this.urlEndPointSuma}/suma/${administrarpuntos.numct}`,administrarpuntos, {headers: this.httpHeaders}) != null){
-      //this.router.navigate(['/usuarios'])
-      swal.fire('Éxito', 'Se añadieron exitosamente los PumaPuntos', 'success');
-      return this.getUsuario(administrarpuntos.numct)
-    }
-    this.router.navigate(['/usuarios'])
-    swal.fire('Error', 'No se realizó la acción', 'error');
-    return this.getUsuario(administrarpuntos.numct)
-   // Observable <this.mensaje> = this.http.put<string>(`${this.urlEndPoint}/suma/${numct}`, {headers: this.httpHeaders});
-   // return "";
-  //}
-
-  }
 }
 
