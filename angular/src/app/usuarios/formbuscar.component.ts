@@ -6,17 +6,16 @@ import swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-formbuscar',
+  templateUrl: './formbuscar.component.html',
+  styleUrls: ['./formbuscar.component.css']
 })
-export class FormComponentUsuario implements OnInit {
+export class FormbuscarComponent implements OnInit {
 
   titulo: string = "BUSCAR USUARIO"
   usuario: Usuario = new Usuario()
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
-
 
   ngOnInit(): void {
     this.cargarUsuario()
@@ -31,11 +30,11 @@ export class FormComponentUsuario implements OnInit {
     })
   }
 
-  public create():void{
-    this.usuarioService.create(this.usuario).subscribe(usuario =>
+  public update():void{
+    this.usuarioService.update(this.usuario).subscribe(usuario =>
       {
-        this.router.navigate(['/usuarios'])
-        swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} se ha agregado con éxito`, 'success')
+      this.router.navigate(['/usuarios'])
+      swal.fire('Usuario actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success')
       }
     )
   }

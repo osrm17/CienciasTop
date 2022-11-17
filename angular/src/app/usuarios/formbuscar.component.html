@@ -12,6 +12,86 @@
                     </div>
                 </div>
                 <br>
+
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Nombre(s)</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Apellido paterno</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.paterno" name="paterno">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Apellido materno</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.materno"   name="materno">
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Correo</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.correo" name   ="correo">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Teléfono</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.celular"   name="celular">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Contraseña</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.contrasenia"    name="contrasenia">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">Puma Puntos</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.pumaPuntos"    name="pumaPuntos">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">¿Es proveedor?</label>
+                    <div class="col-sm-6">
+                        <input type="boolean" class="form-control" [(ngModel)]="    usuario.esProveedor" name="esProveedor">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <label for="" class="col-form-label col-sm-2">¿Es administrador?</label>
+                    <div class="col-sm-6">
+                        <input type="boolean" class="form-control" [(ngModel)]="    usuario.esAdministrador" name="esAdministrador">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-warning" role="button">Agregar</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
