@@ -31,7 +31,7 @@ export class FormeditarComponent implements OnInit {
   }
 
   public update():void{
-    this.usuarioService.update(this.usuario).subscribe(usuario => 
+    this.usuarioService.update(this.usuario).subscribe(usuario =>
       {
       this.router.navigate(['/usuarios'])
       swal.fire('Usuario actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success')

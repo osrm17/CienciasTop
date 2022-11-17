@@ -30,11 +30,11 @@ export class FormbuscarComponent implements OnInit {
     })
   }
 
-  public update():void{
-    this.usuarioService.update(this.usuario).subscribe(usuario =>
+  public create():void{
+    this.usuarioService.create(this.usuario).subscribe(usuario =>
       {
-      this.router.navigate(['/usuarios'])
-      swal.fire('Usuario actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success')
+        this.router.navigate(['/usuarios'])
+        swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} se ha agregado con éxito`, 'success')
       }
     )
   }
