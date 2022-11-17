@@ -29,13 +29,4 @@ export class FormbuscarComponent implements OnInit {
       }
     })
   }
-
-  public create():void{
-    this.usuarioService.create(this.usuario).subscribe(usuario =>
-      {
-        this.router.navigate(['/usuarios'])
-        swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} se ha agregado con éxito`, 'success')
-      }
-    )
-  }
 }
