@@ -1,71 +1,76 @@
-<br>
-<div class="container">
-<div class="card bg-dark text-white">
-    <div class="card-header">{{titulo}}</div>
-    <div class="card-body">
-        <form (ngSubmit)="create()">
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Codigo</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="producto.codigo" name="codigo">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">numct proveedor </label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="producto.numct" name="numct">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Nombre</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="producto.nombre" name="nombre">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Costo en puntos</label>
-                <div class="col-sm-6">
-                    <input type="number" class="form-control" [(ngModel)]="producto.costoPuntos" name="costoPuntos" max="500" min="1">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Dias de renta</label>
-                <div class="col-sm-6">
-                    <input type="number" class="form-control" [(ngModel)]="producto.diasRenta" name="diasRenta" max="7" min="3">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">descripcion</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name="descripcion">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">existencias</label>
-                <div class="col-sm-6">
-                    <input type="number" class="form-control" [(ngModel)]="producto.existencias" name="descripcion">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Agregar</button>
-                </div>
-            </div>
-        </form>
+<section style="background-color: #79BAEC">
+    <br>
+    <div class="card bg-warning text-center container my-2">
+        <h5 class="card-title">{{titulo}}</h5>
     </div>
-</div>
-</div>
+
+    <div class="card bg-dark text-white container my-2">
+        <div class="card-body">
+
+            <form (ngSubmit)="create()">
+                
+                <div class="form-group">
+                    <label for="">Código</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="producto.codigo" name   ="codigo" id="" aria-describedby="" placeholder="Ingresa el código del producto">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Número de trabajador</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="producto.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa tu número de trabajador">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="producto.nombre" name   ="nombre" id="" aria-describedby="" placeholder="Ingresa el nombre del producto">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Costo en puma puntos</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" [(ngModel)]="producto.costoPuntos" name="costoPuntos" max="500" min="1" id="" aria-describedby="" placeholder="Ingresa el costo del producto en puma puntos">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Días en renta</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" [(ngModel)]="producto.diasRenta" name="diasRenta" max="7" min="3" id="" aria-describedby="" placeholder="Ingresa la cantidad de días que puede ser rentado el producto">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Descripción</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name   ="descripcion" id="" aria-describedby="" placeholder="Ingresa una breve descripción del producto">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="">Número de existencias</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" [(ngModel)]="producto.existencias" name   ="existencias" id="" aria-describedby="" placeholder="Ingresa la cantidad de existencias del producto">
+                    </div>  
+                </div>
+                <br>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-info" role="button">Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
