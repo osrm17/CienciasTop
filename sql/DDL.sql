@@ -121,7 +121,7 @@ numero de cuenta del usuario que agrega el producto.';
 
 -- Existencia
 ALTER TABLE ctop.existencia ADD CONSTRAINT existencia_fkey FOREIGN KEY(codigo)
-REFERENCES ctop.producto(codigo);
+REFERENCES ctop.producto(codigo) ON DELETE CASCADE;
 COMMENT ON CONSTRAINT existencia_fkey ON ctop.existencia IS 'Llave foranea de la tabla existencia que hace referencia al producto
 correspondiente en la tabla producto.';
 
@@ -131,5 +131,5 @@ REFERENCES ctop.usuario(numct);
 COMMENT ON CONSTRAINT rentar_fkey1 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia al usuario que renta.';
 
 ALTER TABLE ctop.rentar ADD CONSTRAINT rentar_fkey2 FOREIGN KEY(idExistencia)
-REFERENCES ctop.existencia(id);
+REFERENCES ctop.existencia(id) ON DELETE CASCADE;
 COMMENT ON CONSTRAINT rentar_fkey2 ON ctop.rentar IS 'Llave foranea de la tabla rentar que hace referencia a la existencia que se renta.';

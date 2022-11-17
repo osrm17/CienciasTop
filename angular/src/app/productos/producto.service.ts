@@ -29,4 +29,8 @@ export class ProductoService {
         return throwError(err);
       }));
   }
+
+  delete(codigo: String): Observable<Producto>{
+    return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
+  }
 }
