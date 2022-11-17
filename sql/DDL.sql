@@ -13,7 +13,7 @@ CREATE TABLE ctop.usuario(
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),
     estaActivo BOOLEAN NOT NULL DEFAULT TRUE,
-    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
+    correo VARCHAR(60) NOT NULL CHECK(correo <> '' AND correo ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+.unam.mx$'),
     celular CHAR(10) NOT NULL CHECK(celular ~ '^\d*$' AND CHAR_LENGTH(celular) = 10),
     pumaPuntos INT NOT NULL CHECK(pumaPuntos <= 500 AND pumaPuntos >= 0),
     esProveedor BOOLEAN NOT NULL DEFAULT FALSE,
