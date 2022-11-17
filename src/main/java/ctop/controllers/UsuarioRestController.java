@@ -94,28 +94,40 @@ public class UsuarioRestController {
     @PutMapping("/usuarios/sumar/{numct}")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario sumar(@RequestBody Usuario nuevo, @PathVariable String numct){
+    	int total = 0;
     	Usuario usuario = usuarioService.findById(numct);
-    	if(usuario != null) {
-    		int puntos = usuario.getPumaPuntos();
-    		usuario.setPumaPuntos(puntos + nuevo.getPumaPuntos());
+    	if(usuario == null)
+    		throw new RuntimeException("Usuario no existe.");
+    	if(usuario.getPumaPuntos() == 500)
+    		throw new RuntimeException("Haz alcanzado el máximo número de Puma Puntos.");
+
+    	total = usuario.getPumaPuntos() + nuevo.getPumaPuntos();
+    	if(total>500) {
+    		total = 500;
+    		usuario.setPumaPuntos(total);
     		usuarioService.save(usuario);
-            return usuario;
+    		return usuario;
     	}
-    	throw new RuntimeException("Usuario no existe.");
+    	usuario.setPumaPuntos(total);
+    	usuarioService.save(usuario);
+    	return usuario;
     }
-    
     
     @PutMapping("/usuarios/restar/{numct}")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario restar(@RequestBody Usuario nuevo, @PathVariable String numct){
     	Usuario usuario = usuarioService.findById(numct);
-    	if(usuario != null) {
-    		int puntos = usuario.getPumaPuntos();
-    		usuario.setPumaPuntos(puntos - nuevo.getPumaPuntos());
-    		usuarioService.save(usuario);
-            return usuario;
-    	}
-    	throw new RuntimeException("Usuario no existe.");
+    	int total;
+    	if(usuario == null)
+    		throw new RuntimeException("Usuario no existe.");
+    	if(usuario.getPumaPuntos() == 0) 
+    		throw new RuntimeException( "Tienes 0 PumaPuntos disponibles.");
+    	if(nuevo.getPumaPuntos()>usuario.getPumaPuntos())
+    		throw new RuntimeException( "No tienes suficientes PumaPuntos");
+    	total = usuario.getPumaPuntos() - nuevo.getPumaPuntos();
+    	usuario.setPumaPuntos(total);
+    	usuarioService.save(usuario);
+    	return usuario;
     }
     
     
