@@ -1,27 +1,29 @@
 <section style="background-color: #79BAEC">
 <div class="card bg-dark text-white container my-2">
-    <div class="card-header">{{titulo}}</div>
+    
+    <h5><div class="card-header">{{titulo}}</div></h5>
     <div class="card-body">
         
         <form (ngSubmit)="sumar()">
             <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Número de cuenta o de trabajador</label>
-                <div class="col-sm-6">
+               <h5><label for="" class="col-form-label col-sm-2">Número de cuenta o de trabajador</label></h5>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" [(ngModel)]="usuario.numct" name="numct">
                 </div>
             </div>
             <br>
                 
             <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">PumaPuntos</label>
-                <div class="col-sm-6">
+                <h5><label for="" class="col-form-label col-sm-2">PumaPuntos</label></h5>
+                <div class="col-sm-3">
                     <input type="number" min="1" max="500" class="form-control" [(ngModel)]="usuario.pumaPuntos" name="pumaPuntos">
                 </div>
             </div>        
-        
+            <br>
+            <br>
             <div class="from-group row">
-                <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Sumar</button>
+                <div class="col-sm-3">
+                   <h5> <button class="btn btn-primary" role="button">Sumar</button></h5>
                 </div>
             </div>
         </form>
