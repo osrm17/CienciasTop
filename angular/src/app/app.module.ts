@@ -14,6 +14,7 @@ import { FormComponentUsuario } from './usuarios/form.component';
 import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
 import { FormeditarComponent } from './usuarios/formeditar.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/productos', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'existencias', component: ExistenciasComponent},
   { path: 'productos/form', component: FormComponentProducto},
   { path: 'usuarios/form', component: FormComponentUsuario},
-  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent}
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
+  { path: '**',component:ErrorPersonalizadoComponent}//dejen esta linea hasta abajo
 ]
 
 @NgModule({
