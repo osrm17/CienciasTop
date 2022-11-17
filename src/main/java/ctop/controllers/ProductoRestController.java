@@ -1,7 +1,12 @@
 package ctop.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +27,7 @@ import ctop.model.service.ServiceInterface;
  * 
  * @version 1.0
  */
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/api")
 public class ProductoRestController {
@@ -42,8 +47,24 @@ public class ProductoRestController {
 
     @PostMapping("/productos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Producto create(@RequestBody Producto producto) {
-        return productoService.save(producto);
+    public ResponseEntity<?> create(@RequestBody Producto producto) {
+        Producto productoNuevo = null;
+        Map<String, Object> response = new HashMap<>();
+        try {
+            if (null != productoService.findById(producto.getCodigo())) {
+                response.put("mensaje", "Error al agregar el producto en la base de datos.");
+                response.put("error", "Llave duplicada en los productos.");
+                return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+            }
+            productoNuevo = productoService.save(producto);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al agregar el producto en la base de datos.");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.put("mensaje", "¡El producto ha sido agregado con éxito!");
+        response.put("producto", productoNuevo);
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("/productos/{codigo}")
