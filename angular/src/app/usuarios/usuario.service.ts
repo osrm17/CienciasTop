@@ -38,7 +38,13 @@ export class UsuarioService {
 
   //Método auxiliar que retorna un usuario es especifico
   getUsuario(numct: string): Observable<Usuario>{
-    return this.http.get<Usuario>(`${this.urlEndPoint}/${numct}`)
+    return this.http.get<Usuario>(`${this.urlEndPoint}/${numct}`).pipe(
+      catchError(err => {
+        this.router.navigate(['/usuarios']);
+        swal.fire('Error al obtener usuario', err.error.mensaje, 'error');
+        return throwError(() => err);
+      })
+    );
   }
 
   update(usuario: Usuario): Observable<Usuario>{
@@ -51,7 +57,12 @@ export class UsuarioService {
   }
 
   delete(numct: string): Observable<Usuario>{
-    return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.httpHeaders})
+    return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.httpHeaders}).pipe(
+      catchError(err => {
+        swal.fire('Error al eliminar usuario', err.error.mensaje, 'error');
+        return throwError(() => err);
+      })
+    );
   }
 
 }
