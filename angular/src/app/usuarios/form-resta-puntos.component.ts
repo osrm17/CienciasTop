@@ -5,20 +5,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-formeditar',
-  templateUrl: './formeditar.component.html',
-  styleUrls: ['./formeditar.component.css']
+  selector: 'app-form-resta-puntos',
+  templateUrl: './form-resta-puntos.component.html',
+  styleUrls: ['./form-resta-puntos.component.css']
 })
-export class FormeditarComponent implements OnInit {
+export class FormRestaPuntosComponent implements OnInit {
 
-  titulo: string = "EDITAR USUARIO"
+  titulo: string = "Restar Puntos"
   usuario: Usuario = new Usuario()
+  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { 
 
-  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
+  }
 
   ngOnInit(): void {
     this.cargarUsuario()
   }
+
 
   cargarUsuario(): void{
     this.activateRoute.params.subscribe(params => {
@@ -29,12 +31,13 @@ export class FormeditarComponent implements OnInit {
     })
   }
 
-  public update():void{
-    this.usuarioService.update(this.usuario).subscribe(usuario =>
+  public restar():void{
+    this.usuarioService.restaPuntos(this.usuario).subscribe(usuario => 
       {
       this.router.navigate(['/usuarios'])
-      swal.fire('Usuario actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success')
+      swal.fire('Cambios realizados.', `PumaPuntos utilizados.`, 'success')
       }
     )
   }
+
 }

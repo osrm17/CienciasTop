@@ -29,6 +29,7 @@ export class ProductoService {
         this.errorObject = err;
         return throwError(err);
       }));
+<<<<<<< HEAD
     }
 
     update (producto: Producto): Observable<Producto> {
@@ -39,4 +40,11 @@ export class ProductoService {
           return throwError(err);
         }));
     }
+=======
+  }
+
+  delete(codigo: String): Observable<Producto>{
+    return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
+  }
+>>>>>>> origin/main
 }
