@@ -3,9 +3,6 @@
     <form class="container-fluid justify-content-start">
       <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
         Productos</button>
-
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/formeditar']">Editar
-          Productos</button>
     </form>
     <br>
   </nav>
@@ -14,13 +11,14 @@
   <table class="table table-striped table-hover">
     <thead class="table-primary">
       <tr>
-        <th scope="col">codigo</th>
-        <th scope="col">numct</th>
-        <th scope="col">nombre</th>
-        <th scope="col">costo puntos</th>
-        <th scope="col">dias de renta</th>
-        <th scope="col">descripcion</th>
-        <th scope="col"></th>>
+        <th scope="col">Código</th>
+        <th scope="col">Número de cuenta</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Costo en puma puntos</th>
+        <th scope="col">Días de Renta</th>
+        <th scope="col">Descripción</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +30,7 @@
         <td>{{producto.diasRenta}}</td>
         <td>{{producto.descripcion}}</td>
         <td><button class="btn btn-danger" (click)="delete(producto)">Eliminar</button></td>
+        <td><button class="btn btn-success"[routerLink]="['/productos/formeditar', producto.codigo]">Editar</button></td>
       </tr>
     </tbody>
   </table>

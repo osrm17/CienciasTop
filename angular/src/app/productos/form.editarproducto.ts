@@ -18,12 +18,11 @@ titulo: string = "EDITAR PRODUCTO"
 
   constructor(private productoService: ProductoService, private router: Router) { }
 
-
   ngOnInit(): void {
     this.cargarProducto();
   }
 
-  cargarProducto(): void{
+  cargarProducto() : void{
     this.productoService.getProductos().subscribe(producto => {
       this.router.navigate(['productos/formeditar'])
     }
