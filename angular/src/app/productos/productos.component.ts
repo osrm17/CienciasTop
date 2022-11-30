@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Producto } from './producto';
 import { ProductoService } from './producto.service';
 
@@ -20,6 +21,36 @@ export class ProductosComponent implements OnInit {
     );
   }
 
-  
+  delete(producto: Producto): void {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+      title: '¿Está seguro?',
+      text: `¿Está seguro que desea eliminar ${producto.nombre}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoService.delete(producto.codigo).subscribe(
+          Response => {
+            this.productos =  this.productos.filter(prod => prod !== producto)
+            swalWithBootstrapButtons.fire(
+              '¡Producto eliminado!',
+              'El producto se ha eliminado con éxito.',
+              'success'
+            )
+          }
+        )
+      }
+    })
+  }
 
 }

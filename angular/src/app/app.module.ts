@@ -9,16 +9,36 @@ import { ProductosComponent } from './productos/productos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormComponent } from './productos/form.component';
+import { FormComponentProducto } from './productos/form.component';
+import { FormComponentUsuario } from './usuarios/form.component';
 import { FormsModule } from '@angular/forms';
 import { ExistenciasComponent } from './existencias/existencias.component';
+import { FormeditarComponent } from './usuarios/formeditar.component';
+import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
+import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component';
+import { FormbuscarComponent } from './usuarios/formbuscar.component';
+import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
+import { PerfilesComponent } from './perfiles/perfiles.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/productos', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'productos', component: ProductosComponent},
   { path: 'existencias', component: ExistenciasComponent},
-  { path: 'productos/form', component: FormComponent}
+  { path: 'productos/form', component: FormComponentProducto},
+  { path: 'usuarios/form', component: FormComponentUsuario},
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
+  { path: 'usuarios/formsuma', component: FormSumaPuntosComponent},
+  { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
+  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
+  { path: 'productos', component: ProductosComponent },
+  { path: 'existencias', component: ExistenciasComponent },
+  { path: 'productos/form', component: FormComponentProducto },
+  { path: 'usuarios/form', component: FormComponentUsuario },
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
+  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
+  { path: 'restablecer-contra', component: RestablecerContraComponent },
+  { path: 'mi-perfil', component: PerfilesComponent}
 ]
 
 @NgModule({
@@ -28,8 +48,14 @@ const routes: Routes = [
     FooterComponent,
     ProductosComponent,
     UsuariosComponent,
-    FormComponent,
-    ExistenciasComponent
+    FormComponentProducto,
+    FormComponentUsuario,
+    ExistenciasComponent,
+    FormeditarComponent,
+    FormSumaPuntosComponent,
+    FormRestaPuntosComponent,
+    FormbuscarComponent,
+    RestablecerContraComponent
   ],
   imports: [
     BrowserModule,

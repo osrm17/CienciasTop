@@ -1,18 +1,19 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">CienciasTop</a>
+        <a class="navbar-brand">CienciasTop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" routerLinkActive="active" aria-current="page" href="#">Mi Perfil</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil">Mi Perfil</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/usuarios">Usuarios</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/productos">Productos</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/existencias">Existencias</a>
-                <a class="nav-link disabled" href="#">Reportes</a>
-                <a class="nav-link disabled"></a>
+                <a class="nav-link disabled">Reportes</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/restablecer-contra">Restablecer contrasenia</a>
+                <a class="nav-link disabled">Cerrar Sesion</a>
             </div>
         </div>
     </div>
