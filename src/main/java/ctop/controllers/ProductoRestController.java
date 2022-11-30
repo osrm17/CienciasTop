@@ -36,18 +36,19 @@ public class ProductoRestController {
     @Autowired
     private ServiceInterface<Producto, String> productoService;
 
-    @Secured({"ROLE_ADMIN","ROLE_USER"})
+    @Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
     @GetMapping("/productos")
     public Iterable<Producto> index() {
         return productoService.findAll();
     }
 
-    @Secured("ROLE_ADMIN")
+    @Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
     @GetMapping("/productos/{codigo}")
     public Producto show(@PathVariable String codigo) {
         return productoService.findById(codigo);
     }
 
+    @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PostMapping("/productos")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody Producto producto) {
@@ -70,6 +71,7 @@ public class ProductoRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
+    @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PutMapping("/productos/{codigo}")
     @ResponseStatus(HttpStatus.CREATED)
     public Producto update(@RequestBody Producto nuevo, @PathVariable String codigo) {
@@ -84,6 +86,7 @@ public class ProductoRestController {
         return actual;
     }
 
+    @Secured({ "ROLE_ADMIN" })
     @DeleteMapping("/productos/{codigo}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String codigo) {
