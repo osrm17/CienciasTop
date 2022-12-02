@@ -69,7 +69,7 @@
                     <div class="col-sm-6">
                         <button class="btn btn-info" role="button" (click)="create()" *ngIf="producto.codigo else elseBlock">Agregar</button>
                         <ng-template #elseBlock>
-                            <button class="btn btn-secondary" role="button" (click)="update()">Actualizar</button>
+                            <button class="btn btn-success" role="button" (click)="update()">Actualizar</button>
                         </ng-template>
                     </div>
                 </div>
