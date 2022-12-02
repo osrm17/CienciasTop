@@ -1,0 +1,41 @@
+
+<nav class="navbar bg-light">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
+        Productos</button>
+    </form>
+    
+    <br>
+  </nav>
+    <br>
+<div class="container-fluid">
+  <table class="table table-striped table-hover">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Número de cuenta</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Costo en puma puntos</th>
+        <th scope="col">Días de Renta</th>
+        <th scope="col">Descripción</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <th scope="row">{{producto.codigo}}</th>
+        <td>{{producto.numct}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.costoPuntos}}</td>
+        <td>{{producto.diasRenta}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td><button class="btn btn-danger" (click)="delete(producto)">Eliminar</button></td>
+        <td><div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
+          <button class="btn btn-primary" [routerLink]="['/productos/form', productos.codigo]">Editar</button>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

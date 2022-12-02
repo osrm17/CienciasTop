@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
+  { path: 'productos/form/:codigo', component: FormComponentProducto},
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'productos/form', component: FormComponentProducto },
   { path: 'usuarios/form', component: FormComponentUsuario },
