@@ -68,7 +68,6 @@ public class ProductoRestController {
     }
 
     @PutMapping("/productos/{codigo}")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody Producto nuevo, @PathVariable String codigo) {
         Producto actual = this.productoService.findById(codigo);
         Producto productoUpdate = null;
@@ -78,6 +77,7 @@ public class ProductoRestController {
             response.put("mensaje", "Error: no se puede editar el producto ".concat(codigo.toString().concat(" porque no existe en la base de datos.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
+
         try {
             actual.setCodigo(nuevo.getCodigo());
             actual.setNumct(nuevo.getNumct());
