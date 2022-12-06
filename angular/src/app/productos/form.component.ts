@@ -26,15 +26,16 @@ export class FormComponentProducto implements OnInit {
 
   cargarProducto(): void{
     this.activatedRoute.params.subscribe(params => {
-      let codigo = params['codigo']
-      if(codigo){
-        this.productoService.getProducto(codigo).subscribe((productos)=> this.productos = productos)
+      let numct= params['numct']
+      if(numct){
+        this.productoService.getProducto(numct).subscribe((productos)=> this.productos = productos)
       }
     })
   }
 
   public update():void{
-    this.productoService.update(this.productos).subscribe(productos => {
+    this.productoService.update(this.productos).subscribe(productos => 
+      {
       this.router.navigate(['/productos'])
       swal.fire('Producto actualizado', `El producto ${this.productos.nombre} ha sido actualizado con éxito`, 'success')
       }

@@ -41,8 +41,23 @@ public class ProductoRestController {
     }
 
     @GetMapping("/productos/{codigo}")
-    public Producto show(@PathVariable String codigo) {
-        return productoService.findById(codigo);
+    public ResponseEntity<?> show(@PathVariable String codigo) {
+        Producto producto = null;
+        Map<String, Object> response = new HashMap<>();
+        // Error con el servidor o base de datos.
+        try {
+            producto = productoService.findById(codigo);
+        } catch(DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta del producto en la base de datos.");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //Error con el id ingresado.
+        if(producto == null) {
+            response.put("mensaje", "¡El producto ".concat(codigo.toString().concat(" no existe en la base de datos!")));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Producto>(producto, HttpStatus.OK);
     }
 
     @PostMapping("/productos")
@@ -68,6 +83,7 @@ public class ProductoRestController {
     }
 
     @PutMapping("/productos/{codigo}")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody Producto nuevo, @PathVariable String codigo) {
         Producto actual = this.productoService.findById(codigo);
         Producto productoUpdate = null;
@@ -85,7 +101,7 @@ public class ProductoRestController {
             actual.setCostoPuntos(nuevo.getCostoPuntos());
             actual.setDiasRenta(nuevo.getDiasRenta());
             actual.setDescripcion(nuevo.getDescripcion());
-            productoUpdate = productoService.save(actual);
+            productoUpdate = this.productoService.save(actual);
         }catch(DataAccessException e) {
             response.put("mensaje", "Error al actualizar el producto en la base de datos.");
             response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
