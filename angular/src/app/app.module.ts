@@ -19,6 +19,8 @@ import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
+import { FormeditarpComponent } from './productos/formeditarp.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -32,14 +34,14 @@ const routes: Routes = [
   { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
-  { path: 'productos/form/:codigo', component: FormComponentProducto},
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'productos/form', component: FormComponentProducto },
   { path: 'usuarios/form', component: FormComponentUsuario },
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
-  { path: 'mi-perfil', component: PerfilesComponent}
+  { path: 'mi-perfil', component: PerfilesComponent},
+  { path: 'productos/formeditarp/:codigo', component: FormeditarpComponent }
 ]
 
 @NgModule({
@@ -56,7 +58,8 @@ const routes: Routes = [
     FormSumaPuntosComponent,
     FormRestaPuntosComponent,
     FormbuscarComponent,
-    RestablecerContraComponent
+    RestablecerContraComponent,
+    FormeditarpComponent
   ],
   imports: [
     BrowserModule,

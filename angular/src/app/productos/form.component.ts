@@ -26,9 +26,9 @@ export class FormComponentProducto implements OnInit {
 
   cargarProducto(): void{
     this.activatedRoute.params.subscribe(params => {
-      let numct= params['numct']
-      if(numct){
-        this.productoService.getProducto(numct).subscribe((productos)=> this.productos = productos)
+      let codigo = params['codigo']
+      if(codigo){
+        this.productoService.getProducto(codigo).subscribe((productos)=> this.productos = productos)
       }
     })
   }

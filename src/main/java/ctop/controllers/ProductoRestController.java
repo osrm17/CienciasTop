@@ -83,7 +83,6 @@ public class ProductoRestController {
     }
 
     @PutMapping("/productos/{codigo}")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody Producto nuevo, @PathVariable String codigo) {
         Producto actual = this.productoService.findById(codigo);
         Producto productoUpdate = null;
