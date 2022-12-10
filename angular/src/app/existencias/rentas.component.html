@@ -1,0 +1,24 @@
+<br>
+<div class="container">
+
+<table class="table table-striped table-hover">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Número de cuenta</th>
+      <th scope="col">IdExistencia</th>
+      <th scope="col">Fecha de Devolución</th>
+      <th scope="col">Fecha de Entrega</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let renta of rentas">
+      <th scope="row">{{renta.id}}</th>
+      <td>{{renta.numct}}</td>
+      <td>{{renta.idexistencia}}</td>
+      <td>{{renta.fechadevolucion}}</td>
+      <td>{{renta.fechaentrega}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
