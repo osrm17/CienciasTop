@@ -1,6 +1,8 @@
 package ctop.model.dao;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+// import org.springframework.stereotype.Repository;
 
 import ctop.model.entity.Usuario;
 
@@ -12,4 +14,7 @@ import ctop.model.entity.Usuario;
  */
 public interface UsuarioDAO extends CrudRepository<Usuario, String> {
 
+    @Query(value = "SELECT COUNT(*) FROM ctop.usuario WHERE estaactivo IS FALSE", 
+           nativeQuery = true)
+    public int getInactivos();
 }

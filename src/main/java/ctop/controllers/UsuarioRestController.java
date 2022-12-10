@@ -172,4 +172,6 @@ public class UsuarioRestController {
     	usuarioService.save(usuario);
     	return usuario;
     }
+
+
 }
