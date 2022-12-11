@@ -163,6 +163,7 @@ public class UsuarioRestController {
     	response.put("mensaje", "Se añadieron " + nuevo.getPumaPuntos() + " Pumapuntos.");
     	return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
+ 
     
     @PutMapping("/usuarios/restar/{numct}")
     public ResponseEntity<?> restar(@RequestBody Usuario nuevo, @PathVariable String numct){

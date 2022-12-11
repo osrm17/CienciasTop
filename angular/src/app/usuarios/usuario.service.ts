@@ -15,8 +15,8 @@ import { Router } from '@angular/router';
 export class UsuarioService {
 
   private urlEndPoint: string = 'http://localhost:8080/api/usuarios'
-  private urlEndPointSuma: string = 'http://localhost:8080/api/usuarios/suma'
-  private urlEndPointResta: string = 'http://localhost:8080/api/usuarios/resta'
+  //private urlEndPointSuma: string = 'http://localhost:8080/api/usuarios/suma'
+  //private urlEndPointResta: string = 'http://localhost:8080/api/usuarios/resta'
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   public errorObject = null;
@@ -65,6 +65,7 @@ export class UsuarioService {
       })
     );
   }
+
 
   sumaPuntos(usuario: Usuario): Observable<Usuario>{
     return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
