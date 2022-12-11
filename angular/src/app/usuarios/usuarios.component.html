@@ -7,9 +7,7 @@
     
     <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
     <br>
-    <br>
     <div class="my-2 text-left">
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
       <form>
         Buscar Usuario:<br>
         <input type="text" name="cuenta" value=><br>
@@ -23,18 +21,25 @@
         *ngFor="let usuario of usuarios">
         <div class="card">
           <div class="d-flex justify-content-between p-3">
-            <p class="lead mb-0">{{ usuario.numct }}</p>
-
-
-
-              <div class="bg-danger d-flex align-items-center justify-content-center shadow-1-strong"
-                style="width: 60px; height: 35px">
-                <button class="btn btn-danger" (click)="delete(usuario)">Eliminar</button>
-              </div>
-
+            
               <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
                 <button class="btn btn-primary" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
               </div>
+
+              
+              <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
+                <button class="btn btn-primary" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
+              </div>
+
+              <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
+                <button class="btn btn-primary" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
+              </div>
+
+              <div class="bg-danger d-flex align-items-center justify-content-center shadow-1-strong"
+                style="width: 65px; height: 35px">
+                <button class="btn btn-danger" (click)="delete(usuario)">Eliminar</button>
+              </div>
+
 
           </div>
           <img
@@ -43,6 +48,11 @@
             alt="Usuario"
           />
           <div class="card-body">
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">ID:</h5>
+              <h5 class="text-dark mb-0">{{usuario.numct}}</h5>
+            </div>
 
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-0">Nombre:</h5>

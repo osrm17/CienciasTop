@@ -139,6 +139,12 @@ public class UsuarioRestController {
     	Map<String,Object>response = new HashMap<>();
     	int total = 0;
     	Usuario usuario = usuarioService.findById(numct);
+    	//Valida si la cantidad de Pumapuntos pasada es válida.
+    	if(nuevo.getPumaPuntos() <= 0) {
+    		response.put("mensaje", "Cantidad de Pumapuntos no válida.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
+
     	//Determina si existe el usuario
     	if(usuario == null) {
     		response.put("mensaje", "El usuario " +  numct + " no existe.");
@@ -171,11 +177,16 @@ public class UsuarioRestController {
     	Usuario usuario = usuarioService.findById(numct);
     	int total;
     	
+    	if(nuevo.getPumaPuntos() <= 0) {
+    		response.put("mensaje", "Cantidad de Pumapuntos no válida.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
+    	
     	if(usuario == null) {
     		response.put("mensaje", "El usuario " +  numct + " no existe.");
     		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
-    	}
-
+    	}	
+    	
     	if(usuario.getPumaPuntos() == 0) {
     		response.put("mensaje", "El usuario " + numct + " tiene 0 Pumapuntos.");
     		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
