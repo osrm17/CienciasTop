@@ -1,10 +1,10 @@
-<section style="background-color: #88ABBF ">
+<section style="background-color:#88ABBF">
   <div class="container py-5">
       <div class="my-2 text-left">
      
         <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
         <br>
         <br>
 
@@ -21,8 +21,7 @@
         *ngFor="let usuario of usuarios">
         <div class="card">
           <div class="d-flex justify-content-between p-3">
-            
-             
+
           </div>
           <img
             src="https://cdn-icons-png.flaticon.com/512/74/74472.png"
@@ -31,10 +30,10 @@
           />
           <div class="card-body">
       
-            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Editar</button>
-            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Sumar</button>
-            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Restar</button>
-            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Eliminar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
+            <button class="btn btn-danger me-3" type="button" (click)="delete(usuario)">Eliminar</button>           
             <br>
             <br>
 
