@@ -14,11 +14,15 @@ export class FormbuscarComponent implements OnInit {
 
   titulo: string = "BUSCAR USUARIO"
   usuario: Usuario = new Usuario()
+  usuarios: Usuario[];
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cargarUsuario()
+    this.usuarioService.getUsuarios().subscribe(
+      usuarios => this.usuarios = usuarios
+    );
   }
 
   cargarUsuario(): void{
@@ -28,5 +32,8 @@ export class FormbuscarComponent implements OnInit {
         this.usuarioService.getUsuario(numct).subscribe((usuario)=>this.usuario = usuario)
       }
     })
+  }
+
+  delete(usuario: Usuario): void {
   }
 }
