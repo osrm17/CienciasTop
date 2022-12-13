@@ -17,6 +17,7 @@ import { FormeditarComponent } from './usuarios/formeditar.component';
 import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
 import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component';
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
+import { FormbuscarproductosComponent } from './productos/formbuscarproductos.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 
@@ -30,13 +31,13 @@ const routes: Routes = [
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
   { path: 'usuarios/formsuma', component: FormSumaPuntosComponent},
   { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
-  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'productos/form', component: FormComponentProducto },
   { path: 'usuarios/form', component: FormComponentUsuario },
-  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent },
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
+  { path: 'productos/formbuscarproductos/:codigo', component: FormbuscarproductosComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
   { path: 'mi-perfil', component: PerfilesComponent}
 ]
@@ -55,6 +56,7 @@ const routes: Routes = [
     FormSumaPuntosComponent,
     FormRestaPuntosComponent,
     FormbuscarComponent,
+    FormbuscarproductosComponent,
     RestablecerContraComponent
   ],
   imports: [

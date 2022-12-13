@@ -3,6 +3,7 @@ import { Producto } from './producto';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ProductoService {
 
   public errorObject = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   getProductos(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.urlEndPoint);
@@ -28,6 +29,17 @@ export class ProductoService {
         this.errorObject = err;
         return throwError(err);
       }));
+  }
+
+//Método auxiliar que retorna un producto es especifico
+  getProducto(codigo: string): Observable<Producto>{
+    return this.http.get<Producto>(`${this.urlEndPoint}/${codigo}`).pipe(
+      catchError(err => {
+        this.router.navigate(['/productos']);
+        swal.fire('Error al obtener producto', err.error.mensaje, 'error');
+        return throwError(() => err);
+      })
+    );
   }
 
   delete(codigo: String): Observable<Producto>{
