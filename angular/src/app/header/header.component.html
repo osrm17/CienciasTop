@@ -14,6 +14,22 @@
                 <a class="nav-link disabled">Reportes</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/restablecer-contra">Restablecer contrasenia</a>
                 <a class="nav-link disabled">Cerrar Sesion</a>
+                <ul class="navbar-nav navbar-right">
+                    <li>
+                      <a *ngIf="!authService.isAuthenticated()"  routerLink="/login" class="btn btn-outline-primary">Iniciar sesion</a>
+                    </li>
+          
+                    <li *ngIf="authService.isAuthenticated()" class="dropdown">
+                      <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{authService.usuario.numct}}
+                      </a>
+                    
+                      <ul class="dropdown-menu">
+                          <button (click)="logout()" class="dropdown-item">Cerrar Sesión</button>
+                      </ul>
+                    </li>
+          
+                  </ul>
             </div>
         </div>
     </div>

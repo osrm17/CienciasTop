@@ -17,7 +17,7 @@
         <th scope="col">costo puntos</th>
         <th scope="col">dias de renta</th>
         <th scope="col">descripcion</th>
-        <th scope="col"></th>>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
         <td>{{producto.costoPuntos}}</td>
         <td>{{producto.diasRenta}}</td>
         <td>{{producto.descripcion}}</td>
-        <td><button class="btn btn-danger" (click)="delete(producto)">Eliminar</button></td>
+        <td><button class="btn btn-danger" *ngIf="authService.hasRole('ROLE_ADMIN')" (click)="delete(producto)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>

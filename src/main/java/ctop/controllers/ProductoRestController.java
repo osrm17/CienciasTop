@@ -36,7 +36,7 @@ public class ProductoRestController {
     @Autowired
     private ServiceInterface<Producto, String> productoService;
 
-    @Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
+    //@Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
     @GetMapping("/productos")
     public Iterable<Producto> index() {
         return productoService.findAll();
