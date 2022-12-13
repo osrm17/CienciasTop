@@ -41,14 +41,14 @@ public class ExistenciaRestController {
         return existenciaService.findById(id);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PostMapping("/existencias")
     @ResponseStatus(HttpStatus.CREATED)
     public Existencia create(@RequestBody Existencia existencia) {
         return existenciaService.save(existencia);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PutMapping("/existencias/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Existencia update(@RequestBody Existencia nuevo, @PathVariable Long id) {
@@ -60,7 +60,7 @@ public class ExistenciaRestController {
         return actual;
     }
     
-    @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @DeleteMapping("/existencias/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {

@@ -64,7 +64,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @PostMapping("/usuarios")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody Usuario usuario) {
@@ -87,7 +87,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/{numct}")
     public ResponseEntity<?> update(@RequestBody Usuario nuevo, @PathVariable String numct) {
         Usuario actual = this.usuarioService.findById(numct);
@@ -121,7 +121,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response,HttpStatus.CREATED);
     }
 
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @DeleteMapping("/usuarios/{numct}")
     public ResponseEntity<?> delete(@PathVariable String numct) {
         Map<String,Object> response = new HashMap<>();
@@ -136,7 +136,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response,HttpStatus.OK);
     }
     
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/sumar/{numct}")
     public ResponseEntity<?> sumar(@RequestBody Usuario nuevo, @PathVariable String numct){
     	Map<String,Object>response = new HashMap<>();
@@ -174,7 +174,7 @@ public class UsuarioRestController {
     }
  
     
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/restar/{numct}")
     public ResponseEntity<?> restar(@RequestBody Usuario nuevo, @PathVariable String numct){
     	Map<String, Object>response = new HashMap<>();
