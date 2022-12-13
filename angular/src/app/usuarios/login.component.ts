@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(this.authService.isAuthenticated()){
       Swal.fire('Login', `Hola ${this.authService.usuario.numct} ya has iniciado sesión.`, 'info');
-      this.router.navigate(['/productos']);
+      this.router.navigate(['/mi-perfil']);
     }
   }
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
         let usuario = this.authService.usuario;
 
-        this.router.navigate(['/productos']);
+        this.router.navigate(['/mi-perfil']);
         Swal.fire('Inicio de sesión exitoso', `¡Bienvenido, ${usuario.nombre} con numct: ${usuario.numct}!`, 'success');
       },
       err => {

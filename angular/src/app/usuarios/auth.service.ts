@@ -58,7 +58,7 @@ export class AuthService {
     this._usuario.nombre = payload.nombre;
     this._usuario.paterno = payload.paterno;
     this._usuario.materno = payload.materno;
-    this._usuario.estaActivo = payload.estaactivo;
+    this._usuario.estaActivo = payload.estaActivo;
     this._usuario.correo = payload.correo;
     this._usuario.celular = payload.celular;
     this._usuario.pumaPuntos = payload.pumapuntos;

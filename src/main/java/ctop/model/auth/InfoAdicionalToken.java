@@ -34,6 +34,7 @@ public class InfoAdicionalToken implements TokenEnhancer{
 		info.put("pumapuntos", usuario.getPumaPuntos());
 		info.put("esProveedor", usuario.isEsProveedor());
 		info.put("esAdministrador", usuario.isEsAdministrador());
+		info.put("estaActivo", usuario.isEstaActivo());
 		
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
 		
