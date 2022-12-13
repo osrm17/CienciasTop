@@ -9,9 +9,10 @@
     <div class="my-2 text-left">
       <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
 
-      <form>
-        <input type="text" id="cuenta" name="numct" placeholder="Introduce el número de cuenta" />
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar',354684529]">Buscar</button>
+      <form (ngSummit) = "leeUsuario()">
+        Buscar Usuario:<br>
+        <input type="text" [(ngModel)]="usuarioPrueba.numct" name="numct"><br>
+        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar', usuarioPrueba.numct]">Buscar</button>
       </form>
     </div>
 
