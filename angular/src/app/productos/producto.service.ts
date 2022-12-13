@@ -54,19 +54,4 @@ export class ProductoService {
           return throwError(err);
         }));
     }
-
-    //Método auxiliar que retorna un producto es especifico
-    getProducto(codigo: string): Observable<Producto>{
-      return this.http.get<Producto>(`${this.urlEndPoint}/${codigo}`).pipe(
-        catchError(err => {
-          this.router.navigate(['/productos']);
-          swal.fire('Error al obtener producto', err.error.mensaje, 'error');
-          return throwError(() => err);
-        })
-      );
-    }
-
-    delete(codigo: String): Observable<Producto>{
-      return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
-    }
 }

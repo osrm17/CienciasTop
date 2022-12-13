@@ -67,7 +67,7 @@ const routes: Routes = [
     FormRestaPuntosComponent,
     FormbuscarComponent,
     FormbuscarproductosComponent,
-    RestablecerContraComponent
+    RestablecerContraComponent,
     FormeditarPComponent,
     FormSumaTarjetaComponent,
     FormRestaTarjetaComponent
