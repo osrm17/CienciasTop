@@ -22,6 +22,8 @@ import { RestablecerContraComponent } from './usuarios/restablecer-contra.compon
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { FormSumaTarjetaComponent } from './usuarios/form-suma-tarjeta.component';
 import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.component';
+import { FormeditarPComponent } from './productos/formeditarp.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
   { path: 'mi-perfil', component: PerfilesComponent},
+  { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
   { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
   { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
 ]
@@ -63,6 +66,7 @@ const routes: Routes = [
     FormRestaPuntosComponent,
     FormbuscarComponent,
     RestablecerContraComponent,
+    FormeditarPComponent,
     FormSumaTarjetaComponent,
     FormRestaTarjetaComponent
   ],

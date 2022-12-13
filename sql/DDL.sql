@@ -79,7 +79,7 @@ CREATE TABLE ctop.rentar(
     numct CHAR(9) NOT NULL CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
     idExistencia INT NOT NULL,
     fechaDevolucion DATE,
-    fechaRenta DATE NOT NULL
+    fechaRenta DATE 
 );
 COMMENT ON TABLE ctop.rentar IS 'Tabla que contiene a los registros de los productos rentados.';
 COMMENT ON COLUMN ctop.rentar.numct IS 'Numero de cuenta o trabajador del usuario que rento el producto.';
