@@ -19,7 +19,7 @@ import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
-import { FormeditarpComponent } from './productos/formeditarp.component';
+import { FormeditarPComponent } from './productos/formeditarp.component';
 
 
 const routes: Routes = [
@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
   { path: 'mi-perfil', component: PerfilesComponent},
-  { path: 'productos/formeditarp/:codigo', component: FormeditarpComponent }
+  { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent}
 ]
 
 @NgModule({
@@ -59,7 +59,7 @@ const routes: Routes = [
     FormRestaPuntosComponent,
     FormbuscarComponent,
     RestablecerContraComponent,
-    FormeditarpComponent
+    FormeditarPComponent
   ],
   imports: [
     BrowserModule,

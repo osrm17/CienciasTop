@@ -32,8 +32,9 @@
         <td>{{producto.descripcion}}</td>
         <td><button class="btn btn-danger" (click)="delete(producto)">Eliminar</button></td>
         <td><div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
-          <button class="btn btn-primary" [routerLink]="['/productos/form', producto.codigo]">Editar</button>
+          <button class="btn btn-primary" [routerLink]="['/productos/formeditarp', producto.codigo]">Editar</button>
         </div></td>
+
       </tr>
     </tbody>
   </table>
