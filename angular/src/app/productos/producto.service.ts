@@ -51,6 +51,7 @@ export class ProductoService {
   }
 
   create(producto: Producto): Observable<Producto> {
+    producto.numct = this.authService.usuario.numct;
     return this.http.post<Producto>(this.urlEndPoint, producto, { headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(err => {
 
