@@ -10,9 +10,9 @@
                 <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil" *ngIf="authService.isAuthenticated()">Mi Perfil</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.hasRole('ROLE_ADMIN')">Usuarios</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/productos" *ngIf="authService.isAuthenticated()">Productos</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/rentas">Rentar</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/rentas" *ngIf="authService.isAuthenticated()">Rentar</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/existencias" *ngIf="authService.isAuthenticated()">Existencias</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/historial">Historial</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/historial" *ngIf="authService.isAuthenticated()">Historial</a>
                 <a class="nav-link" *ngIf="authService.hasRole('ROLE_ADMIN')">Reportes</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/restablecer-contra">Restablecer contrasenia</a>
                 <ul class="navbar-nav navbar-right">

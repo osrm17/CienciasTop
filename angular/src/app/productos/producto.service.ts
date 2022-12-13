@@ -7,7 +7,6 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from '../usuarios/auth.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

@@ -31,7 +31,7 @@
         <td>{{producto.diasRenta}}</td>
         <td>{{producto.descripcion}}</td>
         <td><button class="btn btn-danger" *ngIf="authService.hasRole('ROLE_ADMIN')" (click)="delete(producto)">Eliminar</button></td>
-        <td><div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
+        <td><div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px" *ngIf="authService.hasRole('ROLE_ADMIN') or authService.hasRole('ROLE_PROVEEDOR')">
           <button class="btn btn-primary" [routerLink]="['/productos/formeditarp', producto.codigo]">Editar</button>
         </div></td>
 
