@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[];
+  usuarioPrueba: Usuario = new Usuario
 
   constructor(private usuarioService: UsuarioService) {
     this.usuarios = [];
@@ -51,6 +52,9 @@ export class UsuariosComponent implements OnInit {
         )
       }
     })
+  }
+
+  public leeUsuario():void{ 
   }
 
 }
