@@ -1,7 +1,7 @@
 
 <nav class="navbar bg-light">
     <form class="container-fluid justify-content-start">
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
+      <button class="btn btn-dark me-2" *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" [routerLink]="['/productos/form']">Agregar
         Productos</button>
     </form>
     
