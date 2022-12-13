@@ -206,4 +206,6 @@ public class UsuarioRestController {
     	response.put("mensaje", "Se restaron " + nuevo.getPumaPuntos() + " Pumapuntos.");
     	return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
+
+
 }

@@ -41,4 +41,5 @@ public interface ServiceInterface<T, K> {
      * @param llave de la entidad a borrar.
      */
     public void delete(K llave);
+
 }

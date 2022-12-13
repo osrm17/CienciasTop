@@ -25,6 +25,7 @@ import { FormSumaTarjetaComponent } from './usuarios/form-suma-tarjeta.component
 import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.component';
 import { FormeditarPComponent } from './productos/formeditarp.component';
 
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
+  { path: 'reportes', component: ReportesComponent },
   { path: 'mi-perfil', component: PerfilesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
@@ -71,7 +73,8 @@ const routes: Routes = [
     LoginComponent,
     FormeditarPComponent,
     FormSumaTarjetaComponent,
-    FormRestaTarjetaComponent
+    FormRestaTarjetaComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
