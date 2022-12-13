@@ -5,16 +5,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-form-resta-puntos',
-  templateUrl: './form-resta-puntos.component.html',
-  styleUrls: ['./form-resta-puntos.component.css']
+  selector: 'app-form-suma-tarjeta',
+  templateUrl: './form-suma-tarjeta.component.html',
+  styleUrls: ['./form-suma-tarjeta.component.css']
 })
-export class FormRestaPuntosComponent implements OnInit {
-  titulo: string = "Restar Puntos"
+export class FormSumaTarjetaComponent implements OnInit {
+  titulo: string = "Sumar Puntos"
   usuario: Usuario = new Usuario()
-  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { 
-
-  }
+  puntos: number 
+  
+  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cargarUsuario()
@@ -29,13 +29,13 @@ export class FormRestaPuntosComponent implements OnInit {
     })
   }
 
-  public restar():void{
-    this.usuarioService.restaPuntos(this.usuario).subscribe(usuario => 
+  public sumar():void{
+    this.usuario.pumaPuntos = this.puntos
+    this.usuarioService.sumaPuntos(this.usuario).subscribe(usuario => 
       {
       this.router.navigate(['/usuarios'])
-      swal.fire('Cambios realizados.', `PumaPuntos utilizados.`, 'success')
+      swal.fire('Cambios realizados', `PumaPuntos acumulados.`, 'success')
       }
     )
   }
-
 }

@@ -1,0 +1,29 @@
+<section style="background-color: #79BAEC">
+    <div class="card bg-dark text-white container my-2">
+        
+        <h5><div class="card-header">{{titulo}}</div></h5>
+
+        <div class="card-body">
+            
+            <form (ngSubmit)="sumar()">
+                
+                <br>
+                    
+                <div class="form-group row">
+                    <h5><label for="" class="col-form-label col-sm-2">PumaPuntos</label></h5>
+                    <div class="col-sm-3">
+                        <input type="number" min="1" max="500" class="form-control" [(ngModel)]="puntos" name="puntos">
+                    </div>
+                </div>        
+                <br>
+                <br>
+                <div class="from-group row">
+                    <div class="col-sm-3">
+                       <h5> <button class="btn btn-primary" role="button">Sumar</button></h5>
+                    </div>
+                </div>
+            </form>
+    
+        </div>
+    </div>
+    </section>

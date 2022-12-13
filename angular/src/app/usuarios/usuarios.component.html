@@ -1,16 +1,14 @@
-<section style="background-color: #79BAEC">
+<section style="background-color:#88ABBF">
   <div class="container py-5">
-       
-    <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
-        
-    <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
-    
-    <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
-    <br>
-    <br>
-    <div class="my-2 text-left">
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
-      <form>
+      <div class="my-2 text-left">
+     
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
+        <br>
+        <br>
+
+        <form>
         Buscar Usuario:<br>
         <input type="text" name="cuenta" value=><br>
         <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar',354684529]">Buscar</button>
@@ -23,18 +21,6 @@
         *ngFor="let usuario of usuarios">
         <div class="card">
           <div class="d-flex justify-content-between p-3">
-            <p class="lead mb-0">{{ usuario.numct }}</p>
-
-
-
-              <div class="bg-danger d-flex align-items-center justify-content-center shadow-1-strong"
-                style="width: 60px; height: 35px">
-                <button class="btn btn-danger" (click)="delete(usuario)">Eliminar</button>
-              </div>
-
-              <div class="bg-primary d-flex align-items-center justify-content-center shadow-1-strong" style="width: 60px; height: 35px">
-                <button class="btn btn-primary" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
-              </div>
 
           </div>
           <img
@@ -43,6 +29,18 @@
             alt="Usuario"
           />
           <div class="card-body">
+      
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
+            <button class="btn btn-danger me-3" type="button" (click)="delete(usuario)">Eliminar</button>           
+            <br>
+            <br>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">ID:</h5>
+              <h5 class="text-dark mb-0">{{usuario.numct}}</h5>
+            </div>
 
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-0">Nombre:</h5>
