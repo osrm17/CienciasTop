@@ -42,7 +42,7 @@ public class ProductoRestController {
         return productoService.findAll();
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
+    //@Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
     @GetMapping("/productos/{codigo}")
     public Producto show(@PathVariable String codigo) {
         return productoService.findById(codigo);

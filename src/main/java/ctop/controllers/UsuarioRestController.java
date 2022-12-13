@@ -37,13 +37,13 @@ public class UsuarioRestController {
     @Autowired
     private ServiceInterface<Usuario, String> usuarioService;
 
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @GetMapping("/usuarios")
     public Iterable<Usuario> index() {
         return usuarioService.findAll();
     }
 
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     @GetMapping("/usuarios/{numct}")
     public ResponseEntity<?> show(@PathVariable String numct) {
         Usuario usuario = null;

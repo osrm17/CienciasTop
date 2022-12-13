@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         let usuario = this.authService.usuario;
 
         this.router.navigate(['/productos']);
-        Swal.fire('Inicio de sesión exitoso', `¡Bienvenido, ${usuario.numct}!`, 'success');
+        Swal.fire('Inicio de sesión exitoso', `¡Bienvenido, ${usuario.nombre} con numct: ${usuario.numct}!`, 'success');
       },
       err => {
         if(err.status == 400){
