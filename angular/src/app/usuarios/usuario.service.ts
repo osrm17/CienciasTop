@@ -15,8 +15,8 @@ import { Router } from '@angular/router';
 export class UsuarioService {
 
   private urlEndPoint: string = 'http://localhost:8080/api/usuarios'
-  private urlEndPointSuma: string = 'http://localhost:8080/api/usuarios/suma'
-  private urlEndPointResta: string = 'http://localhost:8080/api/usuarios/resta'
+  //private urlEndPointSuma: string = 'http://localhost:8080/api/usuarios/suma'
+  //private urlEndPointResta: string = 'http://localhost:8080/api/usuarios/resta'
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   public errorObject = null;
@@ -37,7 +37,7 @@ export class UsuarioService {
       }));
   }
 
-  //Método auxiliar que retorna un usuario es especifico
+  //Método auxiliar que retorna un usuario en especifico
   getUsuario(numct: string): Observable<Usuario>{
     return this.http.get<Usuario>(`${this.urlEndPoint}/${numct}`).pipe(
       catchError(err => {
@@ -66,24 +66,23 @@ export class UsuarioService {
     );
   }
 
+
   sumaPuntos(usuario: Usuario): Observable<Usuario>{
     return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
-      catchError(err => {
-        //this.router.navigate(['/usuarios'])
-        swal.fire('Error', "No se pudieron añadir los PumaPuntos", 'error');
-        this.errorObject = err;
-        return throwError(err);
+      catchError(e => {
+        this.router.navigate(['/usuarios'])
+        swal.fire('Atención', e.error.mensaje, 'warning');
+        return throwError(() => e);
       }));
   }
 
 
   restaPuntos(usuario: Usuario): Observable<Usuario>{
     return this.http.put<Usuario>(`${this.urlEndPoint}/restar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
-      catchError(err => {
-        //this.router.navigate(['/usuarios'])
-        swal.fire('Error', "No se pudieron restar los PumaPuntos", 'error');
-        this.errorObject = err;
-        return throwError(err);
+      catchError(e => {
+        this.router.navigate(['/usuarios'])
+        swal.fire('Atención', e.error.mensaje, 'warning');
+        return throwError(() => e);
       }));
   }
 
