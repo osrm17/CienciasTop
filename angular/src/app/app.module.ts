@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HistorialComponent } from './historial/historial.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,6 +23,7 @@ import { PerfilesComponent } from './perfiles/perfiles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'historial', component: HistorialComponent},
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'productos', component: ProductosComponent},
   { path: 'existencias', component: ExistenciasComponent},
@@ -45,6 +47,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    HistorialComponent,
     FooterComponent,
     ProductosComponent,
     UsuariosComponent,
