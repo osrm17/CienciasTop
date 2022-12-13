@@ -16,7 +16,9 @@ export class HistorialComponent implements OnInit {
   constructor(private historialService: HistorialService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.historial = []
+    this.historial = []  
+    this.numct = this.authService.usuario.numct;
+    this.getHistorial();
   }
 
   getHistorial(): void {
