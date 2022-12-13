@@ -192,36 +192,36 @@ INSERT INTO ctop.existencia(codigo,estaRentado) VALUES ('PE-P-STAR000',true);
 INSERT INTO ctop.existencia(codigo,estaRentado) VALUES ('AJEZ-TABL000',false);
 
 -- rentar
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338909247',1,'2022-04-10','2022-04-03'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338909247',1,'2022-04-10','2022-04-03');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('353208590',2,'2022-08-25','2022-08-23');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('376317387',3,'2022-07-14','2022-07-11');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338909247',4,'2021-12-09','2021-12-07');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('322700162',8,'2022-09-11','2022-09-09');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('316416111',11,'2022-01-05','2022-01-03');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('351735542',13,'2021-11-30','2021-11-24'); -- t
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('320481361',17,'2022-02-05','2022-01-31'); -- t
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('351735542',21,'2022-05-25','2022-05-16'); -- t
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('392309313',22,'2022-06-29','2022-06-22'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('351735542',13,'2021-11-30','2021-11-24'); 
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('320481361',17,'2022-02-05','2022-01-31'); 
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('351735542',21,'2022-05-25','2022-05-16');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('392309313',22,'2022-06-29','2022-06-22');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('393558636',24,'2021-12-03','2021-12-01');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('308005363',30,'2021-10-17','2021-10-09'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('308005363',30,'2021-10-17','2021-10-09');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('308005363',32,'2021-11-22','2021-11-17');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('320610978',33,'2022-04-05','2022-04-04');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('358096630',35,'2022-08-01','2022-07-29');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('315122826',36,'2021-10-28','2021-10-21'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('315122826',36,'2021-10-28','2021-10-21');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('380227740',37,'2022-08-18','2022-08-15');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('353208590',39,'2022-04-10','2022-04-08');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('310199949',40,'2021-10-27','2021-10-19'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('310199949',40,'2021-10-27','2021-10-19');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('300007261',41,'2022-07-08','2022-07-05');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('372605035',43,'2021-12-02','2021-11-18');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('381139872',44,'2022-08-06','2022-08-04');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('392309313',45,'2022-06-07','2022-06-06');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('320481361',47,'2022-06-15','2022-06-13');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('377648756',49,'2022-06-21','2022-05-21'); -- t
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('377648756',49,'2022-06-21','2022-05-21');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('374919607',53,'2022-03-23','2022-03-21');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338873962',55,'2022-08-05','2022-08-03');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('375902731',56,'2022-08-25','2022-08-22');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',57,'2022-09-07','2022-09-04');
-INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('322700162',60,'2022-03-20','2022-03-18'); -- here
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('322700162',60,'2022-03-20','2022-03-18');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('320481361',61,'2022-12-03','2022-12-01');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('377648756',63,'2022-12-03','2022-12-01'); 
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('374919607',64,'2022-12-04','2022-12-02');
@@ -232,3 +232,4 @@ INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338873962',72,'2022-12-08','2022-12-06');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('375902731',74,'2022-12-08','2022-12-07');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',75,'2022-12-08','2022-12-07');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',75,NULL,'2022-12-09');
