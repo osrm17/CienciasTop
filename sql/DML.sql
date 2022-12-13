@@ -233,3 +233,8 @@ INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('375902731',74,'2022-12-08','2022-12-07');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',75,'2022-12-08','2022-12-07');
 INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',75,NULL,'2022-12-09');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('374919607',53,NULL,'2022-12-12');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('338873962',55,NULL,'2022-12-12');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('375902731',56,NULL,'2022-12-13');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('328893424',57,NULL,'2022-12-13');
+INSERT INTO ctop.rentar(numct,idExistencia,fechaDevolucion,fechaRenta) VALUES ('322700162',60,NULL,'2022-12-13');
