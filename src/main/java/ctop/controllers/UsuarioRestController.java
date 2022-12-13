@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,11 +37,13 @@ public class UsuarioRestController {
     @Autowired
     private ServiceInterface<Usuario, String> usuarioService;
 
+    //@Secured({ "ROLE_ADMIN" })
     @GetMapping("/usuarios")
     public Iterable<Usuario> index() {
         return usuarioService.findAll();
     }
 
+    //@Secured({ "ROLE_ADMIN" })
     @GetMapping("/usuarios/{numct}")
     public ResponseEntity<?> show(@PathVariable String numct) {
         Usuario usuario = null;
@@ -62,7 +64,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 
-
+    //@Secured({ "ROLE_ADMIN" })
     @PostMapping("/usuarios")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody Usuario usuario) {
@@ -85,6 +87,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/{numct}")
     public ResponseEntity<?> update(@RequestBody Usuario nuevo, @PathVariable String numct) {
         Usuario actual = this.usuarioService.findById(numct);
@@ -118,7 +121,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response,HttpStatus.CREATED);
     }
 
-
+    //@Secured({ "ROLE_ADMIN" })
     @DeleteMapping("/usuarios/{numct}")
     public ResponseEntity<?> delete(@PathVariable String numct) {
         Map<String,Object> response = new HashMap<>();
@@ -133,7 +136,7 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response,HttpStatus.OK);
     }
     
-    
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/sumar/{numct}")
     public ResponseEntity<?> sumar(@RequestBody Usuario nuevo, @PathVariable String numct){
     	Map<String,Object>response = new HashMap<>();
@@ -171,6 +174,7 @@ public class UsuarioRestController {
     }
  
     
+    //@Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/restar/{numct}")
     public ResponseEntity<?> restar(@RequestBody Usuario nuevo, @PathVariable String numct){
     	Map<String, Object>response = new HashMap<>();
@@ -202,4 +206,6 @@ public class UsuarioRestController {
     	response.put("mensaje", "Se restaron " + nuevo.getPumaPuntos() + " Pumapuntos.");
     	return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
+
+
 }

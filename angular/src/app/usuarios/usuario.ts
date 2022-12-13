@@ -11,6 +11,7 @@ export class Usuario {
     pumaPuntos: number;
     esProveedor: boolean;
     esAdministrador: boolean;
+    roles:string[]=[];
 
     constructor() {
     }

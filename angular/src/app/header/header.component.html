@@ -7,15 +7,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil">Mi Perfil</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios">Usuarios</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/productos">Productos</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/rentas">Rentar</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/existencias">Existencias</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/historial">Historial</a>
-                <a class="nav-link disabled">Reportes</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil" *ngIf="authService.isAuthenticated()">Mi Perfil</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.hasRole('ROLE_ADMIN')">Usuarios</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/productos" *ngIf="authService.isAuthenticated()">Productos</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/rentas" *ngIf="authService.isAuthenticated()">Rentar</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/existencias" *ngIf="authService.isAuthenticated()">Existencias</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/historial" *ngIf="authService.isAuthenticated()">Historial</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/reportes" *ngIf="authService.hasRole('ROLE_ADMIN')">Reportes</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/restablecer-contra">Restablecer contrasenia</a>
-                <a class="nav-link disabled">Cerrar Sesion</a>
+                <ul class="navbar-nav navbar-right">
+                    <li>
+                      <a *ngIf="!authService.isAuthenticated()"  routerLink="/login" class="btn btn-outline-primary">Iniciar sesion</a>
+                    </li>
+          
+                    <li *ngIf="authService.isAuthenticated()" class="dropdown">
+                      <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{authService.usuario.numct}}
+                      </a>
+                    
+                      <ul class="dropdown-menu">
+                          <button (click)="logout()" class="dropdown-item">Cerrar Sesión</button>
+                      </ul>
+                    </li>
+          
+                  </ul>
             </div>
         </div>
     </div>

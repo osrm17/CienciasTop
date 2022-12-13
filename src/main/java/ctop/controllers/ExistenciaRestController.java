@@ -2,6 +2,7 @@ package ctop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,12 +41,14 @@ public class ExistenciaRestController {
         return existenciaService.findById(id);
     }
 
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PostMapping("/existencias")
     @ResponseStatus(HttpStatus.CREATED)
     public Existencia create(@RequestBody Existencia existencia) {
         return existenciaService.save(existencia);
     }
 
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PutMapping("/existencias/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Existencia update(@RequestBody Existencia nuevo, @PathVariable Long id) {
@@ -56,7 +59,8 @@ public class ExistenciaRestController {
         existenciaService.save(actual);
         return actual;
     }
-
+    
+    //@Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @DeleteMapping("/existencias/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
