@@ -41,6 +41,11 @@ postgres=# select * from ctop.usuario;
 ```
 ---
 
+Definir los procedimientos almacenados
+```text
+psql -U ctop -d postgres -a -f Functions.sql
+``
+
 ## Posibles problemas?
 
 Esto es necesario solo si por alguna razon no deja entrar a psql como el usuario 'ctop'
