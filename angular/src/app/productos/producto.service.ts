@@ -29,20 +29,44 @@ export class ProductoService {
         this.errorObject = err;
         return throwError(err);
       }));
-  }
+    }
 
-//Método auxiliar que retorna un producto es especifico
-  getProducto(codigo: string): Observable<Producto>{
-    return this.http.get<Producto>(`${this.urlEndPoint}/${codigo}`).pipe(
-      catchError(err => {
-        this.router.navigate(['/productos']);
-        swal.fire('Error al obtener producto', err.error.mensaje, 'error');
-        return throwError(() => err);
-      })
-    );
-  }
+    delete(codigo: String): Observable<Producto>{
+      return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
+    }
 
-  delete(codigo: String): Observable<Producto>{
-    return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
-  }
+    getProducto(codigo: string): Observable<Producto>{
+      return this.http.get<Producto>(`${this.urlEndPoint}/${codigo}`).pipe(
+        catchError(err => {
+          this.router.navigate(['/productos']);
+          swal.fire('Error al obtener producto', err.error.mensaje, 'error');
+          return throwError(() => err);
+        })
+
+      );
+    }
+
+    update (producto: Producto): Observable<Producto> {
+      return this.http.put<Producto>(`${this.urlEndPoint}/${producto.codigo}`, producto, {headers: this.httpHeaders}).pipe(
+        catchError(err => {
+          swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
+          this.errorObject = err;
+          return throwError(err);
+        }));
+    }
+
+    //Método auxiliar que retorna un producto es especifico
+    getProducto(codigo: string): Observable<Producto>{
+      return this.http.get<Producto>(`${this.urlEndPoint}/${codigo}`).pipe(
+        catchError(err => {
+          this.router.navigate(['/productos']);
+          swal.fire('Error al obtener producto', err.error.mensaje, 'error');
+          return throwError(() => err);
+        })
+      );
+    }
+
+    delete(codigo: String): Observable<Producto>{
+      return this.http.delete<Producto>(`${this.urlEndPoint}/${codigo}`, {headers: this.httpHeaders})
+    }
 }

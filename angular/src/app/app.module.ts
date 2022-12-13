@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HistorialComponent } from './historial/historial.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,9 +21,14 @@ import { FormbuscarComponent } from './usuarios/formbuscar.component';
 import { FormbuscarproductosComponent } from './productos/formbuscarproductos.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
+import { FormSumaTarjetaComponent } from './usuarios/form-suma-tarjeta.component';
+import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.component';
+import { FormeditarPComponent } from './productos/formeditarp.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'historial', component: HistorialComponent},
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'productos', component: ProductosComponent},
   { path: 'existencias', component: ExistenciasComponent},
@@ -39,13 +45,17 @@ const routes: Routes = [
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos/formbuscarproductos/:codigo', component: FormbuscarproductosComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
-  { path: 'mi-perfil', component: PerfilesComponent}
+  { path: 'mi-perfil', component: PerfilesComponent},
+  { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
+  { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
+  { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HistorialComponent,
     FooterComponent,
     ProductosComponent,
     UsuariosComponent,
@@ -58,6 +68,9 @@ const routes: Routes = [
     FormbuscarComponent,
     FormbuscarproductosComponent,
     RestablecerContraComponent
+    FormeditarPComponent,
+    FormSumaTarjetaComponent,
+    FormRestaTarjetaComponent
   ],
   imports: [
     BrowserModule,
