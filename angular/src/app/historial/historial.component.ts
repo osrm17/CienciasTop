@@ -19,9 +19,12 @@ export class HistorialComponent implements OnInit {
   }
 
   getHistorial(): void {
-    this.historialService.getRentasDetalle(this.numct).subscribe(
-      historial => this.historial = historial
-    );
+    if (this.numct != "")
+      this.historialService.getRentasDetalle(this.numct).subscribe(
+        historial => this.historial = historial
+      );
+    else
+      this.historial = []
   }
 
 }
