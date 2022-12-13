@@ -2,7 +2,35 @@
   <div class="container py-5">
         <div class="card">
           <div class="d-flex justify-content-between p-3">
-            <p class="lead mb-0">{{ producto.codigo}}</p>
+            <p class="lead mb-0">{{producto.codigo}}</p>
+
+          </div>
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Número:</h5>
+              <h5 class="text-dark mb-0">{{producto.numct}}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Nombre:</h5>
+              <h5 class="text-dark mb-0">{{producto.nombre}}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Costo en puntos:</h5>
+              <h5 class="text-dark mb-0">{{producto.costoPuntos}}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Días en renta:</h5>
+              <h5 class="text-dark mb-0">{{producto.diasRenta}}</h5>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">Descripción:</h5>
+              <h5 class="text-dark mb-0">{{producto.descripcion}}</h5>
+            </div>
 
           </div>
         </div>
