@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { Producto } from './producto';
 import { ProductoService } from './producto.service';
 import swal from 'sweetalert2';
@@ -14,12 +14,32 @@ import { ExistenciaService } from '../existencias/existencia.service';
 })
 export class FormComponentProducto implements OnInit {
 
-  titulo: string = "Agregar producto"
+  titulo: string = "Producto"
   producto: Productostock = new Productostock()
+  productos: Producto = new Producto()
 
-  constructor(private existenciaService: ExistenciaService, private productoService: ProductoService, private router: Router) { }
+  constructor(private existenciaService: ExistenciaService, private productoService: ProductoService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.cargarProducto()
+  }
+
+  cargarProducto(): void{
+    this.activatedRoute.params.subscribe(params => {
+      let codigo = params['codigo']
+      if(codigo){
+        this.productoService.getProducto(codigo).subscribe((productos)=> this.productos = productos)
+      }
+    })
+  }
+
+  public update():void{
+    this.productoService.update(this.productos).subscribe(productos => 
+      {
+      this.router.navigate(['/productos'])
+      swal.fire('Producto actualizado', `El producto ${this.productos.nombre} ha sido actualizado con éxito`, 'success')
+      }
+    )
   }
 
   public create(): void {
@@ -36,4 +56,6 @@ export class FormComponentProducto implements OnInit {
     }
     )
   }
+
+  
 }

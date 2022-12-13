@@ -138,42 +138,72 @@ public class UsuarioRestController {
     
     @Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/sumar/{numct}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Usuario sumar(@RequestBody Usuario nuevo, @PathVariable String numct){
+    public ResponseEntity<?> sumar(@RequestBody Usuario nuevo, @PathVariable String numct){
+    	Map<String,Object>response = new HashMap<>();
     	int total = 0;
     	Usuario usuario = usuarioService.findById(numct);
-    	if(usuario == null)
-    		throw new RuntimeException("Usuario no existe.");
-    	if(usuario.getPumaPuntos() == 500)
-    		throw new RuntimeException("Haz alcanzado el máximo número de Puma Puntos.");
+    	//Valida si la cantidad de Pumapuntos pasada es válida.
+    	if(nuevo.getPumaPuntos() <= 0) {
+    		response.put("mensaje", "Cantidad de Pumapuntos no válida.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
 
+    	//Determina si existe el usuario
+    	if(usuario == null) {
+    		response.put("mensaje", "El usuario " +  numct + " no existe.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+    	}
+    		
+    	if(usuario.getPumaPuntos() == 500) {
+    		response.put("mensaje", "Haz alcanzado el máximo número de Pumapuntos.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
+    	//Se hace la suma	
     	total = usuario.getPumaPuntos() + nuevo.getPumaPuntos();
     	if(total>500) {
-    		total = 500;
-    		usuario.setPumaPuntos(total);
+    		int sumados = 500 - usuario.getPumaPuntos();
+    		usuario.setPumaPuntos(500);
     		usuarioService.save(usuario);
-    		return usuario;
+    		response.put("mensaje", "Sólo se sumaron " + sumados + " Pumapuntos.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
     	}
     	usuario.setPumaPuntos(total);
     	usuarioService.save(usuario);
-    	return usuario;
+    	response.put("mensaje", "Se añadieron " + nuevo.getPumaPuntos() + " Pumapuntos.");
+    	return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
+ 
     
     @Secured({ "ROLE_ADMIN" })
     @PutMapping("/usuarios/restar/{numct}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Usuario restar(@RequestBody Usuario nuevo, @PathVariable String numct){
+    public ResponseEntity<?> restar(@RequestBody Usuario nuevo, @PathVariable String numct){
+    	Map<String, Object>response = new HashMap<>();
     	Usuario usuario = usuarioService.findById(numct);
     	int total;
-    	if(usuario == null)
-    		throw new RuntimeException("Usuario no existe.");
-    	if(usuario.getPumaPuntos() == 0) 
-    		throw new RuntimeException( "Tienes 0 PumaPuntos disponibles.");
-    	if(nuevo.getPumaPuntos()>usuario.getPumaPuntos())
-    		throw new RuntimeException( "No tienes suficientes PumaPuntos");
+    	
+    	if(nuevo.getPumaPuntos() <= 0) {
+    		response.put("mensaje", "Cantidad de Pumapuntos no válida.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
+    	
+    	if(usuario == null) {
+    		response.put("mensaje", "El usuario " +  numct + " no existe.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+    	}	
+    	
+    	if(usuario.getPumaPuntos() == 0) {
+    		response.put("mensaje", "El usuario " + numct + " tiene 0 Pumapuntos.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
+    	
+    	if(nuevo.getPumaPuntos()>usuario.getPumaPuntos()) {
+    		response.put("mensaje", "El usuario " + numct + " no tiene suficientes Pumapuntos.");
+    		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+    	}
     	total = usuario.getPumaPuntos() - nuevo.getPumaPuntos();
     	usuario.setPumaPuntos(total);
     	usuarioService.save(usuario);
-    	return usuario;
+    	response.put("mensaje", "Se restaron " + nuevo.getPumaPuntos() + " Pumapuntos.");
+    	return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 }

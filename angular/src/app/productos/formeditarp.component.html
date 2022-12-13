@@ -1,6 +1,4 @@
 <section style="background-color: #79BAEC">
-    <br>
-    
     <div class="card bg-warning text-center container my-2">
         <h5 class="card-title">{{titulo}}</h5>
     </div>
@@ -8,8 +6,8 @@
     <div class="card bg-dark text-white container my-2">
         <div class="card-body">
 
-            <form (ngSubmit)="create()">
-                
+            <form (ngSubmit)="update()">
+
                 <div class="form-group">
                     <label for="">Código</label>
                     <div class="col-sm-6">
@@ -21,7 +19,7 @@
                 <div class="form-group">
                     <label for="">Número de Cuenta</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" [(ngModel)]="producto.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa tu número de cuenta">
+                        <input type="text" class="form-control" [(ngModel)]="producto.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa el numero de cuenta">
                     </div>  
                 </div>
                 <br>
@@ -60,7 +58,7 @@
 
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <button class="btn btn-info" role="button">Agregar</button>
+                        <button class="btn btn-info" role="button">Actualizar</button>
                     </div>
                 </div>
             </form>

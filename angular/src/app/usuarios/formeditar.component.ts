@@ -29,6 +29,7 @@ export class FormeditarComponent implements OnInit {
     })
   }
 
+  
   public update():void{
     this.usuarioService.update(this.usuario).subscribe(usuario =>
       {

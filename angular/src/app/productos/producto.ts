@@ -11,4 +11,5 @@ export class Producto {
     diasRenta!: number;
 
     descripcion!: String;
+
 }

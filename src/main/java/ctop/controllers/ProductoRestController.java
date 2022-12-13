@@ -44,8 +44,23 @@ public class ProductoRestController {
 
     //@Secured({ "ROLE_ADMIN", "ROLE_USER", "ROLE_PROVEEDOR" })
     @GetMapping("/productos/{codigo}")
-    public Producto show(@PathVariable String codigo) {
-        return productoService.findById(codigo);
+    public ResponseEntity<?> show(@PathVariable String codigo) {
+        Producto producto = null;
+        Map<String, Object> response = new HashMap<>();
+        // Error con el servidor o base de datos.
+        try {
+            producto = productoService.findById(codigo);
+        } catch(DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta del producto en la base de datos.");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //Error con el id ingresado.
+        if(producto == null) {
+            response.put("mensaje", "¡El producto ".concat(codigo.toString().concat(" no existe en la base de datos!")));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Producto>(producto, HttpStatus.OK);
     }
 
     @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
@@ -73,17 +88,32 @@ public class ProductoRestController {
 
     @Secured({ "ROLE_ADMIN", "ROLE_PROVEEDOR" })
     @PutMapping("/productos/{codigo}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Producto update(@RequestBody Producto nuevo, @PathVariable String codigo) {
-        Producto actual = productoService.findById(codigo);
-        actual.setCodigo(nuevo.getCodigo());
-        actual.setCostoPuntos(nuevo.getCostoPuntos());
-        actual.setDescripcion(nuevo.getDescripcion());
-        actual.setDiasRenta(nuevo.getDiasRenta());
-        actual.setNombre(nuevo.getNombre());
-        actual.setNumct(nuevo.getNumct());
-        productoService.save(actual);
-        return actual;
+    public ResponseEntity<?> update(@RequestBody Producto nuevo, @PathVariable String codigo) {
+        Producto actual = this.productoService.findById(codigo);
+        Producto productoUpdate = null;
+        Map<String,Object> response = new HashMap<>();
+        //Error con el id ingresado.
+        if(actual == null) {
+            response.put("mensaje", "Error: no se puede editar el producto ".concat(codigo.toString().concat(" porque no existe en la base de datos.")));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+        }
+
+        try {
+            actual.setCodigo(nuevo.getCodigo());
+            actual.setNumct(nuevo.getNumct());
+            actual.setNombre(nuevo.getNombre());
+            actual.setCostoPuntos(nuevo.getCostoPuntos());
+            actual.setDiasRenta(nuevo.getDiasRenta());
+            actual.setDescripcion(nuevo.getDescripcion());
+            productoUpdate = this.productoService.save(actual);
+        }catch(DataAccessException e) {
+            response.put("mensaje", "Error al actualizar el producto en la base de datos.");
+            response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.put("mensaje", "¡El producto ha sido actualizado con éxito!");
+        response.put("producto", productoUpdate);
+        return new ResponseEntity<Map<String, Object>>(response,HttpStatus.CREATED);
     }
 
     @Secured({ "ROLE_ADMIN" })
