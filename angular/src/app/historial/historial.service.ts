@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Rentasdetalle } from './rentasdetalle';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { of } from 'rxjs';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,11 @@ export class HistorialService {
   constructor(private http: HttpClient) { }
 
   getRentasDetalle(numct:string): Observable<Rentasdetalle[]> {
-    return this.http.get<Rentasdetalle[]>(this.urlEndPoint+"/usuario/"+numct);
+    return this.http.get<Rentasdetalle[]>(this.urlEndPoint+"/usuario/"+numct).pipe(
+      catchError(e => {
+        Swal.fire('Error al buscar historial', e.error.mensaje, 'error');
+        return throwError( () => e );
+      })
+    )
   }
 }

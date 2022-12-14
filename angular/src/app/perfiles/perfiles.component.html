@@ -1,9 +1,19 @@
 <table class="table">
   <thead>
     <tr>
-    <td colspan="2">Bienvenid@ a tu perfil!</td>
+       <div class="card bg-warning text-center container my-2">
+          <h5 class="card-title">Bienvenid@ a tu perfil!</h5>
+       </div>
     </tr>
   </thead>
+  <div align="center">
+    <img
+     src="https://cdn-icons-png.flaticon.com/512/74/74472.png"
+     style="width: 25vw; min-width: 140px;"
+     class="card-img-top center container"
+     alt="Usuario"
+    />
+  </div>        
   <tbody>
     <tr>
       <th scope="row">Número de Cuenta: </th>
@@ -12,10 +22,6 @@
     <tr>
       <th scope="row">Nombre: </th>
       <td>{{perfil.nombre}} {{perfil.paterno}} {{perfil.materno}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Cuenta Activa: </th>
-      <td>{{perfil.estaActivo}}</td>
     </tr>
     <tr>
       <th scope="row">Correo: </th>
