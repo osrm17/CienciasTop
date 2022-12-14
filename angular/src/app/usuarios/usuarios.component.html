@@ -4,15 +4,14 @@
 
         <button class="btn btn-dark text-dark me-3" style="background-color: #84891D;" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
         <button class="btn btn-dark text-dark me-3" style="background-color: #84891D;" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
-        <button class="btn btn-dark text-dark me-3" style="background-color: #84891D;" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
+        <button class="btn btn-dark text-dark me-3" style="background-color: #84891D;" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button>
         <br>
         <br>
-      <form (ngSummit) = "leeUsuario()">
-        Buscar Usuario:<br>
-        <input type="text" name="cuenta" value=><br>
-        <button class="btn btn-dark me-2" style="background-color: #224E46;" type="button" [routerLink]="['/usuarios/formbuscar',354684529]">Buscar</button>
-      </form>
-
+        <form (ngSummit) = "leeUsuario()">
+       Buscar Usuario:<br>
+       <input type="text" [(ngModel)]="usuarioPrueba.numct" name="numct"><br>
+       <button class="btn btn-dark me-2" *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" [routerLink]="['/usuarios/formbuscar', usuarioPrueba.numct]">Buscar</button>
+     </form>
     </div>
 
     <div class="row">
@@ -29,11 +28,11 @@
             alt="Usuario"
           />
           <div class="card-body">
-      
+
             <button class="btn btn-dark me-3" style="background-color: #028D89;" type="button" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
             <button class="btn btn-dark me-3" style="background-color: #028D89;" type="button" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
             <button class="btn btn-dark me-3" style="background-color: #028D89;" type="button" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
-            <button class="btn btn-dark me-3" style="background-color: #D50F0F;" type="button" (click)="delete(usuario)">Eliminar</button>           
+            <button class="btn btn-dark me-3" style="background-color: #D50F0F;" type="button" (click)="delete(usuario)">Eliminar</button>
             <br>
             <br>
 
