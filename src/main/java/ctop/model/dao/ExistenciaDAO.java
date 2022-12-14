@@ -12,4 +12,7 @@ import ctop.model.entity.Existencia;
  */
 public interface ExistenciaDAO extends CrudRepository<Existencia, Long> {
 
+    @Query(value = "SELECT COUNT(*) FROM ctop.existencia WHERE estaRentado IS FALSE", 
+           nativeQuery = true)
+    public int getExistencias();
 }

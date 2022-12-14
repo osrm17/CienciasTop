@@ -24,6 +24,7 @@ import { LoginComponent } from './usuarios/login.component';
 import { FormSumaTarjetaComponent } from './usuarios/form-suma-tarjeta.component';
 import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.component';
 import { FormeditarPComponent } from './productos/formeditarp.component';
+import { RentasComponent } from './productos/rentas.component';
 
 import { ReportesComponent } from './reportes/reportes.component';
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
   { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
-  { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
+  { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent},
+  { path: 'rentas', component:RentasComponent}
 ]
 
 @NgModule({
@@ -74,7 +76,8 @@ const routes: Routes = [
     FormeditarPComponent,
     FormSumaTarjetaComponent,
     FormRestaTarjetaComponent,
-    ReportesComponent
+    ReportesComponent,
+    RentasComponent
   ],
   imports: [
     BrowserModule,

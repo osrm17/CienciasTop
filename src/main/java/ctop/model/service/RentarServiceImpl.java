@@ -18,6 +18,9 @@ public class RentarServiceImpl implements ServiceInterface<Rentar, Long> {
     @Autowired
     private RentarDAO rentarDAO;
 
+    @Autowired
+    private ExistenciaDAO existenciaDAO;
+
     @Override
     @Transactional(readOnly = true)
     public Iterable<Rentar> findAll() {
@@ -41,4 +44,9 @@ public class RentarServiceImpl implements ServiceInterface<Rentar, Long> {
     public void delete(Long id) {
         rentarDAO.deleteById(id);
     }
+
+    public List<Existencia> existencias() {
+        return (List<Existencia>) existenciaDAO.getExistencias();
+    }
+
 }
