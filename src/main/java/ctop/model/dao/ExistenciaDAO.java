@@ -1,5 +1,8 @@
 package ctop.model.dao;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import ctop.model.entity.Existencia;
@@ -14,5 +17,5 @@ public interface ExistenciaDAO extends CrudRepository<Existencia, Long> {
 
     @Query(value = "SELECT COUNT(*) FROM ctop.existencia WHERE estaRentado IS FALSE", 
            nativeQuery = true)
-    public int getExistencias();
+    public List<Existencia> getExistencias();
 }

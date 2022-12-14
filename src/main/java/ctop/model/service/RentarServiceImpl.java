@@ -1,11 +1,15 @@
 package ctop.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ctop.model.dao.RentarDAO;
+import ctop.model.dao.ExistenciaDAO;
 import ctop.model.entity.Rentar;
+import ctop.model.entity.Existencia;
 
 /**
  * Clase que tiene la implementacion del servicio que manejara las rentas.
@@ -45,7 +49,7 @@ public class RentarServiceImpl implements ServiceInterface<Rentar, Long> {
         rentarDAO.deleteById(id);
     }
 
-    public List<Existencia> existencias() {
+    public List<Existencia> getExistencias() {
         return (List<Existencia>) existenciaDAO.getExistencias();
     }
 

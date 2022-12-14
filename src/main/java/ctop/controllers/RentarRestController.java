@@ -1,9 +1,14 @@
 package ctop.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import java.util.LinkedList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,8 +59,8 @@ public class RentarRestController {
 
     @PostMapping("/rentas")
     @ResponseStatus(HttpStatus.CREATED)
-    public Rentar create(@RequestBody Rentar renta) {
-        Renta nuevaRenta = null;
+    public ResponseEntity<?> create(@RequestBody Rentar renta) {
+        Rentar nuevaRenta = null;
         Map<String, Object> response = new HashMap<>();
         try {
             if (null != rentarService.findById(renta.getId())) {
