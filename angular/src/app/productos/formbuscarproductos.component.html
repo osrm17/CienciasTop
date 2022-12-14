@@ -5,7 +5,7 @@
             <p class="lead mb-0">{{producto.codigo}}</p>
 
             <button class="btn btn-dark me-3" *ngIf="authService.hasRole('ROLE_ADMIN') || authService.hasRole('ROLE_PROVEEDOR')" type="button" [routerLink]="['/productos/formeditarp', producto.codigo]">Editar</button>
-            <button class="btn btn-danger me-3" *ngIf="authService.hasRole('ROLE_ADMIN') || authService.hasRole('ROLE_PROVEEDOR')" type="button" (click)="delete(producto)">Eliminar</button>
+            <button class="btn btn-danger" *ngIf="authService.hasRole('ROLE_ADMIN') || (authService.hasRole('ROLE_PROVEEDOR') && (authService.usuario.numct == producto.numct))" (click)="delete(producto)">Eliminar</button>
 
           </div>
           <div class="card-body">

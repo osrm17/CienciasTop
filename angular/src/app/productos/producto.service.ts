@@ -75,7 +75,7 @@ export class ProductoService {
 
 
         this.router.navigate(['/productos']);
-        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        Swal.fire('Error al acceder al producto', e.error.mensaje, 'error');
         return throwError( () => e );
       })
     )

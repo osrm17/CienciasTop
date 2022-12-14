@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 import { Producto } from './producto';
 import { ProductoService } from './producto.service';
+import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { AuthService } from '../usuarios/auth.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -10,7 +12,7 @@ import { AuthService } from '../usuarios/auth.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-
+  producto: Producto = new Producto()
   productos: Producto[];
   productoPrueba: Producto = new Producto
 
@@ -43,9 +45,7 @@ export class ProductosComponent implements OnInit {
         this.productoService.delete(producto.codigo).subscribe(
           Response => {
             this.productos =  this.productos.filter(prod => prod !== producto)
-            swalWithBootstrapButtons.fire(
-              '¡Producto eliminado!',
-              'El producto se ha eliminado con éxito.',
+            swalWithBootstrapButtons.fire('¡Producto eliminado!', `El producto ${this.producto.nombre} ha sido eliminado con éxito`,
               'success'
             )
           }
