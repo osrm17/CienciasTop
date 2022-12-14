@@ -1,23 +1,19 @@
-<section style="background-color: #88ABBF">
+<section style="background-color: #FBD096">
     <br>
-    <div class="card bg-warning text-center container my-2">
-        <h5 class="card-title">{{titulo}}</h5>
-    </div>
-
-    <div class="card bg-dark text-white container my-2">
-        <div class="card-body">
-
+    <div class="card border-dark col-sm-10 offset-sm-1 text-white">
+        <div class="card-header text-center" style="background-color: #84891D;">{{titulo}}</div>
+        <div class="card-body" style="background-color: #224E46; align-content: center;">
             <form (ngSubmit)="create()">
                 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Número de C/T</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 ">
                         <input type="text" class="form-control" [(ngModel)]="usuario.numct" name   ="numct" id="" aria-describedby="" placeholder="Ingresa el número de cuenta o trabajador">
                     </div>  
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Nombre(s)</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name   ="nombre" id="" aria-describedby="" placeholder="Ingresa el nombre(s)">
@@ -25,7 +21,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Apellido paterno</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.paterno" name   ="paterno" id="" aria-describedby="" placeholder="Ingresa el apellido paterno">
@@ -33,7 +29,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Apellido materno</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.materno" name   ="materno" id="" aria-describedby="" placeholder="Ingresa el apellido materno">
@@ -42,7 +38,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Correo</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.correo" name   ="correo" id="" aria-describedby="" placeholder="Ingresa correo institucional">
@@ -50,7 +46,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Teléfono</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.celular" name   ="celular" id="" aria-describedby="" placeholder="Ingresa un número telefónico">
@@ -58,7 +54,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Contraseña</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.contrasenia" name   ="contrasenia" id="" aria-describedby="" placeholder="Ingresa una contraseña">
@@ -66,7 +62,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">Puma puntos</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" [(ngModel)]="usuario.pumaPuntos" name   ="pumaPuntos" max="500" min="0" id="" aria-describedby="" placeholder="Ingresa la cantidad de puma puntos">
@@ -74,7 +70,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">¿Es proveedor?</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="usuario.esProveedor" name   ="esProveedor" id="" aria-describedby="" placeholder="Ingresa true o false">
@@ -82,7 +78,7 @@
                 </div>
                 <br>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="">¿Es administrador?</label>
                     <div class="col-sm-6">
 
@@ -91,12 +87,13 @@
                 </div>
                 <br>
 
-                <div class="form-group row">
+                <div class="form-group row ">
                     <div class="col-sm-6">
-                        <button class="btn btn-info" role="button">Agregar</button>
+                        <button class="btn btn-info text-white" style="background-color: #12826F;" role="button">Agregar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
+

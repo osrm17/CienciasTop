@@ -14,7 +14,7 @@ import { ExistenciaService } from '../existencias/existencia.service';
 })
 export class FormComponentProducto implements OnInit {
 
-  titulo: string = "Producto"
+  titulo: string = "AGREGAR PRODUCTOS"
   producto: Productostock = new Productostock()
   productos: Producto = new Producto()
 

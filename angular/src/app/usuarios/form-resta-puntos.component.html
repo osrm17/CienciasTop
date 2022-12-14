@@ -1,11 +1,13 @@
-<section style="background-color: #88ABBF">
-    <div class="card bg-dark text-white container my-2">
-        <h5><div class="card-header">{{titulo}}</div></h5>
-        <div class="card-body">
+<br>
+    <div class="card border-dark col-sm-10 offset-sm-1 text-white ">
+    <div class="card-header text-white text-center" style="background-color: #84891D;">{{titulo}}</div>
+
+    <div class="card-body" style="background-color: #224E46;">
+
             
             <form (ngSubmit)="restar()">
                 <div class="form-group row">
-                    <h5><label for="" class="col-form-label col-sm-2">Número de cuenta o de trabajador</label></h5>
+                    <label for="" class="col-form-label col-sm-2">Número de cuenta o de trabajador</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" [(ngModel)]="usuario.numct" name="numct">
                     </div>
@@ -13,7 +15,7 @@
                 <br>
                     
                 <div class="form-group row">
-                    <h5><label for="" class="col-form-label col-sm-2">PumaPuntos</label></h5>
+                    <label for="" class="col-form-label col-sm-2">PumaPuntos</label>
                     <div class="col-sm-3">
                         <input type="number" min="1" max="500" class="form-control" [(ngModel)]="usuario.pumaPuntos" name="pumaPuntos">
                     </div>
@@ -29,4 +31,3 @@
     
         </div>
     </div>
-    </section>
