@@ -16,7 +16,7 @@ export class FormbuscarComponent implements OnInit {
   usuario: Usuario = new Usuario()
   usuarios: Usuario[];
 
-  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { 
+  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) {
     this.usuarios = [];
   }
 
@@ -51,9 +51,8 @@ export class FormbuscarComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usuarioService.delete(this.usuario.numct).subscribe(
+        this.usuarioService.delete(usuario.numct).subscribe(
           Response => {
-            this.router.navigate(['/usuarios'])
             this.usuarios =  this.usuarios.filter(usua => usua !== usuario)
             swalWithBootstrapButtons.fire(
               '¡Usuario eliminado!',

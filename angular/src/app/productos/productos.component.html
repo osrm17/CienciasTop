@@ -5,7 +5,7 @@
         Productos</button>
       <form (ngSummit) = "leeProducto()">
         Buscar Producto:<br>
-        <input type="text" [(ngModel)]="productoPrueba.codigo" name="codigo"><br>
+        <input type="text" [(ngModel)]="productoPrueba.codigo" name="codigo" ><br>
         <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/formbuscarproductos', productoPrueba.codigo]">Buscar</button>
       </form>
     </form>
