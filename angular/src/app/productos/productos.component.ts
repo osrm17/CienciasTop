@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Producto } from './producto';
 import { ProductoService } from './producto.service';
+import { AuthService } from '../usuarios/auth.service';
 
 @Component({
   selector: 'app-productos',
@@ -9,12 +10,11 @@ import { ProductoService } from './producto.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
+
   productos: Producto[];
   productoPrueba: Producto = new Producto
 
-  constructor(private productoService: ProductoService) {
-    this.productos = [];
-  }
+  constructor(private productoService: ProductoService, public authService: AuthService ) { }
 
   ngOnInit(): void {
     this.productoService.getProductos().subscribe(

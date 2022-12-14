@@ -8,7 +8,7 @@ COMMENT ON SCHEMA ctop IS 'Schema para el sistema ciencias top.';
 
 CREATE TABLE ctop.usuario(
     numct CHAR(9) NOT NULL UNIQUE CHECK(numct ~ '^\d*$' AND CHAR_LENGTH(numct) = 9),
-    contrasenia CHAR(64) NOT NULL CHECK(CHAR_LENGTH(contrasenia) = 64),
+    contrasenia VARCHAR(60) NOT NULL, -- CHECK(CHAR_LENGTH(contrasenia) = 64),
     nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
     paterno VARCHAR(50) NOT NULL CHECK(paterno <> ''),
     materno VARCHAR(50) NOT NULL CHECK(materno <> ''),

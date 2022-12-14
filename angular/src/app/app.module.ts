@@ -21,10 +21,12 @@ import { FormbuscarComponent } from './usuarios/formbuscar.component';
 import { FormbuscarproductosComponent } from './productos/formbuscarproductos.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
+import { LoginComponent } from './usuarios/login.component';
 import { FormSumaTarjetaComponent } from './usuarios/form-suma-tarjeta.component';
 import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.component';
 import { FormeditarPComponent } from './productos/formeditarp.component';
 
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -45,7 +47,9 @@ const routes: Routes = [
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos/formbuscarproductos/:codigo', component: FormbuscarproductosComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
+  { path: 'reportes', component: ReportesComponent },
   { path: 'mi-perfil', component: PerfilesComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
   { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
   { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
@@ -68,9 +72,11 @@ const routes: Routes = [
     FormbuscarComponent,
     FormbuscarproductosComponent,
     RestablecerContraComponent,
+    LoginComponent,
     FormeditarPComponent,
     FormSumaTarjetaComponent,
-    FormRestaTarjetaComponent
+    FormRestaTarjetaComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
