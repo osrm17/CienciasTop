@@ -1,10 +1,14 @@
 
   <nav class="navbar bg-light">
     <form class="container-fluid justify-content-start">
+
       <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/form']">Agregar
         Productos</button>
-      <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/formbuscarproductos','BA-F-NIKE000']">Buscar
-        Productos</button>
+      <form (ngSummit) = "leeProducto()">
+        Buscar Producto:<br>
+        <input type="text" [(ngModel)]="productoPrueba.codigo" name="codigo"><br>
+        <button class="btn btn-dark me-2" type="button" [routerLink]="['/productos/formbuscarproductos', productoPrueba.codigo]">Buscar</button>
+      </form>
     </form>
 
     <br>

@@ -10,8 +10,9 @@ import { ProductoService } from './producto.service';
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[];
+  productoPrueba: Producto = new Producto
 
-  constructor(private productoService: ProductoService) { 
+  constructor(private productoService: ProductoService) {
     this.productos = [];
   }
 
@@ -51,6 +52,9 @@ export class ProductosComponent implements OnInit {
         )
       }
     })
+  }
+
+  public leeProducto():void{
   }
 
 }
