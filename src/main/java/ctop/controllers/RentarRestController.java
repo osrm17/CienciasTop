@@ -55,7 +55,23 @@ public class RentarRestController {
     @PostMapping("/rentas")
     @ResponseStatus(HttpStatus.CREATED)
     public Rentar create(@RequestBody Rentar renta) {
-        return rentarService.save(renta);
+        Renta nuevaRenta = null;
+        Map<String, Object> response = new HashMap<>();
+        try {
+            if (null != rentarService.findById(renta.getId())) {
+                response.put("mensaje", "Error al agregar la renta en la base de datos.");
+                response.put("error", "Llave duplicada en las rentas.");
+                return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+            }
+            nuevaRenta = rentarService.save(renta);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al agregar la renta en la base de datos.");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.put("mensaje", "¡La renta ha sido agregada con éxito!");
+        response.put("renta", nuevaRenta);
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("/rentas/{id}")
@@ -106,6 +122,6 @@ public class RentarRestController {
             super();
             this.codigoProducto = codigoProducto;
             this.nombreProducto = nombreProducto;
-        }
+        }                   
     }
 }

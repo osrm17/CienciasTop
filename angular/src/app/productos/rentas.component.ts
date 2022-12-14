@@ -29,6 +29,10 @@ import { Producto } from './producto';
       this.rentaservice.getExistencias().subscribe(
         existencias => this.existencias = existencias
       );
+
+      this.rentaservice.getProductos().subscribe(
+        productos => this.productos = productos
+      );
     }
   
   }

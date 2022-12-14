@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Renta } from './renta';
 import { Existencia } from '../existencias/existencia';
+import { Producto } from './producto';
 
 
 @Injectable({
@@ -22,6 +23,10 @@ export class RentaService {
 
   getExistencias(): Observable<Existencia[]> {
     return this.http.get<Existencia[]>(`${this.urlEndPoint}/existencias`);
+  }
+
+  getProductos(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(`${this.urlEndPoint}/productos`);
   }
 
   create(renta: Renta): Observable<Renta> {
