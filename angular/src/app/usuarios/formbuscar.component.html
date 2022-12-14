@@ -1,15 +1,32 @@
-<section style="background-color: #79BAEC">
+<section style="background-color: #88ABBF">
+  <div class="card bg-dark text-center text-white container my-1">
+    <h5 class="card-title">Resultados de la búsqueda</h5>
+</div>
   <div class="container py-5">
+
+    <div
+        class="col-md-6 col-lg-4 mb-4 mb-md-0">
+
         <div class="card">
-          <div class="d-flex justify-content-between p-3">
-            <p class="lead mb-0">{{ usuario.numct }}</p>
-          </div>
+          <br>
           <img
             src="https://cdn-icons-png.flaticon.com/512/74/74472.png"
             class="card-img-top"
             alt="Usuario"
           />
           <div class="card-body">
+
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
+            <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
+            <button class="btn btn-danger me-3" type="button" (click)="delete(usuario)">Eliminar</button>
+            <br>
+            <br>
+
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0">ID:</h5>
+              <h5 class="text-dark mb-0">{{usuario.numct}}</h5>
+            </div>
 
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-0">Nombre:</h5>
@@ -49,4 +66,5 @@
           </div>
         </div>
       </div>
+    </div>
 </section>
