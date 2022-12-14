@@ -24,7 +24,7 @@ constructor(private http: HttpClient ,private authService: AuthService) { }
   }
 
   public getExistencia(id: number): Observable<Existencia> {
-    return this.http.get<Existencia>(`${this.urlEndPoint}/${id}`);
+    return this.http.get<Existencia>(`${this.urlEndPoint}/${id}`, {headers: this.agregarAuthorizationHeader()});
   }
 
   public getExistencias(): Observable<Existencia[]> {
@@ -32,7 +32,7 @@ constructor(private http: HttpClient ,private authService: AuthService) { }
   }
 
   update(existencia: Existencia): Observable<Existencia>{
-    return this.http.put<any>(`${this.urlEndPoint}/${existencia.id}`, existencia)
+    return this.http.put<any>(`${this.urlEndPoint}/${existencia.id}`, existencia, { headers: this.agregarAuthorizationHeader() })
   }
 
   create(existencia: Existencia): Observable<Existencia> {

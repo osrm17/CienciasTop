@@ -64,7 +64,7 @@ export class RentasComponent implements OnInit {
           this.rentaService.create(this.renta).subscribe(() => {
             this.existencia.estaRentado = true;
             this.existenciaService.update(existencia).subscribe(() => {
-              this.router.navigate(['../historial']);
+              this.router.navigate(['historial']);
               swal.fire('Producto rentado', `${this.usuario.nombre} rentaste ${this.existencia.codigo}`, 'success');
             });
           });

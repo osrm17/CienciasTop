@@ -15,8 +15,10 @@
       <th scope="row">{{existencia.id}}</th>
       <td>{{existencia.codigo}}</td>
       <td>{{existencia.estaRentado}}</td>
-      <td><button class="btn btn-danger" *ngIf="!existencia.estaRentado" 
-        [routerLink]="['../rentas/renta', existencia.id]">Rentar</button></td>
+      <td>
+        <button class="btn btn-danger" *ngIf="!existencia.estaRentado" 
+        [routerLink]="['../rentas/renta/', existencia.id]">Rentar</button>
+      </td>
     </tr>
   </tbody>
 </table>
