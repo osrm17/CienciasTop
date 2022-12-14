@@ -55,6 +55,8 @@ public class RentarRestController {
     @PostMapping("/rentas")
     @ResponseStatus(HttpStatus.CREATED)
     public Rentar create(@RequestBody Rentar renta) {
+        Existencia existencia = existenciaService.findById(renta.getIdExistencia());
+        existencia.setEstaRentado(true);
         return rentarService.save(renta);
     }
 
