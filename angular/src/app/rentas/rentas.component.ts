@@ -20,7 +20,7 @@ registerLocaleData(localeEs, 'es');
 })
 export class RentasComponent implements OnInit {
 
-  rentas: Renta[];
+  //rentas: Renta[];
   renta: Renta = new Renta();
   usuario: Usuario = new Usuario();
   existencia: Existencia = new Existencia();
@@ -37,11 +37,11 @@ export class RentasComponent implements OnInit {
 
     this.usuario = this.authService.usuario;
 
-    this.rentaService.getRentas().subscribe(
-      rentas => this.rentas = rentas
-    );
+    //this.rentaService.getRentas().subscribe(
+    // rentas => this.rentas = rentas
+    //);
 
-    //this.rentar();
+    this.rentar();
   }
 
   rentar(): void {
