@@ -10,6 +10,7 @@ Repositorio para el proyecto de la materia de ingenieria de software 1.
 - Ramirez Gutierrez Oscar, Colaborador, <rg.oscar17@ciencias.unam.mx>
 - Cristóbal Morales Karen, Calidad, <karencm@ciencias.unam.mx>
 - Martinez Enriquez Bruno, Calidad, <br1@ciencias.unam.mx>
+- Ortega Garcia Alejandra, Calidad <alejaortegarcia@ciencias.unam.mx>
 
 ## Equipo 11
 
