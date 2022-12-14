@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark " style = "background-color:#052343;">
     <div class="container-fluid">
         <a class="navbar-brand">CienciasTop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil" *ngIf="authService.isAuthenticated()">Mi Perfil</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.isAuthenticated() and authService.hasRole('ROLE_ADMIN')">Usuarios</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">Usuarios</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/productos" *ngIf="authService.isAuthenticated()">Productos</a>
                 <!-- <a class="nav-link" routerLinkActive="active" routerLink="/rentas" *ngIf="authService.isAuthenticated()">Rentar</a> -->
                 <a class="nav-link" routerLinkActive="active" routerLink="/existencias" *ngIf="authService.isAuthenticated()">Existencias</a>
