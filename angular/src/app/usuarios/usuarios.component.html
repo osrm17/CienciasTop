@@ -1,20 +1,19 @@
 <section style="background-color:#88ABBF">
   <div class="container py-5">
       <div class="my-2 text-left">
-     
+
         <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form']">Agregar Usuario</button>
         <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formsuma']">Sumar Puntos</button>
-        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button> 
+        <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formresta']">Restar Puntos</button>
         <br>
         <br>
-
-        <form>
+      <form (ngSummit) = "leeUsuario()">
         Buscar Usuario:<br>
-        <input type="text" name="cuenta" value=><br>
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar',354684529]">Buscar</button>
+        <input type="text" [(ngModel)]="usuarioPrueba.numct" name="numct"><br>
+        <button class="btn btn-dark me-2" *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" [routerLink]="['/usuarios/formbuscar', usuarioPrueba.numct]">Buscar</button>
       </form>
-
     </div>
+
     <div class="row">
       <div
         class="col-md-6 col-lg-4 mb-4 mb-md-0"
@@ -29,11 +28,11 @@
             alt="Usuario"
           />
           <div class="card-body">
-      
+
             <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/formeditar', usuario.numct]">Editar</button>
             <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-suma-tarjeta', usuario.numct]">Sumar</button>
             <button class="btn btn-dark me-3" type="button" [routerLink]="['/usuarios/form-resta-tarjeta', usuario.numct]">Restar</button>
-            <button class="btn btn-danger me-3" type="button" (click)="delete(usuario)">Eliminar</button>           
+            <button class="btn btn-danger me-3" type="button" (click)="delete(usuario)">Eliminar</button>
             <br>
             <br>
 
