@@ -26,6 +26,7 @@ import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.compone
 import { FormeditarPComponent } from './productos/formeditarp.component';
 
 import { ReportesComponent } from './reportes/reportes.component';
+import { RentasComponent } from './rentas/rentas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -50,6 +51,8 @@ const routes: Routes = [
   { path: 'mi-perfil', component: PerfilesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
+  { path: 'rentas/renta', component: RentasComponent },
+  { path: 'rentas/renta/:id', component: RentasComponent},
   { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
   { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
 ]
@@ -74,7 +77,8 @@ const routes: Routes = [
     FormeditarPComponent,
     FormSumaTarjetaComponent,
     FormRestaTarjetaComponent,
-    ReportesComponent
+    ReportesComponent,
+    RentasComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@
       <th scope="col">id</th>
       <th scope="col">codigo</th>
       <th scope="col">rentado</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,8 @@
       <th scope="row">{{existencia.id}}</th>
       <td>{{existencia.codigo}}</td>
       <td>{{existencia.estaRentado}}</td>
+      <td><button class="btn btn-danger" *ngIf="!existencia.estaRentado" 
+        [routerLink]="['../rentas/renta', existencia.id]">Rentar</button></td>
     </tr>
   </tbody>
 </table>
