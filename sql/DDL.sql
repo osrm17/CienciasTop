@@ -115,7 +115,7 @@ COMMENT ON CONSTRAINT rentar_pk ON ctop.rentar IS 'Llave primaria de la tabla re
 -- Llaves foraneas
 -- Producto
 ALTER TABLE ctop.producto ADD CONSTRAINT producto_fkey FOREIGN KEY(numct)
-REFERENCES ctop.usuario(numct);
+REFERENCES ctop.usuario(numct) ON DELETE CASCADE;
 COMMENT ON CONSTRAINT producto_fkey ON ctop.producto IS 'Llave foranea de la tabla producto que hace referencia a el 
 numero de cuenta del usuario que agrega el producto.';
 
