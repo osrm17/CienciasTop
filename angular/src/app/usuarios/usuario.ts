@@ -14,5 +14,6 @@ export class Usuario {
     roles:string[]=[];
 
     constructor() {
+        this.estaActivo = true;
     }
 }
