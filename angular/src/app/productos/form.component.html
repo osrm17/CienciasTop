@@ -1,12 +1,8 @@
-<section style="background-color: #79BAEC">
+<section style="background-color: #FBD096">
     <br>
-    
-    <div class="card bg-warning text-center container my-2">
-        <h5 class="card-title">{{titulo}}</h5>
-    </div>
-
-    <div class="card bg-dark text-white container my-2">
-        <div class="card-body">
+    <div class="card border-dark col-sm-10 offset-sm-1 text-white">
+        <div class="card-header text-center" style="background-color: #84891D;">{{titulo}}</div>
+        <div class="card-body" style="background-color: #224E46; align-content: center;">
 
             <form (ngSubmit)="create()">
                 
@@ -57,11 +53,14 @@
                     </div>  
                 </div>
 
-                <div class="form-group row">
+                <br>
+                 <div class="form-group row ">
                     <div class="col-sm-6">
-                        <button class="btn btn-info" role="button">Agregar</button>
+                        <button class="btn btn-info text-white" style="background-color: #12826F;" role="button">Agregar</button>
                     </div>
                 </div>
+
+
             </form>
         </div>
     </div>
