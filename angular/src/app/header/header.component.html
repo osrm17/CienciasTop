@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" routerLinkActive="active" routerLink="/mi-perfil" *ngIf="authService.isAuthenticated()">Mi Perfil</a>
-                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.isAuthenticated() and authService.hasRole('ROLE_ADMIN')">Usuarios</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/usuarios" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">Usuarios</a>
                 <a class="nav-link" routerLinkActive="active" routerLink="/productos" *ngIf="authService.isAuthenticated()">Productos</a>
                 <!-- <a class="nav-link" routerLinkActive="active" routerLink="/rentas" *ngIf="authService.isAuthenticated()">Rentar</a> -->
                 <a class="nav-link" routerLinkActive="active" routerLink="/existencias" *ngIf="authService.isAuthenticated()">Existencias</a>
