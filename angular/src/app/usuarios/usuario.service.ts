@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AuthService } from '../usuarios/auth.service';
 
 
 @Injectable({
@@ -22,14 +23,22 @@ export class UsuarioService {
   public errorObject = null;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
+
+  private agregarAuthorizationHeader(){
+    let token = this.authService.token;
+    if(token != null){
+      return this.httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.httpHeaders;
+  }
 
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.urlEndPoint);
   }
 
   create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.urlEndPoint, usuario, { headers: this.httpHeaders }).pipe(
+    return this.http.post<Usuario>(this.urlEndPoint, usuario, { headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(err => {
         swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
         this.errorObject = err;
@@ -49,7 +58,7 @@ export class UsuarioService {
   }
 
   update(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>(`${this.urlEndPoint}/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+    return this.http.put<Usuario>(`${this.urlEndPoint}/${usuario.numct}`, usuario, {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(err => {
         swal.fire('Los datos ingresados son erróneos', err.error.mensaje, 'error');
         this.errorObject = err;
@@ -58,7 +67,7 @@ export class UsuarioService {
   }
 
   delete(numct: string): Observable<Usuario>{
-    return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.httpHeaders}).pipe(
+    return this.http.delete<Usuario>(`${this.urlEndPoint}/${numct}`, {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(err => {
         swal.fire('Error al eliminar usuario', err.error.mensaje, 'error');
         return throwError(() => err);
@@ -68,7 +77,7 @@ export class UsuarioService {
 
 
   sumaPuntos(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+    return this.http.put<Usuario>(`${this.urlEndPoint}/sumar/${usuario.numct}`, usuario, {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.router.navigate(['/usuarios'])
         swal.fire('Atención', e.error.mensaje, 'warning');
@@ -78,7 +87,7 @@ export class UsuarioService {
 
 
   restaPuntos(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>(`${this.urlEndPoint}/restar/${usuario.numct}`, usuario, {headers: this.httpHeaders}).pipe(
+    return this.http.put<Usuario>(`${this.urlEndPoint}/restar/${usuario.numct}`, usuario, {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.router.navigate(['/usuarios'])
         swal.fire('Atención', e.error.mensaje, 'warning');
