@@ -10,7 +10,7 @@
       <form (ngSummit) = "leeUsuario()">
         Buscar Usuario:<br>
         <input type="text" [(ngModel)]="usuarioPrueba.numct" name="numct"><br>
-        <button class="btn btn-dark me-2" type="button" [routerLink]="['/usuarios/formbuscar', usuarioPrueba.numct]">Buscar</button>
+        <button class="btn btn-dark me-2" *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" [routerLink]="['/usuarios/formbuscar', usuarioPrueba.numct]">Buscar</button>
       </form>
     </div>
 

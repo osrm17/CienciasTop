@@ -4,6 +4,7 @@ import { ProductoService } from './producto.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
+import { AuthService } from '../usuarios/auth.service';
 
 @Component({
   selector: 'app-formbuscarproductos',
@@ -16,7 +17,7 @@ export class FormbuscarproductosComponent implements OnInit {
   producto: Producto = new Producto()
   productos: Producto[];
 
-  constructor(private productoService: ProductoService, private router: Router, private activateRoute: ActivatedRoute) { }
+  constructor(private productoService: ProductoService, public authService: AuthService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cargarProducto()
