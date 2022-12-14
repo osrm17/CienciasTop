@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from './usuario';
 import { UsuarioService } from './usuario.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../usuarios/auth.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,10 +11,10 @@ import Swal from 'sweetalert2';
 })
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[];
+  usuarioPrueba: Usuario = new Usuario
 
-  constructor(private usuarioService: UsuarioService) {
-    this.usuarios = [];
-   }
+  constructor(private usuarioService: UsuarioService, public authService: AuthService ) { }
+
 
   ngOnInit(): void {
     this.usuarioService.getUsuarios().subscribe(
@@ -51,6 +52,9 @@ export class UsuariosComponent implements OnInit {
         )
       }
     })
+  }
+
+  public leeUsuario():void{
   }
 
 }

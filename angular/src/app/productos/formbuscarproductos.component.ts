@@ -1,27 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from './producto';
 import { ProductoService } from './producto.service';
-import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 import { AuthService } from '../usuarios/auth.service';
-import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.css']
+  selector: 'app-formbuscarproductos',
+  templateUrl: './formbuscarproductos.component.html',
+  styleUrls: ['./formbuscarproductos.component.css']
 })
-export class ProductosComponent implements OnInit {
+export class FormbuscarproductosComponent implements OnInit {
+
+  titulo: string = "BUSCAR PRODUCTO"
   producto: Producto = new Producto()
   productos: Producto[];
-  productoPrueba: Producto = new Producto
 
-  constructor(private productoService: ProductoService, public authService: AuthService ) { }
+  constructor(private productoService: ProductoService, public authService: AuthService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productoService.getProductos().subscribe(
-      productos => this.productos = productos
-    );
+    this.cargarProducto()
+  }
+
+  cargarProducto(): void{
+    this.activateRoute.params.subscribe(params => {
+      let codigo = params['codigo']
+      if(codigo){
+        this.productoService.getProducto(codigo).subscribe((producto)=>this.producto = producto)
+      }
+    })
   }
 
   delete(producto: Producto): void {
@@ -45,7 +53,9 @@ export class ProductosComponent implements OnInit {
         this.productoService.delete(producto.codigo).subscribe(
           Response => {
             this.productos =  this.productos.filter(prod => prod !== producto)
-            swalWithBootstrapButtons.fire('¡Producto eliminado!', `El producto ${this.producto.nombre} ha sido eliminado con éxito`,
+            swalWithBootstrapButtons.fire(
+              '¡Producto eliminado!',
+              'El producto se ha eliminado con éxito.',
               'success'
             )
           }
@@ -53,8 +63,4 @@ export class ProductosComponent implements OnInit {
       }
     })
   }
-
-  public leeProducto():void{
-  }
-
 }

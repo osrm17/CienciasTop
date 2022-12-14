@@ -23,8 +23,16 @@ constructor(private http: HttpClient ,private authService: AuthService) { }
     return this.httpHeaders;
   }
 
+  public getExistencia(id: number): Observable<Existencia> {
+    return this.http.get<Existencia>(`${this.urlEndPoint}/${id}`, {headers: this.agregarAuthorizationHeader()});
+  }
+
   public getExistencias(): Observable<Existencia[]> {
     return this.http.get<Existencia[]>(this.urlEndPoint);
+  }
+
+  update(existencia: Existencia): Observable<Existencia>{
+    return this.http.put<any>(`${this.urlEndPoint}/${existencia.id}`, existencia, { headers: this.agregarAuthorizationHeader() })
   }
 
   create(existencia: Existencia): Observable<Existencia> {

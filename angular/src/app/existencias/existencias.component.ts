@@ -10,6 +10,8 @@ import { ExistenciaService } from './existencia.service';
 export class ExistenciasComponent implements OnInit {
 
   existencias: Existencia[];
+  existencia: Existencia;
+  id: number;
 
   constructor(private existenciaService: ExistenciaService) {
     this.existencias = []
@@ -17,8 +19,13 @@ export class ExistenciasComponent implements OnInit {
 
   ngOnInit(): void {
     this.existenciaService.getExistencias().subscribe(
-      existencias => this.existencias = existencias
-    );
+      existencias => this.existencias = existencias);
+
+    this.existenciaService.getExistencia(this.id).subscribe( 
+      (existencia) => this.existencia = existencia);
+
+    //this.existenciaService.update(this.existencia).subscribe();
+
   }
 
 }

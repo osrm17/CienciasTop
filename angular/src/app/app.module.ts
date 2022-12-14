@@ -18,6 +18,7 @@ import { FormeditarComponent } from './usuarios/formeditar.component';
 import { FormSumaPuntosComponent } from './usuarios/form-suma-puntos.component';
 import { FormRestaPuntosComponent } from './usuarios/form-resta-puntos.component';
 import { FormbuscarComponent } from './usuarios/formbuscar.component';
+import { FormbuscarproductosComponent } from './productos/formbuscarproductos.component';
 import { RestablecerContraComponent } from './usuarios/restablecer-contra.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { LoginComponent } from './usuarios/login.component';
@@ -26,6 +27,7 @@ import { FormRestaTarjetaComponent } from './usuarios/form-resta-tarjeta.compone
 import { FormeditarPComponent } from './productos/formeditarp.component';
 
 import { ReportesComponent } from './reportes/reportes.component';
+import { RentasComponent } from './rentas/rentas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -38,18 +40,20 @@ const routes: Routes = [
   { path: 'usuarios/formeditar/:numct', component: FormeditarComponent},
   { path: 'usuarios/formsuma', component: FormSumaPuntosComponent},
   { path: 'usuarios/formresta', component: FormRestaPuntosComponent},
-  { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
   { path: 'productos', component: ProductosComponent },
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'productos/form', component: FormComponentProducto },
   { path: 'usuarios/form', component: FormComponentUsuario },
-  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent }, 
+  { path: 'usuarios/formeditar/:numct', component: FormeditarComponent },
   { path: 'usuarios/formbuscar/:numct', component: FormbuscarComponent},
+  { path: 'productos/formbuscarproductos/:codigo', component: FormbuscarproductosComponent},
   { path: 'restablecer-contra', component: RestablecerContraComponent },
   { path: 'reportes', component: ReportesComponent },
   { path: 'mi-perfil', component: PerfilesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'productos/formeditarp/:codigo', component: FormeditarPComponent},
+  { path: 'rentas/renta', component: RentasComponent },
+  { path: 'rentas/renta/:id', component: RentasComponent},
   { path: 'usuarios/form-suma-tarjeta/:numct', component: FormSumaTarjetaComponent},
   { path: 'usuarios/form-resta-tarjeta/:numct', component: FormRestaTarjetaComponent}
 ]
@@ -69,12 +73,14 @@ const routes: Routes = [
     FormSumaPuntosComponent,
     FormRestaPuntosComponent,
     FormbuscarComponent,
+    FormbuscarproductosComponent,
     RestablecerContraComponent,
     LoginComponent,
     FormeditarPComponent,
     FormSumaTarjetaComponent,
     FormRestaTarjetaComponent,
-    ReportesComponent
+    ReportesComponent,
+    RentasComponent
   ],
   imports: [
     BrowserModule,
