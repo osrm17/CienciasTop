@@ -39,28 +39,8 @@ psql -U ctop -d postgres
 ...
 postgres=# select * from ctop.usuario;
 ```
----
 
 Definir los procedimientos almacenados
 ```text
 psql -U ctop -d postgres -a -f Functions.sql
-``
-
-## Posibles problemas?
-
-Esto es necesario solo si por alguna razon no deja entrar a psql como el usuario 'ctop'
-
- Buscamos en donde esta `pg_hba.conf`
-
-```text
-postgres=# SHOW hba_file;
 ```
-
-Modificamos el METHOD de **peer** a **md5** en la linea del archivo `pg_hba.conf` 
-```text
-# TYPE  DATABASE        USER            ADDRESS                 METHOD
-# "local" is for Unix domain socket connections only
-local   all             all                                     md5
-...
-```
-
