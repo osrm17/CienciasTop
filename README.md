@@ -1,5 +1,5 @@
-# cienciastop-IS32-1
-Repositorio para el proyecto de la materia de ingenieria de software 1.
+# CienciasTop
+Repositorio para el proyecto de la materia de Ingenieria de Software en la Facultad de Ciencias de la UNAM.
 
 # Integrantes
 
@@ -20,29 +20,18 @@ Repositorio para el proyecto de la materia de ingenieria de software 1.
 - Deloya Andrade Ana Valeria, Calidad, <anavaleriadeloya@ciencias.unam.mx>
 - Escamilla Alcala Saul Zacarias, Calidad, <elfabulosoyo@ciencias.unam.mx>
 
-## Requisitos
+# Requisitos
 - Java 11
-- gradle 6.9.2, [Instalacion de gradle](https://youtu.be/v7bbKhYCL0o)
-- Crear la base de datos, instrucciones en [sql/README.md](sql/README.md)
-- nodejs 18
+- Gradle 6.9.2
+- Node.js 18
+- Crear la base de datos localmente, instrucciones en [backed/sql/README.md](backend/sql/README.md)
 
-Para verificar la version de gradle:
-
-```shell
-gradle -v
-```
-
-Para verificar la version de nodejs:
-
-```shell
-node -v
-```
 
 ## Para ejecutar (backend)
 
-Se debe tener **implementada** la base de datos de acuerdo a lo descrito en [sql/README.md](sql/README.md).
+Se debe tener **implementada** la base de datos de acuerdo a lo descrito en [backend/sql/README.md](backend/sql/README.md).
 
-Para ejecutar el metodo main en `src/main/java/ctop/App.java` hay que correr cualquiera de los siguientes comandos
+Para ejecutar el metodo main de `backend/src/main/java/ctop/App.java` 
 
 ```shell
 gradle bootRun
@@ -50,7 +39,7 @@ gradle bootRun
 
 ## Para ejecutar (frontend)
 
-Se debe estar posicionado en `angular/` y luego correr el comando
+Se debe estar posicionado en `frontend/` y luego correr el comando
 
 ```shell
 ng serve
