@@ -1,6 +1,15 @@
 # CienciasTop
 Repositorio para el proyecto de la materia de Ingenieria de Software en la Facultad de Ciencias de la UNAM.
 
+# Documentacion
+
+- [Planteamiento de necesidades](documentacion/plantamiento-de-necesidades.pdf)
+- [Plan de proyecto](documentacion/03_plan-de-proyecto.pdf)
+- Especificacion de requerimientos [primera](documentacion/04Especificacion_de_Requerimientos_Iteracion1.pdf) y [segunda](documentacion/04Especificacion_de_Requerimientos_Iteracion2.pdf) iteracion
+- [Disenio general](documentacion/05_disenio_general.pdf)
+- Disenio detallado [primera](documentacion/05_disenio_detallado_iteracion1.pdf) y [segunda](documentacion/05_disenio_detallado_iteracion2.pdf) iteracion
+
+
 # Integrantes
 
 ## Equipo 9
